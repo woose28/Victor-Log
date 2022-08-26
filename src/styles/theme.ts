@@ -6,6 +6,7 @@ export const theme = {
     onPrimary: COLOR.WHITE_001,
 
     secondary: COLOR.WHITE_002,
+    onSecondary: COLOR.BLACK_001,
 
     background: COLOR.WHITE_001,
     onBackground: COLOR.BLACK_001,
