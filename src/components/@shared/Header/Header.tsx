@@ -9,17 +9,19 @@ const Header = () => {
 
   return (
     <Wrapper as="header" alignItems="center">
-      <Text style={{ flexGrow: 1 }} size={20} color={theme.color.primary} fontWeight="bold">
-        VICTOR LOG
-      </Text>
+      <NavLink style={{ flexGrow: 1 }} to="/">
+        <Text size={20} color={theme.color.primary} fontWeight="bold">
+          VICTOR LOG
+        </Text>
+      </NavLink>
       <NavLink style={{ marginRight: '2.813rem' }} to="/about">
         <Text size={16} color={theme.color.primary}>
           About
         </Text>
       </NavLink>
-      <NavLink to="/post/">
+      <NavLink to="/post">
         <Text size={16} color={theme.color.primary}>
-          Posts
+          Post
         </Text>
       </NavLink>
     </Wrapper>
@@ -30,7 +32,9 @@ export default Header;
 
 const Wrapper = styled(FlexBox)`
   ${({ theme }) => css`
-    padding: 0 3.125rem;
+    position: fixed;
+    width: 100%;
+    padding: 1.063rem 3.125rem;
     background-color: ${theme.color.background};
   `}
 `;
