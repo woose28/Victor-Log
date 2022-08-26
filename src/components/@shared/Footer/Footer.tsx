@@ -21,7 +21,10 @@ export default Footer;
 
 const Wrapper = styled(FlexBox)`
   ${({ theme }) => css`
-    padding: 1.875rem 2.5rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1.875rem 3.125rem;
     background-color: ${theme.color.secondary};
   `}
 `;
