@@ -6,7 +6,7 @@ const Footer = () => {
   const theme = useTheme();
 
   return (
-    <Wrapper flexDirection="column" gap="1.438rem">
+    <Wrapper as="footer" flexDirection="column" gap="1.438rem">
       <Text size={16} color={theme.color.onSecondary}>
         Victor
       </Text>
