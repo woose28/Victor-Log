@@ -10,7 +10,18 @@ const config: GatsbyConfig = {
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: ['gatsby-plugin-emotion', 'gatsby-plugin-root-import'],
+  plugins: [
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-root-import',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `content`,
+        path: `${__dirname}/content`,
+      },
+    },
+    'gatsby-plugin-mdx',
+  ],
 };
 
 export default config;
