@@ -1,11 +1,5 @@
-import { Layout } from 'components';
-
 const IndexPage = () => {
-  return (
-    <Layout>
-      <span>메인 페이지</span>
-    </Layout>
-  );
+  return <span>메인 페이지</span>;
 };
 
 export default IndexPage;

@@ -1,11 +1,5 @@
-import { Layout } from 'components';
-
 const AboutPage = () => {
-  return (
-    <Layout>
-      <span>소개 페이지</span>
-    </Layout>
-  );
+  return <span>소개 페이지</span>;
 };
 
 export default AboutPage;

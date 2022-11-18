@@ -29,6 +29,12 @@ const config: GatsbyConfig = {
       },
     },
     'gatsby-plugin-mdx',
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: path.join(__dirname, './src/components/@shared/Layout/Layout.tsx'),
+      },
+    },
   ],
 };
 
