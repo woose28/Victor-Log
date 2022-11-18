@@ -1,0 +1,81 @@
+---
+title: 'JSX와 React Element'
+date: '2022-06-07'
+slug: 'jsx-with-react-element'
+tags: ['React', 'Babel']
+---
+
+# JSX와 React Element
+
+## 🌟 JSX와 사용하는 이유
+
+- JSX는 React.createElement 함수의 문법적 설탕이다.
+- JSX 사용해서 React 컴포넌트를 작성하면 가독성이 향상된다.
+
+## 🌟 JSX를 바벨로 컴파일
+
+- 컴파일 전
+  ```jsx
+  <div id="parent">
+    <Child width={50} height={50} backgroundColor={'#333'} />
+  </div>
+  ```
+- 컴파일 후
+  ```jsx
+  /*#__PURE__*/
+  React.createElement(
+    'div',
+    {
+      id: 'parent',
+    },
+    /*#__PURE__*/ React.createElement(Child, {
+      width: 50,
+      height: 50,
+      backgroundColor: '#333',
+    })
+  );
+  ```
+
+**JSX는 바벨에 의해 React.createElement로 컴파일된다.**
+
+## 🌟 React Element를 출력 결과
+
+JSX와 이를 React Element로 변환해 출력한 결과를 단순화 시키면 아래와 같다.
+
+```jsx
+// JSX
+<div id="parent">
+  <div className="child">요소 1</div>
+  <div className="child">요소 2</div>
+  <div className="child">요소 3</div>
+</div>
+
+// React Element
+{
+	$$typeof: Symbol(react.element),
+	type: 'div',
+	key: null,
+	props: {
+		children: [
+			{$$typeof: Symbol(react.element), type: 'div', key: null, ref: null, props: {…}, …},
+			{$$typeof: Symbol(react.element), type: 'div', key: null, ref: null, props: {…}, …},
+			{$$typeof: Symbol(react.element), type: 'div', key: null, ref: null, props: {…}, …}
+		],
+		id: 'parent',
+	}
+	...
+}
+```
+
+### React Element의 프로퍼티
+
+- type
+  - HTML 태그 또는 React 컴포넌트가 값으로 들어간다.
+  - 현재 Element의 HTML 태그 또는 React 컴포넌트에 대한 정보
+  - HTML 태그는 문자열로 React 컴포넌트는 함수로 들어간다.
+- key
+  - 재조정을 할 때 사용하는 key 값
+- ref
+  - DOM에 접근하기 위해서 사용하는 어트리뷰트
+
+❗️key와 ref는 props가 아닌 각각의 속성 값에 저장되게 된다. 따라서 props로 접근할 수 없다.

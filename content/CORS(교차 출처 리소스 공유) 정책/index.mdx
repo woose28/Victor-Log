@@ -1,0 +1,86 @@
+---
+title: 'CORS(교차 출처 리소스 공유) 정책'
+date: '2022-06-28'
+slug: 'cors-policy'
+tags: ['Web']
+---
+
+# CORS(교차 출처 리소스 공유) 정책
+
+# 들어가며
+
+CORS 정책 위배 이슈는 웹 개발자라면 한 번쯤 만나는 문제라고 합니다.
+
+저 역시 최근 ‘Cookie에 저장된 정보를 요청 헤더에 넣어서 전달하는 과정’을 구현하기 위해 테스트 도중 CORS 정책 이슈를 만났습니다. 나중에 CORS 정책 이슈를 만나도 더 유연하게 문제를 해결하기 위해서는 한 번쯤 정리가 필요하다는 생각이 들었습니다. 따라서 이번 글에서는 CORS 정책에 대해 정리하려 합니다.
+
+# CORS(교차 출처 리소스 공유) 정책이란?
+
+> **교차 출처 리소스 공유**(Cross-Origin Resource Sharing, [CORS](https://developer.mozilla.org/ko/docs/Glossary/CORS))는 추가 [HTTP](https://developer.mozilla.org/ko/docs/Glossary/HTTP)헤더를 사용하여, 한 [출처](https://developer.mozilla.org/ko/docs/Glossary/Origin)에서 실행 중인 웹 애플리케이션이 다른 출처의 선택한 자원에 접근할 수 있는 권한을 부여하도록 브라우저에 알려주는 체제입니다.
+
+MDN에서는 CORS에 대해서 위와 같이 설명되어 있다. 기본적으로 같은 출처에 있는 리소스에만 접근할 수 있다.(이를 SOP 정책 , 동일 출처 정책이라고 한다.) 다른 출처의 리소스를 이용하기 위해서는 CORS 정책을 준수하는 내용이 응답 헤더에 포함돼야 한다.
+
+💡같은 출처(Origin)란?
+
+- 요청 URL의 scheme, host, port 번호가 모두 같은 URL이다.
+- 예를들어 아래 두 URL은 같은 출처로 구분된다.
+  ```jsx
+  // URL1
+  http://victor-log.com
+
+  // URL2
+  http://victor-log.com/posts
+  ```
+- 같은 출처에 대한 조금 더 자세한 예시는 [MDN 문서](https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy#%EC%B6%9C%EC%B2%98%EC%9D%98_%EC%A0%95%EC%9D%98)에서 확인 가능하다.
+
+# SOP정책과 CORS 정책이 필요한 이유?
+
+SOP 정책의 정의에 대해서 [MDN](https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy#%EC%B6%9C%EC%B2%98%EC%9D%98_%EC%A0%95%EC%9D%98)는 아래와 같이 정리되어 있다.
+
+> **동일 출처 정책**(same-origin policy)은 어떤 출처에서 불러온 문서나 스크립트가 다른 출처에서 가져온 리소스와 상호작용하는 것을 제한하는 중요한 보안 방식입니다.
+
+출처가 불분명한 웹 애플리케이션이 제약 없이 서버에 리소스를 요청하고 사용한다면 보안상의 문제가 발생할 여지가 더 많아진다. SOP 정책이 있으면 신뢰되지 않은 출처에서 리소스에 접근하고 이용하는 상황을 어느 정도 예방할 수 있다.
+
+CORS 정책은 출처가 서로 다른 웹 애플리케이션과 서버가 리소스를 주고받을 수 있도록 관련된 내용이 정의된 정책이다. CORS 정책을 준수하는 리소스 요청은 출처가 다르더라도 응답 받은 리소스를 활용할 수 있다.
+
+# CORS를 정책을 준수하는 방법
+
+가장 쉬운 해결 방법은 요청에 대한 응답 헤더에 `Access-Control-Allow-Origin` key에 `*` 값을 지정하는 방법이다. 위는 ‘모든 출처에서 해당 리소스의 사용을 허용하겠다’는 의미를 가진다.
+
+json-server를 이용한 예시 코드는 아래와 같다.
+
+```jsx
+server.get("test", (req, res) => {
+  ...
+	res.setHeader("Access-Control-Allow-Origin", "*");
+  ...
+});
+```
+
+MDN 문서에 의하면 CORS 정책과 관련해서 세 가지 시나리오가 있는데, 위 해결 방법은 [단순 요청 시나리오](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS#%EB%8B%A8%EC%88%9C_%EC%9A%94%EC%B2%ADsimple_requests)에 관한 해결 방법이다.
+
+따라서 해당 방법으로 모든 이슈가 해결되는 것은 아니다.
+
+## 쿠키 전달 시 CORS 정책 위배 이슈
+
+쿠키를 전달하는 요청의 경우 CORS 정책과 관련된 시나리오 중 [인증정보를 포함한 요청 시나리오](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS#%EC%9D%B8%EC%A6%9D%EC%A0%95%EB%B3%B4%EB%A5%BC_%ED%8F%AC%ED%95%A8%ED%95%9C_%EC%9A%94%EC%B2%AD)에 해당된다.
+
+1. 서버에서 브라우저로 set-cookie 헤더를 전달하는 경우
+   - 서버에서 전달하는 응답 값의 헤더에 `Access-Control-Allow-Credential: true` 옵션이 있어야한다.
+     - 해당 옵션에 대한 자세한 설명은 [공식 문서](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials)에서 확인 가능하다.
+   - ~~브라우저가 Chrome 브라우저인 경우 별도의 cookie 옵션이 필요할 수 있다.~~
+2. 브라우저에서 저장하고 있는 cookie를 cookie 헤더에 담아 전달하는 경우
+   - fetch API를 이용해서 요청의 헤더의 쿠키를 보내기 위해서는 별도의 credential 옵션이 필요하다. 관련된 내용은 [공식 문서](https://developer.mozilla.org/ko/docs/Web/API/Fetch_API/Using_Fetch#%EC%9E%90%EA%B2%A9_%EC%A6%9D%EB%AA%85%EC%9D%84_%ED%8F%AC%ED%95%A8%ED%95%9C_%EC%9A%94%EC%B2%AD_%EC%A0%84%EC%86%A1)에서 확인 가능하다.
+     ```json
+     fetch(URL, {
+     	credential: 'include' // 또는 'same-origin'
+     });
+     ```
+   - 만약 fetch API 이용시 `crendential: ‘include'` 옵션을 사용했다. 서버의 응답 값의 ``Access-Control-Allow-Origin` 에는 `*(와일드 카드)` 값을 사용할 수 없다. 즉, 명확한 출처를 명시해야한다.
+
+# 참고 자료
+
+[동일 출처 정책](https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy) - MDN
+
+[교차 출처 리소스 공유(CORS)](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS) - MDN
+
+[CORS는 왜 이렇게 우리를 힘들게 하는걸까?](https://evan-moon.github.io/2020/05/21/about-cors/) - Evan Moon
