@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import { useTheme } from '@emotion/react';
 import Link from 'gatsby-link';
 import { FlexBox, Text } from 'components';
+import { DISPLAY } from 'styles/css';
 
 const Header = () => {
   const theme = useTheme();
@@ -34,8 +35,12 @@ const Wrapper = styled(FlexBox)`
   ${({ theme }) => css`
     position: fixed;
     width: 100%;
-    padding: 1.063rem 3.125rem;
+    padding: 17px 50px;
     background-color: ${theme.color.background};
+
+    @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
+      padding: 17px 20px;
+    }
   `}
 `;
 
