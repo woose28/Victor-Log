@@ -39,6 +39,12 @@ export const query = graphql`
             title
             slug
             tags
+            hero_image {
+              childrenImageSharp {
+                gatsbyImageData
+              }
+            }
+            hero_image_alt
           }
           id
         }
