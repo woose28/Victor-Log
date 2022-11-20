@@ -35,6 +35,9 @@ const config: GatsbyConfig = {
         component: path.join(__dirname, './src/components/@shared/Layout/Layout.tsx'),
       },
     },
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
   ],
 };
 
