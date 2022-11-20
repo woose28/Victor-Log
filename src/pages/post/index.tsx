@@ -6,17 +6,21 @@ import { usePostPage } from 'pages/post/usePostPage';
 import { PostPageDataType } from 'pages/post/type';
 import { DISPLAY } from 'styles/css';
 
-const PostPage = ({ data }: PageProps<PostPageDataType>) => {
-  const { theme } = usePostPage();
+const PostPage = ({
+  data: {
+    allMdx: { edges: postEdges },
+  },
+}: PageProps<PostPageDataType>) => {
+  const { theme, postCount } = usePostPage({ postEdges });
 
   return (
     <FlexBox flexDirection="column" alignItems="center">
       <div>
         <Text color={theme.color.onBackground} size={16}>
-          Total Post {4}
+          Total Post {postCount}
         </Text>
         <PostContainer>
-          {data.allMdx.edges.map((post) => (
+          {postEdges.map((post) => (
             <li key={post.node.id}>
               <PostItem {...post.node.frontmatter} />
             </li>

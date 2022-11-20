@@ -14,3 +14,7 @@ export type PostPageDataType = {
     edges: PostPageEdge[];
   };
 };
+
+export type UsePostPageProps = {
+  postEdges: PostPageEdge[];
+};
