@@ -1,7 +1,9 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/github';
 
 const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
   return (
@@ -16,6 +18,7 @@ const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
         ul: StyledUl,
         ol: StyledOl,
         a: StyledA,
+        pre: CodeBlock,
       }}
     >
       {children}
@@ -85,4 +88,32 @@ const StyledA = styled.a`
     color: ${theme.color.primary};
     text-decoration: none;
   `}
+`;
+
+const CodeBlock = ({ children }: PropsWithChildren) => {
+  const className = (children as ReactElement).props.className;
+  const matches = className.match(/language-(?<lang>.*)/);
+  const language = matches?.groups?.lang ?? '';
+  const code = (children as ReactElement).props.children.trim();
+
+  return (
+    <Highlight {...defaultProps} code={code} language={language} theme={theme}>
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <StyledPre className={className} style={{ ...style }}>
+          {tokens.map((line, i) => (
+            <div key={i} {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span key={key} {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </StyledPre>
+      )}
+    </Highlight>
+  );
+};
+
+const StyledPre = styled.pre`
+  padding: 20px;
+  border-radius: 5px;
 `;
