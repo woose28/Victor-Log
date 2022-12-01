@@ -14,6 +14,8 @@ declare module '@emotion/react' {
       onBackground: AvailableColor;
 
       subText: AvailableColor;
+
+      codeBackground: AvailableColor;
     };
   }
 }

@@ -4,6 +4,7 @@ export default {
   BLACK_001: '#333333',
 
   GRAY_001: '#AEAEAE',
+  GRAY_002: '#f6f8fa',
 
   WHITE_001: '#FFFFFF',
   WHITE_002: '#FAFAFF',

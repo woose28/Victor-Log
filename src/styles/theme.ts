@@ -12,5 +12,7 @@ export const theme = {
     onBackground: COLOR.BLACK_001,
 
     subText: COLOR.GRAY_001,
+
+    codeBackground: COLOR.GRAY_002,
   },
 };

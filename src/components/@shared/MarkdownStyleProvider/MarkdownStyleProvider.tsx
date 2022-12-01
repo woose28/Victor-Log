@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode, ReactElement } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
@@ -19,6 +19,7 @@ const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
         ol: StyledOl,
         a: StyledA,
         pre: CodeBlock,
+        code: StyledCode,
       }}
     >
       {children}
@@ -116,4 +117,15 @@ const CodeBlock = ({ children }: PropsWithChildren) => {
 const StyledPre = styled.pre`
   padding: 20px;
   border-radius: 5px;
+`;
+
+const StyledCode = styled.code`
+  ${({ theme }) => css`
+    padding: 0.2em 0.4em;
+    background-color: ${theme.color.codeBackground};
+    border-radius: 3px;
+    color: ${theme.color.primary};
+    font-size: 85%;
+    font-weight: 600;
+  `}
 `;
