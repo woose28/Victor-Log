@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { MDXProvider } from '@mdx-js/react';
 
 const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
@@ -14,6 +15,7 @@ const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
         blockquote: StyledBlockquote,
         ul: StyledUl,
         ol: StyledOl,
+        a: StyledA,
       }}
     >
       {children}
@@ -76,4 +78,11 @@ const StyledOl = styled.ol`
       margin-right: 2px;
     }
   }
+`;
+
+const StyledA = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.color.primary};
+    text-decoration: none;
+  `}
 `;
