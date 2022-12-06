@@ -17,6 +17,7 @@ const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
         blockquote: StyledBlockquote,
         ul: StyledUl,
         ol: StyledOl,
+        li: StyledLi,
         a: StyledA,
         pre: CodeBlock,
         code: StyledCode,
@@ -50,6 +51,7 @@ const StyledH3 = styled.h3`
 const StyledP = styled.p`
   padding: 3px 0;
   line-height: 1.5;
+  font-size: 1rem;
 `;
 
 const StyledStrong = styled.strong`
@@ -57,18 +59,17 @@ const StyledStrong = styled.strong`
 `;
 
 const StyledBlockquote = styled.blockquote`
-  padding: 2px 14px;
+  ${({ theme }) => css`
+    padding: 2px 14px;
 
-  border-left: 3px solid black;
+    border-left: 3px solid ${theme.color.primary};
+  `}
 `;
 
 const StyledUl = styled.ul`
   li {
     &::before {
-      display: inline-block;
       content: '•';
-      width: 1rem;
-      margin-right: 2px;
     }
   }
 `;
@@ -76,18 +77,47 @@ const StyledUl = styled.ul`
 const StyledOl = styled.ol`
   li {
     &::before {
-      display: inline-block;
       content: counter(list-item) '.';
-      width: 1rem;
-      margin-right: 2px;
     }
+  }
+`;
+
+const StyledLi = styled.li`
+  font-size: 1rem;
+
+  &::before {
+    display: inline-block;
+    width: 1rem;
+    margin-right: 2px;
+    padding: 3px 0;
   }
 `;
 
 const StyledA = styled.a`
   ${({ theme }) => css`
+    position: relative;
     color: ${theme.color.primary};
     text-decoration: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 25%;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+    }
+
+    &:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1.5px;
+      background-color: ${theme.color.primary};
+      transition: all 0.25s ease-out;
+    }
   `}
 `;
 
@@ -115,6 +145,7 @@ const CodeBlock = ({ children }: PropsWithChildren) => {
 };
 
 const StyledPre = styled.pre`
+  margin: 3px 0;
   padding: 20px;
   border-radius: 5px;
 `;
