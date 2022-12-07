@@ -22,12 +22,9 @@ export default Footer;
 
 const Wrapper = styled(FlexBox)`
   ${({ theme }) => css`
-    position: fixed;
-    bottom: 0;
     width: 100%;
     padding: 30px 50px;
     background-color: ${theme.color.secondary};
-    z-index: ${LAYER.FOOTER};
 
     @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
       padding: 30px 20px;

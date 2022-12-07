@@ -32,14 +32,16 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
   ${({ theme }) => css`
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: fit-content;
-    min-height: calc(100vh - 64px - 128px); // 100vh - [height of Header] - [height of Footer]
-    padding: 64px 50px 128px;
+    min-height: calc(100vh - 64px); // 100vh - [height of Header]
+    padding: 64px 50px 30px;
     background-color: ${theme.color.background};
 
     @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
-      padding: 64px 20px 128px;
+      padding: 64px 20px 30px;
     }
   `}
 `;

@@ -6,5 +6,4 @@ export const DISPLAY = {
 
 export const LAYER = {
   HEADER: 100,
-  FOOTER: 100,
 };
