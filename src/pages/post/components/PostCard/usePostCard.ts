@@ -1,6 +1,6 @@
 import { useTheme } from '@emotion/react';
 
-export const usePostItem = () => {
+export const usePostCard = () => {
   const theme = useTheme();
 
   return {

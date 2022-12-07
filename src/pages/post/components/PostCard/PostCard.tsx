@@ -2,12 +2,12 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import Link from 'gatsby-link';
 import { FlexBox, Text } from 'components';
-import { PostItemProps } from 'pages/post/components/PostItem/PostItem.type';
-import { usePostItem } from 'pages/post/components/PostItem/usePostItem';
+import { PostCardProps } from 'pages/post/components/PostCard/PostCard.type';
+import { usePostCard } from 'pages/post/components/PostCard/usePostCard';
 import { HeroImage, TagList } from 'pages/post/components';
 
-const PostItem = ({ title, date, slug, tags, hero_image, hero_image_alt }: PostItemProps) => {
-  const { theme } = usePostItem();
+const PostCard = ({ title, date, slug, tags, hero_image, hero_image_alt }: PostCardProps) => {
+  const { theme } = usePostCard();
 
   return (
     <Wrapper flexDirection="column">
@@ -35,7 +35,7 @@ const PostItem = ({ title, date, slug, tags, hero_image, hero_image_alt }: PostI
   );
 };
 
-export default PostItem;
+export default PostCard;
 
 const Wrapper = styled(FlexBox)`
   ${({ theme }) => css`

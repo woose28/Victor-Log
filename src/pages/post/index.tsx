@@ -1,7 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import styled from '@emotion/styled';
 import { FlexBox, Text } from 'components';
-import { PostItem } from 'pages/post/components';
+import { PostCard } from 'pages/post/components';
 import { usePostPage } from 'pages/post/usePostPage';
 import { PostPageDataType } from 'pages/post/type';
 import { DISPLAY } from 'styles/css';
@@ -22,7 +22,7 @@ const PostPage = ({
         <PostContainer>
           {postEdges.map((post) => (
             <li key={post.node.id}>
-              <PostItem {...post.node.frontmatter} />
+              <PostCard {...post.node.frontmatter} />
             </li>
           ))}
         </PostContainer>
