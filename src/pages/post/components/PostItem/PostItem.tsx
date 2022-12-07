@@ -1,23 +1,26 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import Link from 'gatsby-link';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { FlexBox, Text } from 'components';
 import { PostItemProps } from 'pages/post/components/PostItem/PostItem.type';
 import { usePostItem } from 'pages/post/components/PostItem/usePostItem';
-import { TagList } from 'pages/post/components';
+import { HeroImage, TagList } from 'pages/post/components';
 
 const PostItem = ({ title, date, slug, tags, hero_image, hero_image_alt }: PostItemProps) => {
-  const { theme, heroImageData } = usePostItem({ hero_image });
+  const { theme } = usePostItem();
 
   return (
     <Wrapper flexDirection="column">
       <NavLink to={`/post/${slug}`}>
-        {heroImageData ? (
-          <HeroImage image={heroImageData} alt={hero_image_alt} />
-        ) : (
-          <DefaultHeroImage />
-        )}
+        <HeroImage
+          hero_image={hero_image}
+          hero_image_alt={hero_image_alt}
+          style={{
+            width: '100%',
+            height: '200px',
+            borderRadius: '10px 10px 0 0',
+          }}
+        />
         <PostInfoWrapper flexDirection="column" gap="15px">
           <Text color={theme.color.onSecondary} size={16}>
             {title}
@@ -46,36 +49,9 @@ const NavLink = styled(Link)`
   text-decoration: none;
 `;
 
-const HeroImage = styled(GatsbyImage)`
-  ${({ theme }) => css`
-    width: 100%;
-    height: 200px;
-    border-radius: 10px 10px 0 0;
-    background-color: ${theme.color.primary};
-  `}
-`;
-
-const DefaultHeroImage = styled.img`
-  ${({ theme }) => css`
-    width: 100%;
-    height: 200px;
-    border-radius: 10px 10px 0 0;
-    background-color: ${theme.color.primary};
-  `}
-`;
-
 const PostInfoWrapper = styled(FlexBox)`
   height: 100%;
   padding: 15px;
-`;
-
-const TagItem = styled(Text)`
-  ${({ theme }) => css`
-    padding: 5px 18px;
-    border-radius: 24px;
-    background-color: ${theme.color.primary};
-    text-align: center;
-  `}
 `;
 
 const Date = styled(Text)`
