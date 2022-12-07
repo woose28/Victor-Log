@@ -5,6 +5,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { FlexBox, Text } from 'components';
 import { PostItemProps } from 'pages/post/components/PostItem/PostItem.type';
 import { usePostItem } from 'pages/post/components/PostItem/usePostItem';
+import { TagList } from 'pages/post/components';
 
 const PostItem = ({ title, date, slug, tags, hero_image, hero_image_alt }: PostItemProps) => {
   const { theme, heroImageData } = usePostItem({ hero_image });
@@ -21,13 +22,7 @@ const PostItem = ({ title, date, slug, tags, hero_image, hero_image_alt }: PostI
           <Text color={theme.color.onSecondary} size={16}>
             {title}
           </Text>
-          <FlexBox as="ul" flexWrap="wrap" gap="15px">
-            {tags.map((tag) => (
-              <TagItem as="li" key={tag} color={theme.color.onPrimary} size={12}>
-                {tag}
-              </TagItem>
-            ))}
-          </FlexBox>
+          <TagList tags={tags} />
           <Date color={theme.color.subText} size={12}>
             {date}
           </Date>
