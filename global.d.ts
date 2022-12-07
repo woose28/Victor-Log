@@ -10,6 +10,8 @@ declare module '@emotion/react' {
       secondary: AvailableColor;
       onSecondary: AvailableColor;
 
+      tertiary: AvailableColor;
+
       background: AvailableColor;
       onBackground: AvailableColor;
 

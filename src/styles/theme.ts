@@ -8,6 +8,8 @@ export const theme = {
     secondary: COLOR.WHITE_002,
     onSecondary: COLOR.BLACK_001,
 
+    tertiary: COLOR.GRAY_001,
+
     background: COLOR.WHITE_001,
     onBackground: COLOR.BLACK_001,
 
