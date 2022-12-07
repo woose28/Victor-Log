@@ -3,3 +3,8 @@ export const DISPLAY = {
   TABLET_VERTICAL_MAX: '767px',
   TABLET_HORIZONTAL_MAX: '1023px',
 };
+
+export const LAYER = {
+  HEADER: 100,
+  FOOTER: 100,
+};

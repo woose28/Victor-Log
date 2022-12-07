@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css, useTheme } from '@emotion/react';
 import { FlexBox, Text } from 'components';
-import { DISPLAY } from 'styles/css';
+import { DISPLAY, LAYER } from 'styles/css';
 
 const Footer = () => {
   const theme = useTheme();
@@ -27,6 +27,7 @@ const Wrapper = styled(FlexBox)`
     width: 100%;
     padding: 30px 50px;
     background-color: ${theme.color.secondary};
+    z-index: ${LAYER.FOOTER};
 
     @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
       padding: 30px 20px;
