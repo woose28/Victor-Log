@@ -148,6 +148,7 @@ const StyledPre = styled.pre`
   margin: 3px 0;
   padding: 20px;
   border-radius: 5px;
+  overflow-x: scroll;
 `;
 
 const StyledCode = styled.code`
