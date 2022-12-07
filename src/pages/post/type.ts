@@ -15,6 +15,12 @@ export type PostPageDataType = {
   };
 };
 
+export type PostDetailPageDataType = {
+  mdx: {
+    frontmatter: Pick<PostFrontMatter, 'title' | 'date' | 'tags' | 'hero_image' | 'hero_image_alt'>;
+  };
+};
+
 export type UsePostPageProps = {
   postEdges: PostPageEdge[];
 };

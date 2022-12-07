@@ -30,8 +30,6 @@ export default HeroImage;
 const PostHeroImage = styled(GatsbyImage)`
   ${({ theme }) => css`
     width: 100%;
-    height: 200px;
-    border-radius: 10px 10px 0 0;
     background-color: ${theme.color.primary};
   `}
 `;
@@ -39,8 +37,6 @@ const PostHeroImage = styled(GatsbyImage)`
 const DefaultHeroImage = styled.img`
   ${({ theme }) => css`
     width: 100%;
-    height: 200px;
-    border-radius: 10px 10px 0 0;
     background-color: ${theme.color.primary};
   `}
 `;

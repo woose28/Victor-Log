@@ -4,11 +4,11 @@ import { FlexBox, Text } from 'components';
 import { TagListProps } from 'pages/post/components/TagList/TagList.type';
 import { useTagList } from 'pages/post/components/TagList/useTagList';
 
-const TagList = ({ tags }: TagListProps) => {
+const TagList = ({ tags, style }: TagListProps) => {
   const { theme } = useTagList();
 
   return (
-    <FlexBox as="ul" flexWrap="wrap" gap="15px">
+    <FlexBox as="ul" flexWrap="wrap" gap="15px" style={style}>
       {tags.map((tag) => (
         <TagItem as="li" key={tag} color={theme.color.onPrimary} size={12}>
           {tag}
