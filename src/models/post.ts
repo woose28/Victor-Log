@@ -1,6 +1,6 @@
 import { ChildrenImageSharp } from 'types/gatsby';
 
-export interface PostFrontMatter {
+export type PostFrontMatter = {
   title: string;
   date: string;
   slug: string;
@@ -9,4 +9,10 @@ export interface PostFrontMatter {
     childrenImageSharp: ChildrenImageSharp[];
   };
   hero_image_alt: string;
-}
+};
+
+export type Post = {
+  id: string;
+  excerpt: string;
+  frontmatter: PostFrontMatter;
+};
