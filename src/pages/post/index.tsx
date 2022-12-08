@@ -1,33 +1,35 @@
 import { graphql, PageProps } from 'gatsby';
 import styled from '@emotion/styled';
 import { FlexBox, Text } from 'components';
-import { PostCard } from 'pages/post/components';
+import { PostItem } from 'pages/post/components';
 import { usePostPage } from 'pages/post/usePostPage';
 import { PostPageDataType } from 'pages/post/type';
 import { DISPLAY } from 'styles/css';
 
 const PostPage = ({
   data: {
-    allMdx: { edges: postEdges },
+    allMdx: { edges: postEdges, totalCount },
   },
 }: PageProps<PostPageDataType>) => {
-  const { theme, postCount } = usePostPage({ postEdges });
+  const { theme } = usePostPage();
 
   return (
-    <FlexBox flexDirection="column" alignItems="center">
-      <div>
-        <Text color={theme.color.onBackground} size={16}>
-          Total Post {postCount}
-        </Text>
-        <PostContainer>
-          {postEdges.map((post) => (
-            <li key={post.node.id}>
-              <PostCard {...post.node.frontmatter} />
-            </li>
-          ))}
-        </PostContainer>
-      </div>
-    </FlexBox>
+    <PageWrapper flexDirection="column" alignItems="center">
+      <TotalText color={theme.color.onBackground} size={16} fontWeight={700}>
+        Total{' '}
+        <Text color={theme.color.primary} size={16} fontWeight={700}>
+          {totalCount}
+        </Text>{' '}
+        Post
+      </TotalText>
+      <PostContainer as="ul" flexDirection="column" gap="15px">
+        {postEdges.map((post) => (
+          <li key={post.node.id}>
+            <PostItem excerpt={post.node.excerpt} {...post.node.frontmatter} />
+          </li>
+        ))}
+      </PostContainer>
+    </PageWrapper>
   );
 };
 
@@ -35,7 +37,7 @@ export default PostPage;
 
 export const query = graphql`
   query {
-    allMdx {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           frontmatter {
@@ -51,28 +53,29 @@ export const query = graphql`
             hero_image_alt
           }
           id
+          excerpt
         }
       }
+      totalCount
     }
   }
 `;
 
 export const Head = () => <title>Victor Log | 게시글 목록</title>;
 
-const PostContainer = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(3, 266px);
-  grid-gap: 20px;
-
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    grid-template-columns: repeat(2, 266px);
-  }
+const PageWrapper = styled(FlexBox)`
+  width: ${DISPLAY.TABLET_VERTICAL_MAX};
 
   @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
-    grid-template-columns: repeat(1, 266px);
+    width: 100%;
   }
+`;
 
-  @media all and (max-width: ${'366px'}) {
-    grid-template-columns: 100%;
-  }
+const TotalText = styled(Text)`
+  align-self: flex-start;
+`;
+
+const PostContainer = styled(FlexBox)`
+  width: 100%;
+  margin-top: 20px;
 `;

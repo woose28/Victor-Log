@@ -1,17 +1,13 @@
-import { PostFrontMatter } from 'models/post';
-
-type PostPageNode = {
-  id: string;
-  frontmatter: PostFrontMatter;
-};
+import { Post, PostFrontMatter } from 'models/post';
 
 type PostPageEdge = {
-  node: PostPageNode;
+  node: Post;
 };
 
 export type PostPageDataType = {
   allMdx: {
     edges: PostPageEdge[];
+    totalCount: number;
   };
 };
 
@@ -19,8 +15,4 @@ export type PostDetailPageDataType = {
   mdx: {
     frontmatter: Pick<PostFrontMatter, 'title' | 'date' | 'tags' | 'hero_image' | 'hero_image_alt'>;
   };
-};
-
-export type UsePostPageProps = {
-  postEdges: PostPageEdge[];
 };

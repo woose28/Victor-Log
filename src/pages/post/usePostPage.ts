@@ -1,13 +1,9 @@
 import { useTheme } from '@emotion/react';
-import { UsePostPageProps } from 'pages/post/type';
 
-export const usePostPage = ({ postEdges }: UsePostPageProps) => {
+export const usePostPage = () => {
   const theme = useTheme();
-
-  const postCount = postEdges.length;
 
   return {
     theme,
-    postCount,
   };
 };
