@@ -28,7 +28,19 @@ const config: GatsbyConfig = {
         path: `${__dirname}/content`,
       },
     },
-    'gatsby-plugin-mdx',
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 500,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-plugin-layout',
       options: {
