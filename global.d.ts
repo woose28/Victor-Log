@@ -18,6 +18,8 @@ declare module '@emotion/react' {
       subText: AvailableColor;
 
       codeBackground: AvailableColor;
+      tableCellBackground: AvailableColor;
+      tableBorder: AvailableColor;
     };
   }
 }

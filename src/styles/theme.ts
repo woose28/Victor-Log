@@ -16,5 +16,7 @@ export const theme = {
     subText: COLOR.GRAY_001,
 
     codeBackground: COLOR.GRAY_002,
+    tableCellBackground: COLOR.GRAY_002,
+    tableBorder: COLOR.GRAY_003,
   },
 };

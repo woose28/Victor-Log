@@ -21,6 +21,10 @@ const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
         a: StyledA,
         pre: CodeBlock,
         code: StyledCode,
+        table: StyledTable,
+        tr: StyledTr,
+        th: StyledTh,
+        td: StyledTd,
       }}
     >
       {children}
@@ -169,5 +173,36 @@ const StyledCode = styled.code`
     color: ${theme.color.primary};
     font-size: 85%;
     font-weight: 600;
+  `}
+`;
+
+const StyledTable = styled.table`
+  width: 100%;
+  margin: 3px 0;
+  border-spacing: 0;
+`;
+
+const StyledTr = styled.tr`
+  ${({ theme }) => css`
+    td:first-child {
+      background-color: ${theme.color.tableCellBackground};
+    }
+  `}
+`;
+
+const StyledTh = styled.th`
+  ${({ theme }) => css`
+    padding: 7px 9px;
+    background-color: ${theme.color.tableCellBackground};
+    border: 0.5px solid ${theme.color.tableBorder};
+    font-weight: 600;
+  `}
+`;
+
+const StyledTd = styled.td`
+  ${({ theme }) => css`
+    padding: 7px 9px;
+    border: 0.5px solid ${theme.color.tableBorder};
+    text-align: center;
   `}
 `;
