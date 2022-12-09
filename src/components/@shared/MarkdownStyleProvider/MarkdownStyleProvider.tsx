@@ -62,7 +62,7 @@ const StyledBlockquote = styled.blockquote`
   ${({ theme }) => css`
     padding: 2px 14px;
 
-    border-left: 3px solid ${theme.color.primary};
+    border-left: 3px solid ${theme.color.tertiary};
   `}
 `;
 
@@ -83,13 +83,22 @@ const StyledOl = styled.ol`
 `;
 
 const StyledLi = styled.li`
+  position: relative;
   font-size: 1rem;
+  padding: 3px 0 3px 1rem;
 
   &::before {
-    display: inline-block;
+    position: absolute;
+    left: 0;
     width: 1rem;
-    margin-right: 2px;
-    padding: 3px 0;
+  }
+
+  ul {
+    li {
+      &::before {
+        content: '-';
+      }
+    }
   }
 `;
 
