@@ -1,0 +1,51 @@
+---
+title: 'NPM 출시'
+date: '2022-10-30'
+slug: 'npm-publish'
+tags: ['Development']
+hero_image: './NPM_출시_히어로_이미지.jpeg'
+hero_image_alt: 'NPM 출시 히어로 이미지'
+---
+# npm 로그인하기
+
+npm login으로 로그인 한다.
+
+```jsx
+npm login
+```
+
+# npm publish
+
+```jsx
+npm publish
+```
+
+위 명령어를 입력하면 패키지를 출시할 수 있다.
+
+<br/>
+
+단, package.json에 있는 version은 이전 패키지 버전보다 높아야한다.
+
+## .npmignore
+
+.npmignore를 이용하면 npm에 패키지를 출시할 때 올리지 않을 파일을 설정할 수 있다.
+
+<br/>
+
+## prepublishOnly
+
+npm script 명령어에 `prepublishOnly`를 등록하면 패키지를 publish 하기 전에 실행될 작업을 설정할 수 있다. 예를들면 아래와 같다.
+
+<br/>
+
+```json
+// package.json
+{
+	...
+	"scripts": {
+		...
+    "prepublishOnly": "tsc -d & npm run test"
+  },
+	...
+}
+```
