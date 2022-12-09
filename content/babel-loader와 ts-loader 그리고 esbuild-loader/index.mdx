@@ -1,0 +1,128 @@
+---
+title: 'babel-loader와 ts-loader 그리고 esbuild-loader'
+date: '2022-09-15'
+slug: 'babel-loader-and-ts-loader-and-esbuild-loader'
+tags: ['Performance', 'Webpack']
+hero_image: './babel-loader와_ts-loader_그리고_esbuild-loader_히어로_이미지.jpeg'
+hero_image_alt: 'babel-loader와_ts-loader_그리고_esbuild-loader_히어로_이미지'
+---
+# 들어가며
+
+프로젝트의 webpack 설정을 다시 점검하는 시간을 가졌다. 그러던 중 ts와 tsx 파일을 처리하는 로더에 babel-lader와 ts-loader가 함께 사용된 것을 확인했다. 꼭 둘 다 사용해야 하는 것인지 확실히 조사가 필요했다. 또한 관련 loader로 esbuild-loader도 존재하는 것을 확인했다. 따라서 이번 글에서는 Transpiling을 해주는 각 loader에 대해 정리하려한다.
+
+<br/>
+
+# babel-loader
+
+[babel-loader의 npm 페이지](https://www.npmjs.com/package/babel-loader)에서는 babel-loader를 아래와 같이 설명한다.
+
+> This package allows transpiling JavaScript files using **[Babel](https://github.com/babel/babel)** and **[webpack](https://github.com/webpack/webpack)**.
+> 
+
+<br/>
+
+해당 loader의 option에서 preset과 plugin 설정을 할 수 있다.
+
+<br/>
+
+[바벨과 타입스크립트의 아름다운 결혼](https://ui.toast.com/weekly-pick/ko_20181220) 게시글에 의하면 babel 7 버전 이후에는 typescript도 지원한다고 한다.
+
+단, typescript를 처리하기 위해서는 [@babel/preset-typescript](https://babeljs.io/docs/en/babel-preset-typescript) 프리셋이 필요하다.
+
+## type checking을 하는가?
+
+babel로 typescript를 처리하기 위해서는`@babel/preset-typescript` 프리셋이 필요하다고 했다. 따라서 프리셋에 type checking 여부를 수행하는 플러그인이 있는지 확인하면 transpiling을 하는과 동시에 type chekcing을 하는지 추론할 수 있다.
+
+<br/>
+
+`@babel/preset-typescript`은 [@babel/plugin-transform-typescript](https://babeljs.io/docs/en/babel-plugin-transform-typescript) 플러그인을 포함하고 있다.
+
+<br/>
+
+해당 플러그인의 페이지를 확인하면 다음과 같은 설명이 있다.
+
+> This plugin adds support for the types syntax used by the [TypeScript programming language](https://www.typescriptlang.org/). However, this plugin does not add the ability to type-check the JavaScript passed to it. For that, you will need to install and set up TypeScript.
+> 
+
+즉, 해당 플러그인은 type 구문을 지원하기 위한 플러그인이고 별도의 type checking을 지원하지 않는다.
+
+<br/>
+
+혹시나 `@babel/preset-typescript` 프리셋이 type checking 기능이 있나 확인했만, 문서에서 관련된 내용을 발결하지 못했다.
+
+<br/>
+
+결론적으로 `@babel/preset-typescript` 에 type checking을 하는 기능이 있는지 확인하진 못했다. 하지만 [typescript 공식 문서](https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html#type-checking-and-dts-file-generation)에 의하면 babel은 type checking 기능을 지원하지 않는다. 따라서 babel loader역시 type checking 기능을 제공하지 않을 것으로 추측한다.
+
+<br/>
+
+# ts-loader
+
+[ts-loader의 npm 페이지](https://www.npmjs.com/package/ts-loader)에서는 ts-loader를 아래와 같이 설명한다.
+
+> ts-loader This is the TypeScript loader for webpack.
+(…중략)
+There are two types of options: TypeScript options (aka "compiler options") and loader options. TypeScript options should be set using a tsconfig.json file. Loader options can be specified through the `options` property in the webpack
+> 
+
+<br/>
+
+즉, ts-loader는 [tsconfig.json](https://www.typescriptlang.org/tsconfig)에 명시된 option에 따라 typescript를 컴파일한다.
+
+따라서 tsconfig.json의 target 옵션이 ES5로 지정되어 있으면, webpack으로 빌드된 파일이 ES5에 맞게 transpiling될 것으로 될 것이다.
+
+## type checking을 하는가?
+
+ts-loader는 `compiler` 옵션을 제공한다. 해당 옵션은 ts-loader로 실행할 `compiler를` 지정하는 옵션이다. 기본 값은 `typescript`이다.
+
+ts-loader의 코드를 확인하면 compiler 옵션이 typescript 일때 typescript 모듈을 가져와서 tsc을 이용해서 compile하는 것을 확인할 수 있다.
+
+<br/>
+
+# esbuild-loader
+
+[esbuild-loader의 npm 페이지](https://www.npmjs.com/package/esbuild-loader)에서는 esbuild-loader를 아래와 같이 설명한다.
+
+> esbuild is a JavaScript bundler written in Go that supports blazing fast ESNext & TypeScript transpilation and JS minification.
+esbuild-loader lets you harness the speed of esbuild in your Webpack build by offering faster alternatives for transpilation (eg. babel-loader/ts-loader) and minification (eg. Terser)!
+> 
+
+<br/>
+
+esbuild-loader는 위에서 소개한 두 개의 로더에 비해 비교적 최근에 나온 로더이다.
+
+해당 로더는 GO 언어로 구현돼 있기 때문에 위 두 개의 로더보다 더 빠르게 동작한다고 한다.
+
+<br/>
+
+esbuild-loader와 babel-loader의 속도를 비교한 결과는 ****[Webpack 빌드에 날개를 달아줄 Esbuild-Loader](https://fe-developers.kakaoent.com/2022/220707-webpack-esbuild-loader/#%EC%99%9C-%EB%8D%94-%EB%B9%A0%EB%A5%B8%EA%B0%80-)**** 글에서 확인 가능하다.
+
+## type checking을 하는가?
+
+[esbuild-loader github 페이지](https://github.com/privatenumber/esbuild-loader#will-there-be-type-checking-support)에 의하면 esbuild-loader는 type checking을 제공하지 않는다.
+
+<br/>
+
+# 결론 transpiling을 위해 어떤 loader를 사용할 것인가?
+
+결론적으로 프로젝트에 사용할 transpiling loader을 결정할 순간이 온다면, esbuild-loader의 사용을 우선적으로 고려할 것이다. 빌드 시간은 생상선에 직접 영향을 주는 요인이기 때문이다.
+
+실제로, 현재 진행중인 프로젝트에서 esbuild-loader를 적용한 결과 빌드 시간이 크게 감소하는 효과를 확인했다.
+
+💡esbuild-loader를 도입한 후 빌드 시간이 약 30초에서 약 8초로 감소했다.
+
+<br/>
+
+# 참고자료
+
+[typescript 번들링](https://velog.io/@ginameee/typescript-%EB%B2%88%EB%93%A4%EB%A7%81)
+
+[babel-loader와 ts-loader의 빌드 결과가 다른 현상](https://jeonghwan-kim.github.io/dev/2021/03/08/babel-typescript.html)
+
+[바벨과 타입스크립트의 아름다운 결혼](https://ui.toast.com/weekly-pick/ko_20181220)
+
+[Webpack 빌드에 날개를 달아줄 Esbuild-Loader](https://fe-developers.kakaoent.com/2022/220707-webpack-esbuild-loader/)
+
+[https://github.com/privatenumber/esbuild-loader](https://github.com/privatenumber/esbuild-loader)
+
+[Documentation - Using Babel with TypeScript](https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html)
