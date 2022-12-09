@@ -31,25 +31,25 @@ const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
 export default MarkdownStyleProvider;
 
 const StyledH1 = styled.h1`
-  margin-top: 2rem;
+  margin: 2rem 0 3px;
   font-size: 1.85rem;
   font-weight: 600;
 `;
 
 const StyledH2 = styled.h2`
-  margin-top: 1.4rem;
+  margin: 1.4rem 0 3px;
   font-size: 1.5rem;
   font-weight: 600;
 `;
 
 const StyledH3 = styled.h3`
-  margin-top: 1rem;
+  margin: 1rem 0 3px;
   font-size: 1.25rem;
   font-weight: 600;
 `;
 
 const StyledP = styled.p`
-  padding: 3px 0;
+  padding: 0 0 6px;
   line-height: 1.5;
   font-size: 1rem;
 `;
@@ -60,6 +60,7 @@ const StyledStrong = styled.strong`
 
 const StyledBlockquote = styled.blockquote`
   ${({ theme }) => css`
+    margin-bottom: 3px;
     padding: 2px 14px;
 
     border-left: 3px solid ${theme.color.tertiary};
