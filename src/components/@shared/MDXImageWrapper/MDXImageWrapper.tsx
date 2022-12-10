@@ -28,6 +28,10 @@ const ImageWrapper = styled.div`
     p {
       padding: 0;
     }
+
+    span {
+      max-width: none !important;
+    }
   `}
 `;
 
