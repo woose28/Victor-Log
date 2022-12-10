@@ -6,6 +6,8 @@ tags: ['Performance', 'Webpack']
 hero_image: './빌드_속도_최적화_with_loader_히어로_이미지.jpeg'
 hero_image_alt: '빌드 속도 최적화 with loader 히어로 이미지'
 ---
+import { MDXImageWrapper } from 'components';
+
 # 초기 상태
 
 webpack 설정을 처음 할 때, ts(또는 tsx) 파일의 처리하는 설정을 잘못했다.
@@ -34,10 +36,9 @@ webpack 설정을 처음 할 때, ts(또는 tsx) 파일의 처리하는 설정�
 
 해당 설정을 동일하게 한 후 현재 다시 빌드를 해보면 **약 200초**가 소요된다.
 
-<div style={{ maxWidth: '450px', margin: '0 auto', borderRadius: '5px', overflow: 'hidden' }}>
+<MDXImageWrapper caption="빌드 속도 최적화 전">
   ![빌드 속도 최적화 전](빌드_속도_최적화_전.png)
-  <figcaption style={{ margin: '5px 0', color: '#AEAEAE', fontSize: '0.9rem', textAlign: 'center' }}>빌드 속도 최적화 전</figcaption>
-</div>
+</MDXImageWrapper>
 
 <br/>
 
@@ -59,10 +60,9 @@ exclude 옵션을 사용해서 node_modules에 있는 모듈은 처리하지 않
 
 그 결과 빌드 속도가 약 200초에서 **약 28**초로 감소했다.
 
-<div style={{ maxWidth: '450px', margin: '0 auto', borderRadius: '5px', overflow: 'hidden' }}>
+<MDXImageWrapper caption="exclude 옵션 적용 후">
   ![exclude 옵션 적용 후](exclude_옵션_적용_후.png)
-  <figcaption style={{ margin: '5px 0', color: '#AEAEAE', fontSize: '0.9rem', textAlign: 'center' }}>exclude 옵션 적용 후</figcaption>
-</div>
+</MDXImageWrapper>
 
 <br/>
 
@@ -139,17 +139,15 @@ cache 옵션에 `type: fileSystem`으로 설정하면 초기 빌드 속도도 �
 
 - webpack 캐시가 없을 때 빌드 속도
 
-  <div style={{ maxWidth: '450px', margin: '0 auto', borderRadius: '5px', overflow: 'hidden' }}>
+  <MDXImageWrapper caption="webpack 캐시가 없을 때 빌드 속도">
     ![webpack 캐시가 없을 때 빌드 속도](webpack_캐시가_없을_때_빌드_속도.png)
-    <figcaption style={{ margin: '5px 0', color: '#AEAEAE', fontSize: '0.9rem', textAlign: 'center' }}>webpack 캐시가 없을 때 빌드 속도</figcaption>
-  </div>
+  </MDXImageWrapper>
 
 - webpack 캐시가 있을 때 빌드 속도
 
-  <div style={{ maxWidth: '450px', margin: '0 auto', borderRadius: '5px', overflow: 'hidden' }}>
+  <MDXImageWrapper caption="webpack 캐시가 있을 때 빌드 속도">
     ![webpack 캐시가 있을 때 빌드 속도](webpack_캐시가_있을_때_빌드_속도.png)
-    <figcaption style={{ margin: '5px 0', color: '#AEAEAE', fontSize: '0.9rem', textAlign: 'center' }}>webpack 캐시가 있을 때 빌드 속도</figcaption>
-  </div>
+  </MDXImageWrapper>
 
 <br/>
 
