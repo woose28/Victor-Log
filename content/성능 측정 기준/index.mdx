@@ -1,0 +1,120 @@
+---
+title: '성능 측정 기준'
+date: '2022-09-21'
+slug: 'performance-metrics'
+tags: ['Performance']
+hero_image: './성능_측정_기준_히어로_이미지.jpeg'
+hero_image_alt: '성능 측정 기준 히어로 이미지'
+---
+# 들어가며
+
+성능을 최적화하기 전에 측정 항목을 명확히 알고있으면 목표가 분명해질 것이다.
+
+프론트엔드에서 성능 최적화를 위한 항목은 대표적으로 세 가지가 있다.
+
+1. 로딩 최적화
+2. 렌더링 최적화
+3. 메모리 최적화
+
+<br/>
+
+이외에도 구글에서 성능 측정의 지침으로 정해둔 Web Vitals가 있다.
+
+<br/>
+
+# 로딩 최적화
+
+로딩 최적화와 관련된 용어는 다음과 같다.
+
+<br/>
+
+## FCP(First Contentful Paint)
+
+- 첫 요소가 로드 될 때까지 걸리는 시간
+- 보통 로딩 바가 FCP의 측정 대상 요소가 된다. 단, 로딩 컨텐츠의 경우 여전히 사용자에게 기다린다는 느낌을 줄 수 있는 요소이다. 때문에 FCP를 로딩 최적화의 지표로 사용하는 것은 적절하지 않을 수 있다.
+
+<br/>
+
+## FMP(First Meaningful Paint)
+
+- 사용자에게 의미있는 첫 요소가 로드 될 때까지 걸리는 시간
+- 사용자가 보고 싶은 컨텐츠가 나타나는 측정 지표
+- 연구 결과에 의하면 약 20% 항목에서 FMP는 정확하지 않다고 밝혀졌다.
+
+<br/>
+
+### 참고 자료
+[First Meaningful Paint](https://web.dev/first-meaningful-paint/)
+
+<br/>
+
+## LCP(Largest Contentful Paint)
+
+- 최대 컨텐츠가 로드 될 때까지 걸리는 시간
+- 페이지의 메인 컨텐츠의 로드 시간을 측정하기 위해 기존에는 FMP 또는 [Speed Index](https://web.dev/speed-index/)를 지표로 사용했지만, 해당 지표는 잘못된 경우가 빈번했다. 따라서 단순하게 가장 큰 요소가 메인 컨텐츠라고 가정하고, 메인 컨텐츠의 로드 시간을 가장 큰 요소의 로드 시간으로 측정하게 됐다.
+    - 만약, 가장 큰 요소가 메인 컨텐츠가 아니라면 해당 컨텐츠의 로딩 시간을 측정하기 위해 [사용자 정의 메트릭](https://web.dev/user-centric-performance-metrics/#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A7%80%EC%A0%95-%EB%A9%94%ED%8A%B8%EB%A6%AD)을 이용할 수 있다.
+- [Web.dev](https://web.dev/lcp/#%EC%A2%8B%EC%9D%80-lcp-%EC%A0%90%EC%88%98%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94)에 의하면 LCP가 **2.5초 이하**인 경우에 좋은 사용자 경험을 제공할 수 있다고 한다. 그리고 **4.0초 이상**이면 형편없는 사용자 경험을 제공한다고 한다.
+
+<br/>
+
+### 참고 자료
+[Largest Contentful Paint (LCP)](https://web.dev/lcp/)
+
+<br/>
+
+# 렌더링 최적화
+
+사람은 FPS가 최소 60 이상의 화면을 볼 때 자연스러움을 느낀다. 즉, FPS가 60보다 작아지면 버벅임을 느낀다.
+
+<br/>
+
+# 메모리 최적화
+
+메모리 최적화와 관련해서 해결해야하는 문제는 `메모리 누수`를 방지하는 것이다. 자바스크립는 가비지 콜렉터에 의해 메모리 누수가 적은 편이다. 그럼에도 메모리 누수가 발생되는 대표적인 원인은 다음과 같다.
+
+1. 전역 변수
+2. 해제되지 않은 타이머 콜백
+3. 돔 외부에서의 참조
+4. 클로저
+
+<br/>
+
+# Web Vitals란?
+
+구글에서 제안한 성능을 측정하기 위해 수행해야하는 지침이다.
+
+[Web.dev](https://web.dev/vitals/)에 의하면 Web Vitals의 측정 항목은 다음과 같다.
+
+<br/>
+
+- **[Largest Contentful Paint(최대 콘텐츠풀 페인트, LCP)](https://web.dev/lcp/)**: *로딩* 성능을 측정합니다. 우수한 사용자 경험을 제공하려면 페이지가 처음으로 로딩된 후 **2.5초** 이내에 LCP가 발생해야 합니다.
+- **[First Input Delay(최초 입력 지연, FID)](https://web.dev/fid/)**: *상호 작용*을 측정합니다. 우수한 사용자 경험을 제공하려면 페이지의 FID가 **100밀리초** 이하여야 합니다.
+- **[Cumulative Layout Shift(누적 레이아웃 시프트, CLS)](https://web.dev/cls/)**: *시각적 안정성*을 측정합니다. 우수한 사용자 경험을 제공하려면 페이지에서 **0.1** 이하의 CLS를 유지해야 합니다.
+    - 단, 버튼을 누른 이벤트에 의해 레이아웃이 변경되는 예시처럼 사용자가 화면의 변화를 예측할 수 있는 상황이라면 성능 측정의 대상으로 포함되지 않는다.
+
+<br/>
+
+## Lighthouse에서는 FID를 측정할 수 없다.
+
+Lighthouse는 사용자 없이 시뮬레이션 환경에서 페이지 성능을 측정하고 있기 때문에 사용자의 상호작용에 관한FID(First Input Delay)를 측정할 수 없다. 대신 Lighthouse에는 TBT(Total Blocking Time)이라는 지표가 있다. 해당 지표는 FID를 충분히 대체할 수 있다고한다. [Web.dev](https://web.dev/lighthouse-total-blocking-time/) 문서에 의하면 TBT는 아래와 같이 정의돼 있다.
+
+<br/>
+
+> TBT는 마우스 클릭, 화면 탭 또는 키보드 누름과 같은 사용자 입력으로부터 페이지가 응답하지 못하도록 차단된 총 시간을 측정합니다.
+> 
+
+<br/>
+
+Lighthouse에서는 TBT가 200ms 이하일 때 빠르다고 판단한다.
+
+<br/>
+
+# 참고 자료
+
+[Metrics](https://web.dev/metrics/)
+
+[Web Vitals](https://web.dev/vitals/)
+
+[Total Blocking Time](https://web.dev/lighthouse-total-blocking-time/)
+
+[[10분 테코톡] 🍺 서니의 프론트엔드 성능 측정](https://www.youtube.com/watch?v=A6J74xLWqYg)
