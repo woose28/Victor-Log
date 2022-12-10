@@ -20,6 +20,7 @@ declare module '@emotion/react' {
       codeBackground: AvailableColor;
       tableCellBackground: AvailableColor;
       tableBorder: AvailableColor;
+      toggleListSummaryBackground: AvailableColor;
     };
   }
 }
