@@ -19,5 +19,6 @@ export const theme = {
     tableCellBackground: COLOR.GRAY_002,
     tableBorder: COLOR.GRAY_003,
     toggleListSummaryBackground: COLOR.GRAY_003,
+    mdxImageWrapperBorder: COLOR.GRAY_003,
   },
 };

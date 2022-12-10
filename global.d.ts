@@ -21,6 +21,7 @@ declare module '@emotion/react' {
       tableCellBackground: AvailableColor;
       tableBorder: AvailableColor;
       toggleListSummaryBackground: AvailableColor;
+      mdxImageWrapperBorder: AvailableColor;
     };
   }
 }

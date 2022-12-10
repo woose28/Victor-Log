@@ -10,7 +10,7 @@ export default {
 export const DefaultMDXImageWrapper = (args: MDXImageWrapperProps) => (
   <MDXImageWrapper {...args}>
     <img
-      style={{ width: '100%', aspectRatio: '1', objectFit: 'cover' }}
+      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
       src={TestImage}
       alt="테스트 이미지"
     />

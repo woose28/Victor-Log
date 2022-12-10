@@ -6,7 +6,7 @@ import { MDXImageWrapperProps } from 'components/@shared/MDXImageWrapper/MDXImag
 const MDXImageWrapper = ({ children, style, caption }: PropsWithChildren<MDXImageWrapperProps>) => {
   return (
     <Wrapper style={style}>
-      {children}
+      <ImageWrapper>{children}</ImageWrapper>
       <ImageCaption>{caption}</ImageCaption>
     </Wrapper>
   );
@@ -16,9 +16,19 @@ export default MDXImageWrapper;
 
 const Wrapper = styled.div`
   max-width: 450px;
-  margin: 0 auto;
-  border-radius: 5px;
-  overflow: hidden;
+  margin: 5px auto;
+`;
+
+const ImageWrapper = styled.div`
+  ${({ theme }) => css`
+    border: solid 1.5px ${theme.color.mdxImageWrapperBorder};
+    border-radius: 5px;
+    overflow: hidden;
+
+    p {
+      padding: 0;
+    }
+  `}
 `;
 
 const ImageCaption = styled.figcaption`
