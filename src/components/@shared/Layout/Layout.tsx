@@ -5,7 +5,7 @@ import { Global, css } from '@emotion/react';
 import { theme } from 'styles/theme';
 import { style } from 'styles/global';
 import { LayoutProps } from 'components/@shared/Layout/Layout.type';
-import { Footer, Header, MarkdownStyleProvider } from 'components';
+import { Footer, Header, MDXStyleProvider } from 'components';
 import { DISPLAY } from 'styles/css';
 
 const Layout = ({ children }: LayoutProps) => {
@@ -14,9 +14,9 @@ const Layout = ({ children }: LayoutProps) => {
       <Global styles={style} />
       <ThemeProvider theme={theme}>
         <Header />
-        <MarkdownStyleProvider>
+        <MDXStyleProvider>
           <Main>{children}</Main>
-        </MarkdownStyleProvider>
+        </MDXStyleProvider>
         <Footer />
       </ThemeProvider>
     </Wrapper>

@@ -5,7 +5,7 @@ import { MDXProvider } from '@mdx-js/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/github';
 
-const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
+const MDXStyleProvider = ({ children }: PropsWithChildren) => {
   return (
     <MDXProvider
       components={{
@@ -32,7 +32,7 @@ const MarkdownStyleProvider = ({ children }: PropsWithChildren) => {
   );
 };
 
-export default MarkdownStyleProvider;
+export default MDXStyleProvider;
 
 const StyledH1 = styled.h1`
   margin: 2rem 0 3px;
