@@ -1,6 +1,6 @@
 import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper';
 import { MDXImageWrapperProps } from 'components/@shared/MDXImageWrapper/MDXImageWrapper.type';
-import TestImage from 'images/테스트_이미지.jpeg';
+import TestImage from 'assets/images/테스트_이미지.jpeg';
 
 export default {
   title: '@shared/MDXImageWrapper',
