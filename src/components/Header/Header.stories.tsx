@@ -1,7 +1,7 @@
-import Header from 'components/@shared/Header/Header';
+import Header from 'components/Header/Header';
 
 export default {
-  title: '@shared/Header',
+  title: 'components/Header',
   component: Header,
 };
 

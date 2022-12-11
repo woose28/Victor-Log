@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css, useTheme } from '@emotion/react';
 import { FlexBox, Text } from 'components';
-import { DISPLAY, LAYER } from 'styles/css';
+import { DISPLAY } from 'styles/css';
 
 const Footer = () => {
   const theme = useTheme();

@@ -1,7 +1,7 @@
-import Footer from 'components/@shared/Footer/Footer';
+import Footer from 'components/Footer/Footer';
 
 export default {
-  title: '@shared/Footer',
+  title: 'components/Footer',
   component: Footer,
 };
 

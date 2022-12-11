@@ -4,7 +4,7 @@ import { Global, css } from '@emotion/react';
 
 import { theme } from 'styles/theme';
 import { style } from 'styles/global';
-import { LayoutProps } from 'components/@shared/Layout/Layout.type';
+import { LayoutProps } from 'components/Layout/Layout.type';
 import { Footer, Header, MDXStyleProvider } from 'components';
 import { DISPLAY } from 'styles/css';
 
