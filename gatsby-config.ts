@@ -38,6 +38,13 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-images`,
           },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'static',
+              ignoreFileExtensions: [`png`, `jpeg`],
+            },
+          },
         ],
       },
     },

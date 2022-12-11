@@ -32,6 +32,10 @@ const ImageWrapper = styled.div`
     span {
       max-width: none !important;
     }
+
+    img {
+      max-width: 100%;
+    }
   `}
 `;
 
