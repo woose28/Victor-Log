@@ -18,6 +18,10 @@ export const style = css`
     height: 100%;
   }
 
+  body {
+    font-family: sans-serif;
+  }
+
   li {
     list-style: none;
   }
