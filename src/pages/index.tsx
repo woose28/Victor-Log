@@ -1,5 +1,9 @@
+import { navigate } from 'gatsby';
+
 const IndexPage = () => {
-  return <span>메인 페이지</span>;
+  navigate('/post');
+
+  return null;
 };
 
 export default IndexPage;
