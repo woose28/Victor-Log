@@ -2,6 +2,8 @@ import { Global, ThemeProvider } from '@emotion/react';
 import { theme } from '../src/styles/theme';
 import { style } from '../src/styles/global';
 
+global.__BASE_PATH__ = '/';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
