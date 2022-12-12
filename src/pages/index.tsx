@@ -1,7 +1,11 @@
 import { navigate } from 'gatsby';
 
+const isBrowser = typeof window !== 'undefined';
+
 const IndexPage = () => {
-  navigate('/post');
+  if (isBrowser) {
+    navigate('/post');
+  }
 
   return null;
 };
