@@ -1,3 +1,4 @@
+import CenterLayout from 'layouts/CenterLayout/CenterLayout';
 import MainLayout from 'layouts/MainLayout/MainLayout';
 
-export { MainLayout };
+export { CenterLayout, MainLayout };

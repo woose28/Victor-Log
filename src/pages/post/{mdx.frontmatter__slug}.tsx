@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
+import { CenterLayout } from 'layouts';
 import { FlexBox, Text } from 'components';
 import { HeroImage, TagList } from 'pages/post/components';
 import { usePostDetailPage } from 'pages/post/usePostDetailPage';
@@ -12,38 +13,40 @@ const PostDetailPage = ({ data, children }) => {
   const { theme } = usePostDetailPage();
 
   return (
-    <PageWrapper flexDirection="column" alignItems="center">
-      <Text as="p" size={40} color={theme.color.onBackground} fontWeight="bold">
-        {title}
-      </Text>
-      <Text as="p" color={theme.color.onBackground}>
-        {date}
-      </Text>
-      <TagList
-        tags={tags}
-        style={{
-          marginTop: '10px',
-        }}
-      />
-      <HeroImage
-        hero_image={hero_image}
-        hero_image_alt={hero_image_alt}
-        style={{
-          width: '100%',
-          aspectRatio: '1.618',
-          marginTop: '35px',
-        }}
-      />
-      <ContentWrapper>{children}</ContentWrapper>
-      <Divider />
-      <TagList
-        tags={tags}
-        style={{
-          alignSelf: 'flex-start',
-          marginTop: '25px',
-        }}
-      />
-    </PageWrapper>
+    <CenterLayout>
+      <PageWrapper flexDirection="column" alignItems="center">
+        <Text as="p" size={40} color={theme.color.onBackground} fontWeight="bold">
+          {title}
+        </Text>
+        <Text as="p" color={theme.color.onBackground}>
+          {date}
+        </Text>
+        <TagList
+          tags={tags}
+          style={{
+            marginTop: '10px',
+          }}
+        />
+        <HeroImage
+          hero_image={hero_image}
+          hero_image_alt={hero_image_alt}
+          style={{
+            width: '100%',
+            aspectRatio: '1.618',
+            marginTop: '35px',
+          }}
+        />
+        <ContentWrapper>{children}</ContentWrapper>
+        <Divider />
+        <TagList
+          tags={tags}
+          style={{
+            alignSelf: 'flex-start',
+            marginTop: '25px',
+          }}
+        />
+      </PageWrapper>
+    </CenterLayout>
   );
 };
 
