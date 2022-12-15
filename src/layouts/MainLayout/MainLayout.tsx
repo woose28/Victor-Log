@@ -4,11 +4,11 @@ import { Global, css } from '@emotion/react';
 
 import { theme } from 'styles/theme';
 import { style } from 'styles/global';
-import { LayoutProps } from 'components/Layout/Layout.type';
+import { MainLayoutProps } from 'layouts/MainLayout/MainLayout.type';
 import { Footer, Header, MDXStyleProvider } from 'components';
 import { DISPLAY } from 'styles/css';
 
-const Layout = ({ children }: LayoutProps) => {
+const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <Wrapper>
       <Global styles={style} />
@@ -23,7 +23,7 @@ const Layout = ({ children }: LayoutProps) => {
   );
 };
 
-export default Layout;
+export default MainLayout;
 
 const Wrapper = styled.div`
   min-width: 375px;
