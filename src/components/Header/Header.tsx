@@ -2,24 +2,25 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { useTheme } from '@emotion/react';
 import Link from 'gatsby-link';
+import { HeaderProps } from 'components/Header/Header.type';
 import { FlexBox, Text } from 'components';
 import { DISPLAY, LAYER } from 'styles/css';
 
-const Header = () => {
+const Header = ({ backgroundColor }: HeaderProps) => {
   const theme = useTheme();
 
   return (
-    <Wrapper as="header" alignItems="center">
+    <Wrapper as="header" style={{ backgroundColor }} alignItems="center">
       <NavLink style={{ flexGrow: 1 }} to="/post">
         <Text size={20} color={theme.color.primary} fontWeight="bold">
           VICTOR LOG
         </Text>
       </NavLink>
-      {/* <NavLink style={{ marginRight: '2.813rem' }} to="/about">
+      <NavLink style={{ marginRight: '2.813rem' }} to="/about">
         <Text size={16} color={theme.color.primary}>
           About
         </Text>
-      </NavLink> */}
+      </NavLink>
       <NavLink to="/post">
         <Text size={16} color={theme.color.primary}>
           Post
