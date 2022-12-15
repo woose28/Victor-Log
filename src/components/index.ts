@@ -5,6 +5,5 @@ import Text from 'components/@shared/Text/Text';
 import ToggleList from 'components/@shared/ToggleList/ToggleList';
 import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
-import Layout from 'components/Layout/Layout';
 
-export { FlexBox, MDXImageWrapper, MDXStyleProvider, Text, ToggleList, Footer, Header, Layout };
+export { FlexBox, MDXImageWrapper, MDXStyleProvider, Text, ToggleList, Footer, Header };
