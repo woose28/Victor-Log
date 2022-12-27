@@ -1,0 +1,147 @@
+---
+title: 'HTTP Cache'
+date: '2022-09-02'
+slug: 'http-cache'
+tags: ['Web', 'HTTP']
+hero_image: './assets/HTTP_Cache_히어로_이미지.jpeg'
+hero_image_alt: 'HTTP Cache 히어로 이미지'
+---
+
+## 들어가며
+
+웹 성능 최적화와 관련해서 공부하면서 Network 요청에 대한 횟수를 줄이는 방법에 대해 찾아보았다.
+
+HTTP 프로토콜에서고 Cache설정을 할 수있는 걸 알게됐다. 따라서 이번 글에서는 HTTP Cache에 대해 정리하려 한다.
+
+<br/>
+
+## HTTP Cache란?
+
+> 웹 사이트와 애플리케이션의 성능은 이전에 가져온 리소스들을 재사용함으로써 현저하게 향상될 수 있습니다. 웹 캐시는 레이턴시와 네트워크 트래픽을 줄여줌으로써 리소스를 보여주는 데에 필요한 시간을 줄여줍니다.
+> 
+
+MDN 문서에 HTTP Cache에 대해 위와 같이 정의돼 있다. 캐시는 이미 한 번 요청한 데이터를 별도의 저장 공간에 저장해두고, 다음번에 동일한 데이터가 필요할 때 미리 저장한 데이터를 다시 활용하는 방법이다. 덕분에 클라이언트에서 서버로 요청하는 횟수를 줄일 수 있다.
+
+<br/>
+
+## Cache-Control 헤더
+
+> [Cache-Control](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Cache-Control) HTTP/1.1 기본 헤더 필드는 요청과 응답 양측 모두에 있어 캐싱 메커니즘을 위한 디렉티브를 지정하는데 사용됩니다.
+> 
+
+[MDN 문서](https://developer.mozilla.org/ko/docs/Web/HTTP/Caching#%EC%BA%90%EC%8B%B1_%EC%A0%9C%EC%96%B4)에 Cache-Control에 대해 위와 같이 정의돼 있다. 즉, HTTP 응답 헤더에 Cache-Control을 속성을 사용하면 서버에서 데이터를 반환할 때, 해당 데이터를 캐시에 저장하라고 브라우저에게 알려줄 수 있다.
+
+Cache-Control 필드에 대한 자세한 값 설정은 Cache-Control에 대한 자세한 옵션은 MDN 문서에서 확인 가능하다. 해당 게시글에서는 몇 가지 옵션에 대해서만 정리하려 한다.
+
+<br/>
+
+### max-age
+
+캐시의 상태는 두 가지가 있다.
+
+- fresh: 캐시된 데이터가 유효한 상태이다. 즉, 재사용할 수 있는 상태이다.
+- stale: 캐시된 데이터가 유효하지 않은 상태이다. 해당 상태의 데이터는 검증이 필요하다.
+
+max-age 옵션의 캐시된 데이터가 어느 시간만큼 fresh 상태로 유지되는지 설정하는 옵션이다.
+
+초 단위로 값이 지정된다. 604800초(=1주일)로 값이 지정돼 있으면 해당 캐시는 1주일 동안 fresh하다는 것을 의미한다.
+
+❗️Cache-Control의 옵션은 아니지만, header의 `Expires` 속성을 지정할 수 있다. 해당 속성 또한 캐시가 유효한 시간을 나타내지만, 날짜 형식으로 값을 지정한다. `Cache-Contor: max-age`와 함께 사용되면 `Cache-Contor: max-age`가 우선 적용된다.
+
+<br/>
+
+### no-cache와 no-store
+
+데이터를 캐시하지 않도록 `Cache-Control` 속성에 값을 설정할 수 있다. 이와 관련해서 지정할 수 있는 값은 아래와 같다.
+
+- no-store
+    - `Cache-Control` 속성에 해당 값이 지정돼 있으면 캐시를 저장하지 않는다.
+    - 따라서 이전에 요청한 리소스를 다시 요청해도, 서버에 새로 요청을 보낸다.
+- no-cache
+    - `Cache-Control` 속성에 해당 값이 지정돼 있으면 캐시를 저장하지만, 캐시된 데이터를 사용할 때마다 브라우저에 검증하는 절차를 거친다.
+    - fresh한 캐시 데이터를 다시 사용할 때도 서버에 검증하는 절차를 거친다.
+    - `no-store`와 차이가 없어 보이지만, 서버에서 유효한 데이터로 판정을 받으면 304로 응답이 반환되기 때문에 캐시로 인한 비용 절감 효과가 존재하긴 한다.
+
+<br/>
+
+### Private Cache와 Shared Cache
+
+**Private Cache**
+
+개인적인 컨텐츠를 캐싱할 때 사용하는 옵션이다. 해당 옵션이 지정돼 있으면 브라우저에는 파일을 캐시할 수 있지만 중간에는 캐시할 수 없다. Private Cache 다음과 같이 Cache-Control 헤더에 private 값을 사용하면 설정할 수 있다.
+
+```tsx
+Cache-Control: private
+```
+
+<br/>
+
+**Shared Cache**
+
+shared Cache는 client와 server 사이에 저장되는 캐시를 의미한다. 따라서 여러 사용자가 shared Cache된 컨텐츠를 사용할 수 있다. Shared Cache는 Proxy cache와 Managed cache로 다시 분류된다.
+
+- **Proxy caches**
+    - forward proxy에서 저장되는 캐시이다.
+
+- **Managed caches**
+    - CDN, reverse proxy, service worker 등에 저장되는 캐시이다.
+
+<br/>
+
+## Vary
+
+캐시된 데이터를 구분할 때, 보통 URL을 사용한다. 하지만 때때로 다른 header 속성 또한 캐시 분리의 기준으로 사용될 필요가 있다. 예를 들어 여러 언어를 지원하는 서비스의 경우 같은 URL의 리소스라도 `Accept-Language` 의 값에 따라 리소스를 캐싱할 필요가 있다.
+
+이런 경우 header에 `[Vary](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Vary)` 속성을 사용할 수 있다. `Vary` 속성에 `Accept-Language` 을 지정하면 브라우저는 URL 뿐만 아니라 요청 헤더의 `Accept-Language` 값에 따라 캐시된 데이터를 구분해서 저장한다.
+
+조금 더 명확한 사용 예시는 아래의 문서에서 확인가능하다.
+
+[HTTP caching - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#vary)
+
+<br/>
+
+## ETag / **Last-Modified**
+
+캐시된 데이터가 stale 됐을 때, 브라우저는 서버로 해당 캐시 데이터가 여전히 유효한지 검증 요청을 보낼 수 있다. stale된 캐시 데이터의 유효성 여부를 검증할 때 사용하는 header 속성으로는 `ETag` 와 `Last-Modified` 속성이 있다. 각 속성에 대한 설명은 아래와 같다.
+
+- ETag
+    - 리소스 마다 지정된 고유 값이다. 해당 값은 서버에서 임의로 지정할 수 있다.
+    - 서버는 리소스에 변경이 생기면 ETag 값을 갱신해야한다. 그 후 다시 요청이 들어왔을 때, 갱신된 리소스와 ETag 값을 응답으로 반환한다.
+    - 클라이언트에서 서버로 캐시된 데이터의 검증을 요청할 때, 요청 헤더에 `If-None-Match` 속성에 캐시된 요청의 ETag 값을 담아 보낸다. 서버는 `If-None-Match` 속성에 지정된 값을 확인한 후 현재 리소스의 ETag와 값을 비교한다. 만약 현재 리소스의 ETag와 같다면 304 코드와 함께 새로운 `Cache-Conrol` 속성에 max-age 값을 지정해서 반환한다.
+- Last-Modified
+    - stale된 데이터를 유효성을 검증할 때, 시간을 기준으로 판단한다.
+    - Last-Modifed는 리소스가 수정된 최근 시간을 값으로 갖고있다.
+    - 클라이언트에서 서버로 캐시된 데이터의 검증을 요청할 때, 요청 헤더에 `If-Modified-Since` 속성에 캐시된 요청의 Last-Modified 값을 담아 보낸다. 서버는 `If-Modified-Since` 속성에 지정된 값을 확인한 후 현재 리소스의 Last-Modified 값과 비교한다. 만약, 현재 리소스의 Last-Modified와 같다면 304 코드와 함께 새로운 `Cache-Conrol` 속성에 max-age 값을 지정해서 반환한다.
+
+💡ETag와 Last-Modified가 동시에 사용된다면 ETag의 우선순위가 더 높다. 둘 중에 하나의 속성만 사용해도 캐시된 데이터의 검증 기능을 수행할 수 있지만, 아래의 이유로 둘 다 사용하는 게 권장된다.
+
+> `Last-Modified` is not just useful for caching; instead, it is a standard HTTP header that is also used by content-management (CMS) systems to display the last-modified time, by crawlers to adjust crawl frequency, and for other various purposes. So considering the overall HTTP ecosystem, it is preferable to provide both `ETag` and `Last-Modified`.
+> 
+
+<br/>
+
+## +) **[Heuristic caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#heuristic_caching)**
+
+응답 헤더에 `Cache-Conrol` 속성이 명시되지 않아도, 어떤 조건이 만족했을 때 응답 데이터를 캐싱을 하게된다. 이를 Heuristic caching이라고한다.
+
+<br/>
+
+## 요약
+
+1. HTTP 리소스에 대한 캐시는 Cache-Control 헤더 옵션으로 설정할 수 있다.
+2. max-age 옵션을 설정하면 응답 리소스의 캐시 시간을 설정할 수 있다.
+3. no-store는 캐시를 하지 않는다는 의미이다. no-cache는 응답을 캐시 하지만 요청 마다 서버에 검증받는다는 의미이다.
+4. private는 리소스를 Private Cache로 저장하겠다는 의미이다. 반면, public은 Shared Cache를 의미한다.
+5. 캐시가 만료되면 fresh 상태에서 stale 상태가 된다. stale된 상태의 리소스가 유효한지 검증하기 위해 요청 헤더에 `If-Modified-Since` 속성 또는 `If-None-Match` 속성을 사용한다. 만약 여전히 리소스가 유효하다면 `304 Not Modified` 응답을 반환한다.
+    1. 만약 캐시 데이터의 응답 헤더에 `Last-Modified` 속성이 있다면 캐시를 검증할 때 요청 헤더에 `If-Modified-Since` 속성을 사용한다.
+    2. 반면 캐시 데이터의 응답 헤더에 `ETag` 속성이 있다면 캐시를 검증할 때 요청 헤더에 `If-None-Match` 속성을 사용한다.
+
+<br/>
+
+## 참고 자료
+
+[HTTP caching - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
+
+[HTTP caching - HTTP | MDN](https://developer.mozilla.org/ko/docs/Web/HTTP/Caching)
+
+[HTTP Cache로 불필요한 네트워크 요청 방지](https://web.dev/i18n/ko/http-cache/)
