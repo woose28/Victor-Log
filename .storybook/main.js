@@ -1,4 +1,5 @@
 const path = require('path');
+const { setEmotionReact } = require('./utils');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -14,6 +15,8 @@ module.exports = {
   webpackFinal: async (config) => {
     // '../src'는 현재 파일 위치에서 baseUrl로 설정한 위치까지의 상대 경로가 들어간다.
     config.resolve.modules = [...config.resolve.modules, path.resolve(__dirname, '../src')];
+
+    setEmotionReact(config);
 
     return config;
   },
