@@ -1,0 +1,119 @@
+---
+title: '렌더링 방식(CSR, SSR, SSG, ISR 그리고 Next.js)'
+date: '2022-12-28'
+slug: 'rendering-kind'
+tags: ['Web', 'Next.js']
+hero_image: './assets/렌더링_방식(CSR,_SSR,_SSG,_ISR_그리고_Next.js)_히어로_이미지.jpeg'
+hero_image_alt: '렌더링 방식(CSR, SSR, SSG, ISR 그리고 Next.js) 히어로 이미지'
+---
+## 렌더링이란?
+
+렌더링이란 렌더링 엔진에 의해 HTML 문서 요소를 실제 화면에 그리는 작업을 의미하기도 한다. 하지만, 해당 글에서의 렌더링은 화면에 보일 HTML 문서를 완성하는 작업을 의미한다.
+
+<br />
+
+## CSR: SPA가 주목받기 시작
+
+CSR은 화면에 그려질 HTML 문서를 Javascript를 이용해서 클라이언트 사이드에서 완성하는 방식이다. 클라이언트에서 서버로 처음 요청할 때 HTML 문서를 응답으로 받고 렌더링에 필요한 Javascript 코드를 요청한다.
+
+<br />
+
+### 장점
+
+- 상태 값이 변해도 HTML 문서 전부를 새로 만드는 것이 아니기 때문에 사용자 경험이 좋다.
+- 서버에 요청을 보내는 횟수가 적기 때문에 비교적 서버 부하가 적다.
+
+<br />
+
+### 단점
+
+- 초기 렌더링 속도가 느리다.
+    - 이를 해결하기 위해 Javascript 코드를 chunk 단위로 나눌 수 있다.
+- Javascript를 실행시킬 수 없는 검색 엔진에서는 SEO 문제가 발생할 수 있다.
+
+<br />
+
+## SSR: 전통적인 렌더링 방식
+
+SSR은 가장 전통적인 렌더링 방식이다. 클라이언트는 서버로부터 화면에 그릴 완전한 HTML 문서를 전달받는다. 즉, 서버에서 완전한 HTML 문서를 만들어서 클라이언트에 전달하는 방식이다.(MPA 방식)
+
+전통적인 SSR 방식의 장단점은 다음과 같다.
+
+<br />
+
+### 장점
+
+- 초기 렌더링 속도가 빠르다.
+- SEO 측면에서 유리
+
+<br />
+
+### 단점
+
+- 웹 페이지의 상태 값을 변경할 때 서버로부터 다시 새로운 HTML 문서를 요청하기 때문에 화면이 깜빡거리는 등 사용자 경험이 떨어질 수 있다.
+- 상태 값을 변경할 때마다 서버에 요청을 보내기 때문에 서버 부하가 심해질 수 있다.
+
+<br />
+
+## SSG: 정적인 사이트에 적합한 렌더링 방식
+
+SSG 방식은 빌드 시 페이지를 렌더링하는 방식이다. 요청이 들어올 때마다 렌더링하는 SSR 방식과는 차이가 있다.
+
+<br />
+
+### 장점
+
+- SSR이 가진 장점을 모두 가진다.
+- 클라이언트 요청 후 이미 만들어진 HTML 문서를 제공만 하므로 SSR 방식보다 속도가 빠르다.
+
+<br />
+
+### 단점
+
+- HTML 문서에 변경 사항이 있다면 프로젝트를 다시 빌드해야 한다.
+- 정적인 데이터만 보여주기 때문에 동적인 데이터를 표현해야 하는 페이지에는 적합하지 않다.
+
+<br />
+
+## ISR: 너무 정적이면 안 된다.
+
+SSR과 SSG를 혼합한 렌더링 방식이다. SSG 방식처럼 빌드 시에 HTML 문서를 렌더링한다. 따라서 클라이언트로부터 요청이 들어오면 미리 렌더링 된 HTML 문서를 제공한다. 하지만 설정한 시간 이후에 들어온 요청에 대해서는 SSR 방식처럼 새로운 HTMl 문서를 렌더링해서 응답한다. 
+
+<br />
+
+### 장점
+
+- SSG와 다르게 페이지에 변경 사항이 있어도 프로젝트를 다시 빌드할 필요가 없다.
+
+<br />
+
+### 단점
+
+- SSR처럼 요청마다 페이지를 생성하는 것이 아니기 때문에, 실시간 데이터를 보여줘야하는 페이지에는 적합하지 않다.
+
+<br />
+
+## Next.js의 SSR, ISR, SSG
+
+Next.js의 공식 문서에 따르면 SSR, ISR, SSG는 미리 페이지를 렌더링한다는 의미에서 pre-rendering 방식이라고 언급된다.
+
+Next.js는 React 기반 프레임워크이기 때문에 React. 따라서 Next.js를 이용하면 pre-rendering 방식으로 페이지를 렌더링해도 MPA가 아닌 SPA 방식으로 서비스를 제공할 수 있다.
+
+💡 [ReactDOMServer](https://reactjs.org/docs/react-dom-server.html)의 함수를 이용하면 React 컴포넌트를 static markup으로 렌더링할 수 있다. 렌더링한 페이지를 client에 제공하고 [hydrateRoot()](https://reactjs.org/docs/react-dom-client.html#hydrateroot) 를 통해 정적인 요소에 이벤트를 바인딩하면 Next.js를 사용하지 않고도 React만으로 pre-rendering을 할 수 있을 것으로 예상한다.
+
+이렇게 페이지를 pre-rendering 하면서 SPA로 서비스를 제공하면 아래와 같은 장점이 있다.
+
+<br />
+
+### 장점
+
+- pre-rendering을 한 덕분에 SEO에 적합하며 초기 로딩 속도가 빠르다.
+- 페이지가 SPA 방식으로 동작하기 때문에 페이지의 상태 값이 변해도 사용자 경험을 해치지 않는다.
+
+<br />
+
+## 참고 자료
+
+[Frontend Rendering: SSG vs ISG vs SSR vs CSR — When to use which? - Tapajyoti Bose](https://tapajyoti-bose.medium.com/frontend-rendering-ssg-vs-isg-vs-ssr-vs-csr-when-to-use-which-1bf9f39ff07c)
+
+[Pre-rendering -next.js](https://nextjs.org/docs/basic-features/pages#pre-rendering)
