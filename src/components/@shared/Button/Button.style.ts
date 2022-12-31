@@ -6,7 +6,7 @@ const getVariantStyle: GetVariantStyles = (theme, variant) => {
   const variantStyles = {
     primary: css`
       background-color: ${theme.color.primary};
-      border: none;
+      border: 0.5px solid ${theme.color.primary};
       color: ${theme.color.secondary};
 
       &:hover {
@@ -22,7 +22,7 @@ const getVariantStyle: GetVariantStyles = (theme, variant) => {
 
       &:hover {
         background-color: ${theme.color.primary};
-        border: none;
+        border: 0.5px solid ${theme.color.primary};
         color: ${theme.color.secondary};
       }
     `,
