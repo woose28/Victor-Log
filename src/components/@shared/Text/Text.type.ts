@@ -1,7 +1,9 @@
 import { AvailableColor, FontSize, FontWeight } from 'styles/type';
 
-export interface TextProps {
+type TextProps = {
   size?: FontSize;
   color: AvailableColor;
   fontWeight?: FontWeight;
-}
+};
+
+export { TextProps };
