@@ -1,6 +1,7 @@
 import Button from 'components/@shared/Button/Button';
 import FlexBox from 'components/@shared/FlexBox/FlexBox';
 import FloatingButton from 'components/@shared/FloatingButton/FloatingButton';
+import FloatingScrollButton from 'components/@shared/FloatingScrollButton/FloatingScrollButton';
 import Lottie from 'components/@shared/Lottie/Lottie';
 import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper';
 import MDXStyleProvider from 'components/@shared/MDXStyleProvider/MDXStyleProvider';
@@ -15,6 +16,7 @@ export {
   Button,
   FlexBox,
   FloatingButton,
+  FloatingScrollButton,
   Lottie,
   MDXImageWrapper,
   MDXStyleProvider,
