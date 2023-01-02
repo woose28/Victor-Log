@@ -7,6 +7,7 @@ import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper'
 import MDXStyleProvider from 'components/@shared/MDXStyleProvider/MDXStyleProvider';
 import MountFadeInAnimation from 'components/@shared/MountFadeInAnimation/MountFadeInAnimation';
 import ScrollFadeInAnimation from 'components/@shared/ScrollFadeInAnimation/ScrollFadeInAnimation';
+import UnderlineText from 'components/@shared/UnderlineText/UnderlineText';
 import Text from 'components/@shared/Text/Text';
 import ToggleList from 'components/@shared/ToggleList/ToggleList';
 import Footer from 'components/Footer/Footer';
@@ -22,6 +23,7 @@ export {
   MDXStyleProvider,
   MountFadeInAnimation,
   ScrollFadeInAnimation,
+  UnderlineText,
   Text,
   ToggleList,
   Footer,
