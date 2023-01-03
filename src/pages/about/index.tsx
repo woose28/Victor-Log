@@ -2,11 +2,18 @@ import { useTheme } from '@emotion/react';
 import { useAboutPage } from 'pages/about/useAboutPage';
 import { FullLayout } from 'layouts';
 import { MountFadeInAnimation, FloatingScrollButton, UnderlineText, FlexBox } from 'components';
-import { SkillItemProps } from 'pages/about/aboutPage.type';
+import { SkillItemProps, TechExperienceItemProps } from 'pages/about/aboutPage.type';
 import * as Style from 'pages/about/aboutPage.style';
-import { SKILLS } from 'pages/about/aboutPage.constant';
+import { SKILLS, TECH_EXPERIENCES } from 'pages/about/aboutPage.constant';
 
-const { mountFadeInAnimationStyle, skillNameTextStyle, skillNameUnderlineStyle, ...Styled } = Style;
+const {
+  mountFadeInAnimationStyle,
+  skillNameTextStyle,
+  skillNameUnderlineStyle,
+  techExperienceSkillNameTextStyle,
+  techExperienceSkillNameUnderlineStyle,
+  ...Styled
+} = Style;
 
 const AboutPage = () => {
   const { theme } = useAboutPage();
@@ -19,6 +26,7 @@ const AboutPage = () => {
       <Styled.PageWrapper as="a">
         <IntroductionSection />
         <SkillsSection />
+        <TechExperienceSection />
         <Styled.SectionWrapper style={{ backgroundColor: theme.color.background }} />
         <Styled.SectionWrapper style={{ backgroundColor: theme.color.background }} />
         <Styled.SectionWrapper style={{ backgroundColor: theme.color.background }} />
@@ -107,11 +115,62 @@ const SkillItem = ({ name, description }: SkillItemProps) => {
       </UnderlineText>
       <FlexBox as="ul" flexDirection="column">
         {description.map((desc, index) => (
-          <Styled.SkillDescriptionItem as="li" key={index} color={theme.color.onBackground}>
+          <Styled.ListItemText as="li" key={index} color={theme.color.onBackground}>
             {desc}
-          </Styled.SkillDescriptionItem>
+          </Styled.ListItemText>
         ))}
       </FlexBox>
     </FlexBox>
+  );
+};
+
+const TechExperienceSection = () => {
+  const theme = useTheme();
+
+  return (
+    <Styled.TechExperienceSectionWrapper>
+      <Styled.SectionTitle color={theme.color.onBackground}>Tech Experience</Styled.SectionTitle>
+      <FlexBox as="ul" flexDirection="column" gap="30px">
+        {TECH_EXPERIENCES.map((experience, index) => (
+          <TechExperienceItem key={index} {...experience} />
+        ))}
+      </FlexBox>
+    </Styled.TechExperienceSectionWrapper>
+  );
+};
+
+const TechExperienceItem = ({ name, skills, description }: TechExperienceItemProps) => {
+  const theme = useTheme();
+
+  return (
+    <Styled.TechExperienceItemWrapper>
+      <Styled.TechExperienceItemInfoWrapper>
+        <Styled.TechExperienceItemName color={theme.color.onBackground}>
+          {name}
+        </Styled.TechExperienceItemName>
+        <Styled.TechExperienceSkillContainer as="ul" flexDirection="column" alignItems="flex-end">
+          {skills?.map((skill, index) => (
+            <UnderlineText
+              key={index}
+              customTextStyle={techExperienceSkillNameTextStyle}
+              customUnderlineStyle={techExperienceSkillNameUnderlineStyle}
+              color={theme.color.onBackground}
+              underlineColor={theme.color.primary}
+              underlineOpacity={0.5}
+              underlineThickness={0.2}
+            >
+              {skill}
+            </UnderlineText>
+          ))}
+        </Styled.TechExperienceSkillContainer>
+      </Styled.TechExperienceItemInfoWrapper>
+      <Styled.TechExperienceDescriptionContainer as="ul" flexDirection="column">
+        {description.map((desc, index) => (
+          <Styled.ListItemText as="li" key={index} color={theme.color.onBackground}>
+            {desc}
+          </Styled.ListItemText>
+        ))}
+      </Styled.TechExperienceDescriptionContainer>
+    </Styled.TechExperienceItemWrapper>
   );
 };

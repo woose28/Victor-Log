@@ -6,6 +6,8 @@ import { FlexBox, Text } from 'components';
 import {
   SKILL_NAME_FONT_SIZE_DEFAULT,
   SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX,
+  TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_DEFAULT,
+  TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX,
 } from 'pages/about/aboutPage.constant';
 import { UNDERLINE_BOTTOM_CORRECTION_VALUE } from 'components/@shared/UnderlineText/UnderlineText.constant';
 
@@ -27,6 +29,24 @@ const skillNameUnderlineStyle = css`
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
     bottom: ${SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX / UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
+  }
+`;
+
+const techExperienceSkillNameTextStyle = css`
+  font-size: ${convertPxToRem(TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_DEFAULT)}rem;
+  font-weight: 700;
+
+  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+    font-size: ${convertPxToRem(TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX)}rem;
+  }
+`;
+
+const techExperienceSkillNameUnderlineStyle = css`
+  bottom: ${TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_DEFAULT / UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
+
+  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+    bottom: ${TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX /
+    UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
   }
 `;
 
@@ -54,6 +74,23 @@ const SectionTitle = styled(Text)`
 const SectionDescription = styled(Text)`
   font-size: 1rem;
   font-weight: 500;
+
+  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+    font-size: 0.875rem;
+  }
+`;
+
+const ListItemText = styled(Text)`
+  position: relative;
+  font-size: 1rem;
+  padding: 3px 0 3px 1rem;
+
+  &::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    width: 1rem;
+  }
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
     font-size: 0.875rem;
@@ -145,31 +182,76 @@ const SkillContainer = styled(FlexBox)`
   margin-top: 35px;
 `;
 
-const SkillDescriptionItem = styled(Text)`
-  position: relative;
-  font-size: 1rem;
-  padding: 3px 0 3px 1rem;
-
-  &::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    width: 1rem;
-  }
+const TechExperienceSectionWrapper = styled(SectionWrapper)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  padding: 40px 90px;
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    font-size: 0.875rem;
+    padding: 40px 20px;
   }
+`;
+
+const TechExperienceItemWrapper = styled(FlexBox)`
+  display: flex;
+  justify-content: space-between;
+
+  @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
+    flex-direction: column;
+    justify-content: none;
+    align-items: center;
+    gap: 10px;
+  }
+`;
+
+const TechExperienceItemInfoWrapper = styled(FlexBox)`
+  width: 20%;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
+    width: 100%;
+    align-items: center;
+  }
+`;
+
+const TechExperienceItemName = styled(Text)`
+  font-size: 2rem;
+  font-weight: 500;
+
+  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+    font-size: 1.5rem;
+  }
+`;
+
+const TechExperienceSkillContainer = styled(FlexBox)`
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+`;
+
+const TechExperienceDescriptionContainer = styled(FlexBox)`
+  width: 75%;
 `;
 
 export {
   mountFadeInAnimationStyle,
   skillNameTextStyle,
   skillNameUnderlineStyle,
+  techExperienceSkillNameTextStyle,
+  techExperienceSkillNameUnderlineStyle,
   PageWrapper,
   SectionWrapper,
   SectionTitle,
   SectionDescription,
+  ListItemText,
   IntroductionMainText,
   IntroductionSubText,
   ContactLinkWrapper,
@@ -177,5 +259,10 @@ export {
   SkillsSectionWrapper,
   SkillsSectionInnerWrapper,
   SkillContainer,
-  SkillDescriptionItem,
+  TechExperienceSectionWrapper,
+  TechExperienceItemWrapper,
+  TechExperienceItemInfoWrapper,
+  TechExperienceItemName,
+  TechExperienceSkillContainer,
+  TechExperienceDescriptionContainer,
 };
