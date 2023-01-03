@@ -1,10 +1,12 @@
 import { useTheme } from '@emotion/react';
 import { useAboutPage } from 'pages/about/useAboutPage';
 import { FullLayout } from 'layouts';
-import { MountFadeInAnimation, FloatingScrollButton } from 'components';
+import { MountFadeInAnimation, FloatingScrollButton, UnderlineText, FlexBox } from 'components';
+import { SkillItemProps } from 'pages/about/aboutPage.type';
 import * as Style from 'pages/about/aboutPage.style';
+import { SKILLS } from 'pages/about/aboutPage.constant';
 
-const { mountFadeInAnimationStyle, ...Styled } = Style;
+const { mountFadeInAnimationStyle, skillNameTextStyle, skillNameUnderlineStyle, ...Styled } = Style;
 
 const AboutPage = () => {
   const { theme } = useAboutPage();
@@ -14,9 +16,9 @@ const AboutPage = () => {
       headerBackgroundColor={theme.color.secondary}
       mainBackgroundColor={theme.color.secondary}
     >
-      <Styled.PageWrapper>
+      <Styled.PageWrapper as="a">
         <IntroductionSection />
-        <Styled.SectionWrapper style={{ backgroundColor: theme.color.secondary }} />
+        <SkillsSection />
         <Styled.SectionWrapper style={{ backgroundColor: theme.color.background }} />
         <Styled.SectionWrapper style={{ backgroundColor: theme.color.background }} />
         <Styled.SectionWrapper style={{ backgroundColor: theme.color.background }} />
@@ -35,7 +37,7 @@ const IntroductionSection = () => {
 
   return (
     <Styled.SectionWrapper>
-      <Styled.IntroductionMainText as="p" color={theme.color.onSecondary}>
+      <Styled.IntroductionMainText as="h1" color={theme.color.onSecondary}>
         Frontend Developer
       </Styled.IntroductionMainText>
       <Styled.IntroductionSubText as="p" color={theme.color.subText}>
@@ -63,5 +65,53 @@ const IntroductionSection = () => {
         </Styled.ContactLinkWrapper>
       </MountFadeInAnimation>
     </Styled.SectionWrapper>
+  );
+};
+
+const SkillsSection = () => {
+  const theme = useTheme();
+
+  return (
+    <Styled.SkillsSectionWrapper>
+      <Styled.SkillsSectionInnerWrapper flexDirection="column">
+        <Styled.SectionTitle as="h2" color={theme.color.onBackground}>
+          Main Skills
+        </Styled.SectionTitle>
+        <Styled.SectionDescription color={theme.color.subText}>
+          강점이 되며 꾸준히 학습하고 있는 기술들 입니다.
+        </Styled.SectionDescription>
+        <Styled.SkillContainer as="ul" flexDirection="column" gap="35px">
+          {SKILLS.map((skill, index) => (
+            <SkillItem key={index} {...skill} />
+          ))}
+        </Styled.SkillContainer>
+      </Styled.SkillsSectionInnerWrapper>
+    </Styled.SkillsSectionWrapper>
+  );
+};
+
+const SkillItem = ({ name, description }: SkillItemProps) => {
+  const theme = useTheme();
+
+  return (
+    <FlexBox as="li" flexDirection="column">
+      <UnderlineText
+        customTextStyle={skillNameTextStyle}
+        customUnderlineStyle={skillNameUnderlineStyle}
+        color={theme.color.onBackground}
+        underlineColor={theme.color.primary}
+        underlineOpacity={0.5}
+        underlineThickness={0.2}
+      >
+        {name}
+      </UnderlineText>
+      <FlexBox as="ul" flexDirection="column">
+        {description.map((desc, index) => (
+          <Styled.SkillDescriptionItem as="li" key={index} color={theme.color.onBackground}>
+            {desc}
+          </Styled.SkillDescriptionItem>
+        ))}
+      </FlexBox>
+    </FlexBox>
   );
 };
