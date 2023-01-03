@@ -5,7 +5,8 @@ import { Text } from 'components';
 
 const UnderlineText = ({
   children,
-  customStyle,
+  customTextStyle,
+  customUnderlineStyle,
   underlineBottomPos,
   underlineColor,
   underlineOpacity,
@@ -15,10 +16,12 @@ const UnderlineText = ({
 }: PropsWithChildren<UnderlineTextProps>) => {
   return (
     <Styled.Wrapper>
-      <Text css={customStyle} size={size} {...restProps}>
+      <Text css={customTextStyle} size={size} {...restProps}>
         {children}
       </Text>
       <Styled.Underline
+        css={customUnderlineStyle}
+        size={size}
         underlineBottomPos={underlineBottomPos}
         underlineColor={underlineColor}
         underlineOpacity={underlineOpacity}
