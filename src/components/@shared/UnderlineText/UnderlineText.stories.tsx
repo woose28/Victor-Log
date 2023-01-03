@@ -22,6 +22,6 @@ DefaultText.args = {
   color: COLOR.BLACK_001,
   fontWeight: 'bold',
   underlineColor: COLOR.NAVY_BLUE_001,
-  underlineThickness: 8,
+  underlineThickness: 0.3,
   underlineOpacity: 0.5,
 };
