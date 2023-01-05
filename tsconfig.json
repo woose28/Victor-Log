@@ -106,6 +106,7 @@
     "./gatsby-node.ts",
     "./gatsby-config.ts",
     "./plugins/**/*",
-    "global.d.ts"
+    "global.d.ts",
+    "emotion.d.ts"
   ]
 }
