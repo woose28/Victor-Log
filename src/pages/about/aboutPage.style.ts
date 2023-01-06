@@ -3,11 +3,12 @@ import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
 import { convertPxToRem } from 'styles/util';
 import { FlexBox, Text } from 'components';
+import { ProjectItemWrapperProps } from 'pages/about/aboutPage.type';
 import {
-  SKILL_NAME_FONT_SIZE_DEFAULT,
-  SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX,
-  TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_DEFAULT,
-  TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX,
+  UNDERLINE_FONT_SIZE_LARGE_DEFAULT,
+  UNDERLINE_FONT_SIZE_LARGE_TABLET_HORIZONTAL_MAX,
+  UNDERLINE_FONT_SIZE_SMALL_DEFAULT,
+  UNDERLINE_FONT_SIZE_SMALL_TABLET_HORIZONTAL_MAX,
 } from 'pages/about/aboutPage.constant';
 import { UNDERLINE_BOTTOM_CORRECTION_VALUE } from 'components/@shared/UnderlineText/UnderlineText.constant';
 
@@ -15,37 +16,38 @@ const mountFadeInAnimationStyle = css`
   transition: 0.8s;
 `;
 
-const skillNameTextStyle = css`
-  font-size: ${convertPxToRem(SKILL_NAME_FONT_SIZE_DEFAULT)}rem;
+const skillNameLargeTextStyle = css`
+  font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_LARGE_DEFAULT)}rem;
   font-weight: 700;
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    font-size: ${convertPxToRem(SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX)}rem;
+    font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_LARGE_TABLET_HORIZONTAL_MAX)}rem;
   }
 `;
 
-const skillNameUnderlineStyle = css`
-  bottom: ${SKILL_NAME_FONT_SIZE_DEFAULT / UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
+const skillNameLargeUnderlineStyle = css`
+  bottom: ${UNDERLINE_FONT_SIZE_LARGE_DEFAULT / UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    bottom: ${SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX / UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
+    bottom: ${UNDERLINE_FONT_SIZE_LARGE_TABLET_HORIZONTAL_MAX /
+    UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
   }
 `;
 
-const techExperienceSkillNameTextStyle = css`
-  font-size: ${convertPxToRem(TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_DEFAULT)}rem;
+const skillNameSmallTextStyle = css`
+  font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_SMALL_DEFAULT)}rem;
   font-weight: 700;
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    font-size: ${convertPxToRem(TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX)}rem;
+    font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_SMALL_TABLET_HORIZONTAL_MAX)}rem;
   }
 `;
 
-const techExperienceSkillNameUnderlineStyle = css`
-  bottom: ${TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_DEFAULT / UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
+const skillNameSmallUnderlineStyle = css`
+  bottom: ${UNDERLINE_FONT_SIZE_SMALL_DEFAULT / UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    bottom: ${TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX /
+    bottom: ${UNDERLINE_FONT_SIZE_SMALL_TABLET_HORIZONTAL_MAX /
     UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
   }
 `;
@@ -59,7 +61,20 @@ const SectionWrapper = styled.section`
     width: 100%;
     min-height: calc(100vh - 64px); // 100vh - [height of Header]
     background-color: ${theme.color.secondary};
+
+    padding: 40px 90px;
+
+    @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+      padding: 40px 20px;
+    }
   `}
+`;
+
+const SectionWrapperFlex = styled(SectionWrapper)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
 `;
 
 const SectionTitle = styled(Text)`
@@ -80,21 +95,32 @@ const SectionDescription = styled(Text)`
   }
 `;
 
-const ListItemText = styled(Text)`
-  position: relative;
-  font-size: 1rem;
-  padding: 3px 0 3px 1rem;
+const ListItemText = styled.li`
+  ${({ theme }) => css`
+    position: relative;
+    padding: 3px 0 3px 1rem;
+    font-size: 1rem;
+    color: ${theme.color.onBackground};
 
-  &::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    width: 1rem;
-  }
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      width: 1rem;
+    }
 
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    font-size: 0.875rem;
-  }
+    @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+      font-size: 0.875rem;
+    }
+  `}
+`;
+
+const TextBox = styled.div`
+  ${({ theme }) => css`
+    background-color: ${theme.color.background};
+    border: 0.5px solid ${theme.color.primary};
+    border-radius: 10px;
+  `}
 `;
 
 const IntroductionMainText = styled(Text)`
@@ -156,14 +182,6 @@ const ContactLink = styled.a`
   `}
 `;
 
-const SkillsSectionWrapper = styled(SectionWrapper)`
-  padding: 40px 90px;
-
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    padding: 40px 20px;
-  }
-`;
-
 const SkillsSectionInnerWrapper = styled(FlexBox)`
   ${({ theme }) => css`
     min-height: 100%;
@@ -182,19 +200,7 @@ const SkillContainer = styled(FlexBox)`
   margin-top: 35px;
 `;
 
-const TechExperienceSectionWrapper = styled(SectionWrapper)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 70px;
-  padding: 40px 90px;
-
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    padding: 40px 20px;
-  }
-`;
-
-const TechExperienceItemWrapper = styled(FlexBox)`
+const TechExperienceItemWrapper = styled.li`
   display: flex;
   justify-content: space-between;
 
@@ -241,14 +247,110 @@ const TechExperienceDescriptionContainer = styled(FlexBox)`
   width: 75%;
 `;
 
+const ProjectContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+`;
+
+const ProjectItemWrapper = styled.li<ProjectItemWrapperProps>`
+  ${({ projectColor }) => css`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px;
+    flex-direction: row-reverse;
+
+    color: ${projectColor};
+
+    path {
+      fill: ${projectColor};
+    }
+
+    border-color: ${projectColor};
+  `}
+`;
+
+const ProjectItemInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+`;
+
+const ProjectItemNameWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+`;
+
+const ProjectItemName = styled.p`
+  font-size: 2rem;
+  font-weight: 700;
+
+  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+    font-size: 1.5rem;
+  }
+`;
+
+const ProjectItemSubText = styled.p`
+  ${({ theme }) => css`
+    font-size: 1rem;
+    font-weight: 500;
+    color: ${theme.color.subText};
+
+    @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+      font-size: 0.875rem;
+    }
+  `}
+`;
+
+const ProjectItemSkillContainer = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 15px;
+`;
+
+const ProjectItemExperienceContainer = styled(TextBox)`
+  margin-top: 15px;
+  padding: 10px 5px;
+  border-color: inherit;
+`;
+
+const ProjectItemLinkContainer = styled.ul`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+`;
+
+const ProjectItemLinkItem = styled.a`
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+
+const ProjectItemImage = styled.img`
+  align-self: center;
+  width: 300px;
+  aspect-ratio: 1;
+
+  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+    width: 200px;
+  }
+`;
+
 export {
   mountFadeInAnimationStyle,
-  skillNameTextStyle,
-  skillNameUnderlineStyle,
-  techExperienceSkillNameTextStyle,
-  techExperienceSkillNameUnderlineStyle,
+  skillNameLargeTextStyle,
+  skillNameLargeUnderlineStyle,
+  skillNameSmallTextStyle,
+  skillNameSmallUnderlineStyle,
   PageWrapper,
   SectionWrapper,
+  SectionWrapperFlex,
   SectionTitle,
   SectionDescription,
   ListItemText,
@@ -256,13 +358,22 @@ export {
   IntroductionSubText,
   ContactLinkWrapper,
   ContactLink,
-  SkillsSectionWrapper,
   SkillsSectionInnerWrapper,
   SkillContainer,
-  TechExperienceSectionWrapper,
   TechExperienceItemWrapper,
   TechExperienceItemInfoWrapper,
   TechExperienceItemName,
   TechExperienceSkillContainer,
   TechExperienceDescriptionContainer,
+  ProjectContainer,
+  ProjectItemWrapper,
+  ProjectItemInfoWrapper,
+  ProjectItemNameWrapper,
+  ProjectItemName,
+  ProjectItemSubText,
+  ProjectItemSkillContainer,
+  ProjectItemExperienceContainer,
+  ProjectItemLinkContainer,
+  ProjectItemLinkItem,
+  ProjectItemImage,
 };

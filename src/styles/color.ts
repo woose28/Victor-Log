@@ -1,7 +1,6 @@
 export default {
-  NAVY_BLUE_001: '#5D69F0',
-
   BLACK_001: '#333333',
+  BLACK_002: '#000000',
 
   GRAY_001: '#AEAEAE',
   GRAY_002: '#f6f8fa',
@@ -9,4 +8,10 @@ export default {
 
   WHITE_001: '#FFFFFF',
   WHITE_002: '#FAFAFF',
+
+  ORANGE_001: '#F0582B',
+
+  NAVY_BLUE_001: '#5D69F0',
+
+  PURPLE_001: '#7B61FF',
 };

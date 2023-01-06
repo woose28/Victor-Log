@@ -20,5 +20,9 @@ export const theme = {
     tableBorder: COLOR.GRAY_003,
     toggleListSummaryBackground: COLOR.GRAY_003,
     mdxImageWrapperBorder: COLOR.GRAY_003,
+
+    projectColorSmody: COLOR.PURPLE_001,
+    projectColorAtsay: COLOR.BLACK_002,
+    projectColorDonggukAlrimi: COLOR.ORANGE_001,
   },
 };
