@@ -3,12 +3,13 @@ import { useAboutPage } from 'pages/about/useAboutPage';
 import { FullLayout } from 'layouts';
 import { MountFadeInAnimation, FloatingScrollButton, UnderlineText, FlexBox } from 'components';
 import {
+  EducationItemProps,
   ProjectItemProps,
   SkillItemProps,
   TechExperienceItemProps,
 } from 'pages/about/aboutPage.type';
 import * as Style from 'pages/about/aboutPage.style';
-import { SKILLS, TECH_EXPERIENCES, PROJECTS } from 'pages/about/aboutPage.constant';
+import { SKILLS, TECH_EXPERIENCES, PROJECTS, EDUCATION } from 'pages/about/aboutPage.constant';
 import { useProjectItem } from 'pages/about/useProjectItem';
 
 const {
@@ -33,6 +34,7 @@ const AboutPage = () => {
         <SkillsSection />
         <TechExperienceSection />
         <ProjectsSection />
+        <EducationSection />
         <FloatingScrollButton />
       </Styled.PageWrapper>
     </FullLayout>
@@ -204,19 +206,19 @@ const ProjectItem = ({
   return (
     <Styled.ProjectItemWrapper projectColor={projectColor}>
       <Styled.ProjectItemInfoWrapper>
-        <Styled.ProjectItemNameWrapper>
-          <Styled.ProjectItemName>{name}</Styled.ProjectItemName>
-          <Styled.ProjectItemSubText>
+        <Styled.ListItemNameWrapper>
+          <Styled.ListItemName>{name}</Styled.ListItemName>
+          <Styled.ListItemSubText>
             {date.start} ~ {date.end}
-          </Styled.ProjectItemSubText>
-        </Styled.ProjectItemNameWrapper>
-        <Styled.ProjectItemSubText
+          </Styled.ListItemSubText>
+        </Styled.ListItemNameWrapper>
+        <Styled.ListItemSubText
           css={css`
             margin-top: 10px;
           `}
         >
           {description}
-        </Styled.ProjectItemSubText>
+        </Styled.ListItemSubText>
         <Styled.ProjectItemSkillContainer>
           {skills.map((skill, index) => (
             <li key={index}>
@@ -233,11 +235,11 @@ const ProjectItem = ({
             </li>
           ))}
         </Styled.ProjectItemSkillContainer>
-        <Styled.ProjectItemExperienceContainer as="ul">
+        <Styled.ListItemTextContainer as="ul">
           {experiences.map((experience, index) => (
             <Styled.ListItemText key={index}>{experience}</Styled.ListItemText>
           ))}
-        </Styled.ProjectItemExperienceContainer>
+        </Styled.ListItemTextContainer>
         <Styled.ProjectItemLinkContainer>
           {links.map(({ type, url }, index) => (
             <li key={index}>
@@ -250,5 +252,56 @@ const ProjectItem = ({
       </Styled.ProjectItemInfoWrapper>
       <Styled.ProjectItemImage src={image} alt={`${name} 이미지`} />
     </Styled.ProjectItemWrapper>
+  );
+};
+
+const EducationSection = () => {
+  const theme = useTheme();
+
+  return (
+    <Styled.SectionWrapperFlex>
+      <Styled.SectionTitle color={theme.color.onBackground}>Education</Styled.SectionTitle>
+      <Styled.EducationContainer>
+        {EDUCATION.map((education, index) => (
+          <li key={index}>
+            <EducationItem {...education} />
+          </li>
+        ))}
+      </Styled.EducationContainer>
+    </Styled.SectionWrapperFlex>
+  );
+};
+
+const EducationItem = ({ name, date, description, information }: EducationItemProps) => {
+  const theme = useTheme();
+
+  return (
+    <Styled.EducationItemWrapper>
+      <Styled.ListItemNameWrapper>
+        <Styled.ListItemName>{name}</Styled.ListItemName>
+        <Styled.ListItemSubText>
+          {date.start} ~ {date.end}
+        </Styled.ListItemSubText>
+      </Styled.ListItemNameWrapper>
+      {description && (
+        <Styled.ListItemSubText
+          css={css`
+            margin-top: 10px;
+          `}
+        >
+          {description}
+        </Styled.ListItemSubText>
+      )}
+      <Styled.ListItemTextContainer
+        as="ul"
+        css={css`
+          border-color: ${theme.color.primary};
+        `}
+      >
+        {information.map((info, index) => (
+          <Styled.ListItemText key={index}>{info}</Styled.ListItemText>
+        ))}
+      </Styled.ListItemTextContainer>
+    </Styled.EducationItemWrapper>
   );
 };

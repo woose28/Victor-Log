@@ -1,4 +1,4 @@
-import { Skill, TechExperience, Project } from 'pages/about/aboutPage.type';
+import { Skill, TechExperience, Project, Education } from 'pages/about/aboutPage.type';
 import { theme } from 'styles/theme';
 
 const UNDERLINE_FONT_SIZE_LARGE_DEFAULT = 32;
@@ -215,6 +215,35 @@ const PROJECTS: Project[] = [
   },
 ];
 
+const EDUCATION: Education[] = [
+  {
+    name: '우아한테크코스 - 웹 프론트엔드 과정',
+    date: {
+      start: '2022.02',
+      end: '2022.11',
+    },
+    description: '우아한형제들에서 진행하는 개발자 양성 교육 과정',
+    information: [
+      '프론트엔드 개발자로서 현업에 필요한 역량에 대한 학습 진행',
+      '코드 리뷰 시스템을 통해 리뷰어 역할 경험',
+      '소프트 스킬을 위한 긴밀한 협업과 기술 발표 과정을 수행',
+    ],
+  },
+  {
+    name: '동국대학교',
+    date: {
+      start: '2016.03',
+      end: '2022.02',
+    },
+    information: [
+      '주전공: 공과 대학 산업시스템',
+      '부전공: 융합소프트웨어 연계전공',
+      'GPA: 4.0/4.5, 우등 졸업생',
+      '성적 우수 장학 3회, 소프트웨어 연계전공 우수 장학 2회, 동국 장학회 장학 1회 ',
+      '교내 소프트웨어 페스티벌 대상\n동국대학교 창의문제해결 프로젝트 은상\n제 16회 한국 대학생 산업공학 프로젝트 경진대회 장려상',
+    ],
+  },
+];
 export {
   UNDERLINE_FONT_SIZE_LARGE_DEFAULT,
   UNDERLINE_FONT_SIZE_LARGE_TABLET_HORIZONTAL_MAX,
@@ -223,4 +252,5 @@ export {
   SKILLS,
   TECH_EXPERIENCES,
   PROJECTS,
+  EDUCATION,
 };

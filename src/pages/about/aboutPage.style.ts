@@ -95,12 +95,54 @@ const SectionDescription = styled(Text)`
   }
 `;
 
+const TextBox = styled.div`
+  ${({ theme }) => css`
+    background-color: ${theme.color.background};
+    border: 0.5px solid ${theme.color.primary};
+    border-radius: 10px;
+  `}
+`;
+
+const ListItemNameWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+`;
+
+const ListItemName = styled.p`
+  font-size: 2rem;
+  font-weight: 700;
+
+  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+    font-size: 1.5rem;
+  }
+`;
+
+const ListItemSubText = styled.p`
+  ${({ theme }) => css`
+    font-size: 1rem;
+    font-weight: 500;
+    color: ${theme.color.subText};
+
+    @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+      font-size: 0.875rem;
+    }
+  `}
+`;
+
+const ListItemTextContainer = styled(TextBox)`
+  margin-top: 15px;
+  padding: 10px 5px;
+  border-color: inherit;
+`;
+
 const ListItemText = styled.li`
   ${({ theme }) => css`
     position: relative;
     padding: 3px 0 3px 1rem;
     font-size: 1rem;
     color: ${theme.color.onBackground};
+    white-space: pre-line;
 
     &::before {
       content: '•';
@@ -112,14 +154,6 @@ const ListItemText = styled.li`
     @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
       font-size: 0.875rem;
     }
-  `}
-`;
-
-const TextBox = styled.div`
-  ${({ theme }) => css`
-    background-color: ${theme.color.background};
-    border: 0.5px solid ${theme.color.primary};
-    border-radius: 10px;
   `}
 `;
 
@@ -278,43 +312,10 @@ const ProjectItemInfoWrapper = styled.div`
   width: 70%;
 `;
 
-const ProjectItemNameWrapper = styled.div`
-  display: flex;
-  align-items: flex-end;
-  gap: 5px;
-`;
-
-const ProjectItemName = styled.p`
-  font-size: 2rem;
-  font-weight: 700;
-
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    font-size: 1.5rem;
-  }
-`;
-
-const ProjectItemSubText = styled.p`
-  ${({ theme }) => css`
-    font-size: 1rem;
-    font-weight: 500;
-    color: ${theme.color.subText};
-
-    @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-      font-size: 0.875rem;
-    }
-  `}
-`;
-
 const ProjectItemSkillContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 0 15px;
-`;
-
-const ProjectItemExperienceContainer = styled(TextBox)`
-  margin-top: 15px;
-  padding: 10px 5px;
-  border-color: inherit;
 `;
 
 const ProjectItemLinkContainer = styled.ul`
@@ -342,6 +343,18 @@ const ProjectItemImage = styled.img`
   }
 `;
 
+const EducationContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+`;
+
+const EducationItemWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export {
   mountFadeInAnimationStyle,
   skillNameLargeTextStyle,
@@ -353,6 +366,10 @@ export {
   SectionWrapperFlex,
   SectionTitle,
   SectionDescription,
+  ListItemNameWrapper,
+  ListItemName,
+  ListItemSubText,
+  ListItemTextContainer,
   ListItemText,
   IntroductionMainText,
   IntroductionSubText,
@@ -368,12 +385,10 @@ export {
   ProjectContainer,
   ProjectItemWrapper,
   ProjectItemInfoWrapper,
-  ProjectItemNameWrapper,
-  ProjectItemName,
-  ProjectItemSubText,
   ProjectItemSkillContainer,
-  ProjectItemExperienceContainer,
   ProjectItemLinkContainer,
   ProjectItemLinkItem,
   ProjectItemImage,
+  EducationContainer,
+  EducationItemWrapper,
 };

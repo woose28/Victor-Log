@@ -43,6 +43,18 @@ type GetLinkIcon = (type: ProjectLinkType) => ReactElement;
 
 type ProjectItemWrapperProps = Pick<ProjectItemProps, 'projectColor'>;
 
+type Education = {
+  name: string;
+  date: {
+    start: string;
+    end?: string;
+  };
+  description?: string;
+  information: string[];
+};
+
+type EducationItemProps = Education;
+
 export {
   Skill,
   SkillItemProps,
@@ -52,4 +64,6 @@ export {
   ProjectItemProps,
   GetLinkIcon,
   ProjectItemWrapperProps,
+  Education,
+  EducationItemProps,
 };
