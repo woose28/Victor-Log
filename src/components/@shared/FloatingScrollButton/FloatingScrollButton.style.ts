@@ -4,9 +4,10 @@ import { GetFloatingScrollButtonStyle } from 'components/@shared/FloatingScrollB
 const getFloatingScrollButtonStyle: GetFloatingScrollButtonStyle = (theme, isReachedBottom) => {
   if (isReachedBottom) {
     return css`
+      background-color: ${theme.color.background};
       border: 1px solid ${theme.color.tertiary};
       border-radius: 50%;
-      opacity: 0.8;
+      opacity: 0.7;
       transition: opacity 0.5s;
       transform: rotate(180deg);
 
@@ -17,9 +18,10 @@ const getFloatingScrollButtonStyle: GetFloatingScrollButtonStyle = (theme, isRea
   }
 
   return css`
+    background-color: ${theme.color.background};
     border: 1px solid ${theme.color.tertiary};
     border-radius: 50%;
-    opacity: 0.8;
+    opacity: 0.7;
     cursor: default;
   `;
 };
