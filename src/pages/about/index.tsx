@@ -133,11 +133,11 @@ const TechExperienceSection = () => {
   return (
     <Styled.SectionWrapperFlex>
       <Styled.SectionTitle color={theme.color.onBackground}>Tech Experience</Styled.SectionTitle>
-      <FlexBox as="ul" flexDirection="column" gap="30px">
+      <Styled.SkillsSectionInnerWrapper as="ul" flexDirection="column" gap="30px">
         {TECH_EXPERIENCES.map((experience, index) => (
           <TechExperienceItem key={index} {...experience} />
         ))}
-      </FlexBox>
+      </Styled.SkillsSectionInnerWrapper>
     </Styled.SectionWrapperFlex>
   );
 };

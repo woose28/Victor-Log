@@ -65,7 +65,7 @@ const TECH_EXPERIENCES: TechExperience[] = [
   },
   {
     name: '테스트',
-    skills: ['Jest', 'React Testing Library'],
+    skills: ['Jest', 'RTL'],
     description: [
       'Jest와 RTL(React Testing Library)를 이용해서 테스트 코드를 적용한 경험이 있습니다.',
       '테스트 코드 또한 다른 팀원이 읽는 코드라고 생각합니다. 주로 테스트 코드를 Given/When/Then 패턴에 맞게 작성합니다.',

@@ -19,6 +19,7 @@ const mountFadeInAnimationStyle = css`
 const skillNameLargeTextStyle = css`
   font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_LARGE_DEFAULT)}rem;
   font-weight: 700;
+  text-align: end;
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
     font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_LARGE_TABLET_HORIZONTAL_MAX)}rem;
@@ -37,6 +38,7 @@ const skillNameLargeUnderlineStyle = css`
 const skillNameSmallTextStyle = css`
   font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_SMALL_DEFAULT)}rem;
   font-weight: 700;
+  text-align: end;
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
     font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_SMALL_TABLET_HORIZONTAL_MAX)}rem;
@@ -247,7 +249,7 @@ const TechExperienceItemWrapper = styled.li`
 `;
 
 const TechExperienceItemInfoWrapper = styled(FlexBox)`
-  width: 20%;
+  width: 25%;
   flex-direction: column;
   align-items: flex-end;
 
@@ -260,6 +262,8 @@ const TechExperienceItemInfoWrapper = styled(FlexBox)`
 const TechExperienceItemName = styled(Text)`
   font-size: 2rem;
   font-weight: 500;
+  text-align: end;
+  word-break: keep-all;
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
     font-size: 1.5rem;
@@ -278,7 +282,7 @@ const TechExperienceSkillContainer = styled(FlexBox)`
 `;
 
 const TechExperienceDescriptionContainer = styled(FlexBox)`
-  width: 75%;
+  width: 70%;
 `;
 
 const ProjectContainer = styled.ul`
