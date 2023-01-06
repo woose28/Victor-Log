@@ -1,9 +1,10 @@
-import { Skill, TechExperience } from 'pages/about/aboutPage.type';
+import { Skill, TechExperience, Project } from 'pages/about/aboutPage.type';
+import { theme } from 'styles/theme';
 
-const SKILL_NAME_FONT_SIZE_DEFAULT = 32;
-const SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX = 24;
-const TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_DEFAULT = 20;
-const TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX = 12;
+const UNDERLINE_FONT_SIZE_LARGE_DEFAULT = 32;
+const UNDERLINE_FONT_SIZE_LARGE_TABLET_HORIZONTAL_MAX = 24;
+const UNDERLINE_FONT_SIZE_SMALL_DEFAULT = 20;
+const UNDERLINE_FONT_SIZE_SMALL_TABLET_HORIZONTAL_MAX = 12;
 
 const SKILLS: Skill[] = [
   {
@@ -92,11 +93,134 @@ const TECH_EXPERIENCES: TechExperience[] = [
     ],
   },
 ];
+
+const PROJECTS: Project[] = [
+  {
+    name: 'VICTOR LOG',
+    date: {
+      start: '2022.08',
+    },
+    description: '직접 만들어 가는 블로그 및 포트폴리오 페이지',
+    skills: ['React', 'Typescript', 'Emotion', 'Gatsby', 'GraphQL', 'Storybook'],
+    experiences: ['SSG 렌더링 방식의 정적 사이트개발', 'Storybook을 활용한 CDD 개발'],
+    links: [
+      {
+        type: 'github',
+        url: 'https://github.com/woose28/Victor-Log',
+      },
+      {
+        type: 'website',
+        url: 'https://victor-log.vercel.app/post/',
+      },
+    ],
+    image: '/images/project_image_victor_log.png',
+    projectColor: theme.color.primary,
+  },
+  {
+    name: 'SMODY',
+    date: {
+      start: '2022.06',
+      end: '2022.10',
+    },
+    description: '3일간의 짧은 주기의 챌린지로 장기적인 습관 형성을 도와주는 챌린지 웹 서비스',
+    skills: [
+      'React',
+      'Typescript',
+      'React Query',
+      'Recoil',
+      'Styled Components',
+      'Webpack',
+      'Storybook',
+      'Jest',
+      'PWA',
+    ],
+    experiences: [
+      'Webpack을 이용하여 프로젝트 환경 직접 구축',
+      'Storybook을 활용한 CDD 개발',
+      '자주 사용되는 맵드 타입 NPM에 출시',
+      '코드 난독화 및 스플리팅을 통한 Javascript 리소스 최적화',
+      'HTTP와 브라우저에 대한 학습 후 최적화 적용',
+      'Jest와 React Testing Library를 이용한 컴포넌트 렌덜이 테스트 수행',
+      'Github Actions를 통한 테스트 자동화 구축',
+    ],
+    links: [
+      {
+        type: 'github',
+        url: 'https://github.com/woowacourse-teams/2022-smody',
+      },
+      {
+        type: 'website',
+        url: 'https://www.smody.co.kr/home',
+      },
+      {
+        type: 'information',
+        url: 'https://sites.google.com/woowahan.com/woowacourse-demo-4th/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EC%8A%A4%EB%AA%A8%EB%94%94',
+      },
+    ],
+    image: '/images/project_image_smody.png',
+    projectColor: theme.color.projectColorSmody,
+  },
+  {
+    name: 'ATSAY',
+    date: {
+      start: '2020.12',
+      end: '2021.12',
+    },
+    description: '웹소설을 좋아하는 사람들이 소통하고 작품을 리뷰하는 웹소설 커뮤니티 앱',
+    skills: ['React Native', 'Javascript', 'Mobx'],
+    experiences: [
+      'React Native를 이용한 Cross Platform 앱 서비스 개발',
+      'Mobx를 이용한 상태 관리',
+      '서비스 사용된 애니메이션 효과를 직접 구현',
+      'Object-C, Java 등의 코드로 Third party Library에 추가 기능 구현',
+    ],
+    links: [
+      {
+        type: 'download',
+        url: 'https://apps.apple.com/kr/app/atsay-%EC%97%A3%EC%84%B8%EC%9D%B4/id1558659036',
+      },
+      {
+        type: 'information',
+        url: 'https://picturesque-detective-8b5.notion.site/ATSAY-4005e4bc86744f9999a155620aaec710',
+      },
+    ],
+    image: '/images/project_image_atsay.png',
+    projectColor: theme.color.projectColorAtsay,
+  },
+  {
+    name: '동국대알리미',
+    date: {
+      start: '2019.06',
+      end: '2020.09',
+    },
+    description: '파편화된 교내 정보들을 수집해서 카카오톡 플러스 친구로 제공하는 챗봇 서비스',
+    skills: ['Python', 'Flask', 'Requests', 'Beautiful Soup', 'Mysql'],
+    experiences: [
+      'Flask를 이용하여 웹 서버 및 API 구현',
+      'Requests와 Beautiful Soup를 활용한 웹 스크래핑 기능 구현',
+      'Mysql을 활용한 데이터베이스 구축',
+    ],
+    links: [
+      {
+        type: 'website',
+        url: 'https://pf.kakao.com/_FmExbT',
+      },
+      {
+        type: 'information',
+        url: 'https://picturesque-detective-8b5.notion.site/169b93a353c4432da9118c2613cb20da',
+      },
+    ],
+    image: '/images/project_image_dongguk_alrimi.png',
+    projectColor: theme.color.projectColorDonggukAlrimi,
+  },
+];
+
 export {
-  SKILL_NAME_FONT_SIZE_DEFAULT,
-  SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX,
-  TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_DEFAULT,
-  TECH_EXPERIENCE_SKILL_NAME_FONT_SIZE_TABLET_HORIZONTAL_MAX,
+  UNDERLINE_FONT_SIZE_LARGE_DEFAULT,
+  UNDERLINE_FONT_SIZE_LARGE_TABLET_HORIZONTAL_MAX,
+  UNDERLINE_FONT_SIZE_SMALL_DEFAULT,
+  UNDERLINE_FONT_SIZE_SMALL_TABLET_HORIZONTAL_MAX,
   SKILLS,
   TECH_EXPERIENCES,
+  PROJECTS,
 };

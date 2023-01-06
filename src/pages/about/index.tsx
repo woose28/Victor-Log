@@ -1,17 +1,22 @@
-import { useTheme } from '@emotion/react';
+import { css, useTheme } from '@emotion/react';
 import { useAboutPage } from 'pages/about/useAboutPage';
 import { FullLayout } from 'layouts';
 import { MountFadeInAnimation, FloatingScrollButton, UnderlineText, FlexBox } from 'components';
-import { SkillItemProps, TechExperienceItemProps } from 'pages/about/aboutPage.type';
+import {
+  ProjectItemProps,
+  SkillItemProps,
+  TechExperienceItemProps,
+} from 'pages/about/aboutPage.type';
 import * as Style from 'pages/about/aboutPage.style';
-import { SKILLS, TECH_EXPERIENCES } from 'pages/about/aboutPage.constant';
+import { SKILLS, TECH_EXPERIENCES, PROJECTS } from 'pages/about/aboutPage.constant';
+import { useProjectItem } from 'pages/about/useProjectItem';
 
 const {
   mountFadeInAnimationStyle,
-  skillNameTextStyle,
-  skillNameUnderlineStyle,
-  techExperienceSkillNameTextStyle,
-  techExperienceSkillNameUnderlineStyle,
+  skillNameLargeTextStyle,
+  skillNameLargeUnderlineStyle,
+  skillNameSmallTextStyle,
+  skillNameSmallUnderlineStyle,
   ...Styled
 } = Style;
 
@@ -23,13 +28,11 @@ const AboutPage = () => {
       headerBackgroundColor={theme.color.secondary}
       mainBackgroundColor={theme.color.secondary}
     >
-      <Styled.PageWrapper as="a">
+      <Styled.PageWrapper>
         <IntroductionSection />
         <SkillsSection />
         <TechExperienceSection />
-        <Styled.SectionWrapper style={{ backgroundColor: theme.color.background }} />
-        <Styled.SectionWrapper style={{ backgroundColor: theme.color.background }} />
-        <Styled.SectionWrapper style={{ backgroundColor: theme.color.background }} />
+        <ProjectsSection />
         <FloatingScrollButton />
       </Styled.PageWrapper>
     </FullLayout>
@@ -80,7 +83,7 @@ const SkillsSection = () => {
   const theme = useTheme();
 
   return (
-    <Styled.SkillsSectionWrapper>
+    <Styled.SectionWrapper>
       <Styled.SkillsSectionInnerWrapper flexDirection="column">
         <Styled.SectionTitle as="h2" color={theme.color.onBackground}>
           Main Skills
@@ -94,7 +97,7 @@ const SkillsSection = () => {
           ))}
         </Styled.SkillContainer>
       </Styled.SkillsSectionInnerWrapper>
-    </Styled.SkillsSectionWrapper>
+    </Styled.SectionWrapper>
   );
 };
 
@@ -104,8 +107,8 @@ const SkillItem = ({ name, description }: SkillItemProps) => {
   return (
     <FlexBox as="li" flexDirection="column">
       <UnderlineText
-        customTextStyle={skillNameTextStyle}
-        customUnderlineStyle={skillNameUnderlineStyle}
+        customTextStyle={skillNameLargeTextStyle}
+        customUnderlineStyle={skillNameLargeUnderlineStyle}
         color={theme.color.onBackground}
         underlineColor={theme.color.primary}
         underlineOpacity={0.5}
@@ -115,9 +118,7 @@ const SkillItem = ({ name, description }: SkillItemProps) => {
       </UnderlineText>
       <FlexBox as="ul" flexDirection="column">
         {description.map((desc, index) => (
-          <Styled.ListItemText as="li" key={index} color={theme.color.onBackground}>
-            {desc}
-          </Styled.ListItemText>
+          <Styled.ListItemText key={index}>{desc}</Styled.ListItemText>
         ))}
       </FlexBox>
     </FlexBox>
@@ -128,14 +129,14 @@ const TechExperienceSection = () => {
   const theme = useTheme();
 
   return (
-    <Styled.TechExperienceSectionWrapper>
+    <Styled.SectionWrapperFlex>
       <Styled.SectionTitle color={theme.color.onBackground}>Tech Experience</Styled.SectionTitle>
       <FlexBox as="ul" flexDirection="column" gap="30px">
         {TECH_EXPERIENCES.map((experience, index) => (
           <TechExperienceItem key={index} {...experience} />
         ))}
       </FlexBox>
-    </Styled.TechExperienceSectionWrapper>
+    </Styled.SectionWrapperFlex>
   );
 };
 
@@ -152,8 +153,8 @@ const TechExperienceItem = ({ name, skills, description }: TechExperienceItemPro
           {skills?.map((skill, index) => (
             <UnderlineText
               key={index}
-              customTextStyle={techExperienceSkillNameTextStyle}
-              customUnderlineStyle={techExperienceSkillNameUnderlineStyle}
+              customTextStyle={skillNameSmallTextStyle}
+              customUnderlineStyle={skillNameSmallUnderlineStyle}
               color={theme.color.onBackground}
               underlineColor={theme.color.primary}
               underlineOpacity={0.5}
@@ -166,11 +167,88 @@ const TechExperienceItem = ({ name, skills, description }: TechExperienceItemPro
       </Styled.TechExperienceItemInfoWrapper>
       <Styled.TechExperienceDescriptionContainer as="ul" flexDirection="column">
         {description.map((desc, index) => (
-          <Styled.ListItemText as="li" key={index} color={theme.color.onBackground}>
-            {desc}
-          </Styled.ListItemText>
+          <Styled.ListItemText key={index}>{desc}</Styled.ListItemText>
         ))}
       </Styled.TechExperienceDescriptionContainer>
     </Styled.TechExperienceItemWrapper>
+  );
+};
+
+const ProjectsSection = () => {
+  const theme = useTheme();
+
+  return (
+    <Styled.SectionWrapperFlex>
+      <Styled.SectionTitle color={theme.color.onBackground}>Projects</Styled.SectionTitle>
+      <Styled.ProjectContainer>
+        {PROJECTS.map((project, index) => (
+          <ProjectItem key={index} {...project} />
+        ))}
+      </Styled.ProjectContainer>
+    </Styled.SectionWrapperFlex>
+  );
+};
+
+const ProjectItem = ({
+  name,
+  date,
+  description,
+  skills,
+  experiences,
+  links,
+  image,
+  projectColor,
+}: ProjectItemProps) => {
+  const { theme, getLinkIcon } = useProjectItem();
+
+  return (
+    <Styled.ProjectItemWrapper projectColor={projectColor}>
+      <Styled.ProjectItemInfoWrapper>
+        <Styled.ProjectItemNameWrapper>
+          <Styled.ProjectItemName>{name}</Styled.ProjectItemName>
+          <Styled.ProjectItemSubText>
+            {date.start} ~ {date.end}
+          </Styled.ProjectItemSubText>
+        </Styled.ProjectItemNameWrapper>
+        <Styled.ProjectItemSubText
+          css={css`
+            margin-top: 10px;
+          `}
+        >
+          {description}
+        </Styled.ProjectItemSubText>
+        <Styled.ProjectItemSkillContainer>
+          {skills.map((skill, index) => (
+            <li key={index}>
+              <UnderlineText
+                customTextStyle={skillNameSmallTextStyle}
+                customUnderlineStyle={skillNameSmallUnderlineStyle}
+                color={theme.color.onBackground}
+                underlineColor={projectColor}
+                underlineOpacity={0.5}
+                underlineThickness={0.2}
+              >
+                {skill}
+              </UnderlineText>
+            </li>
+          ))}
+        </Styled.ProjectItemSkillContainer>
+        <Styled.ProjectItemExperienceContainer as="ul">
+          {experiences.map((experience, index) => (
+            <Styled.ListItemText key={index}>{experience}</Styled.ListItemText>
+          ))}
+        </Styled.ProjectItemExperienceContainer>
+        <Styled.ProjectItemLinkContainer>
+          {links.map(({ type, url }, index) => (
+            <li key={index}>
+              <Styled.ProjectItemLinkItem href={url} target="_blank" referrerPolicy="no-referrer">
+                {getLinkIcon(type)}
+              </Styled.ProjectItemLinkItem>
+            </li>
+          ))}
+        </Styled.ProjectItemLinkContainer>
+      </Styled.ProjectItemInfoWrapper>
+      <Styled.ProjectItemImage src={image} alt={`${name} 이미지`} />
+    </Styled.ProjectItemWrapper>
   );
 };
