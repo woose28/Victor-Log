@@ -1,4 +1,4 @@
-type IntersectEventHandler = (
+type IntersectionObserverEventHandler = (
   entry: IntersectionObserverEntry,
   observer: IntersectionObserver
 ) => void;
@@ -6,7 +6,8 @@ type IntersectEventHandler = (
 type UseIntersectionObserverProps = {
   options?: IntersectionObserverInit;
   disabled?: boolean;
-  onIntersect: IntersectEventHandler;
+  onIntersect?: IntersectionObserverEventHandler;
+  onNotIntersect?: IntersectionObserverEventHandler;
 };
 
 export { UseIntersectionObserverProps };
