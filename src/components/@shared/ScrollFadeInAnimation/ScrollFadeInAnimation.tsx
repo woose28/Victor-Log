@@ -8,7 +8,9 @@ const ScrollFadeInAnimation = ({
   customStyle,
   intersectionObserverOptions,
 }: PropsWithChildren<ScrollFadeInAnimationProps>) => {
-  const { target } = useScrollFadeInAnimation<HTMLDivElement>({ intersectionObserverOptions });
+  const { target } = useScrollFadeInAnimation<HTMLDivElement>({
+    intersectionObserverOptions,
+  });
 
   return (
     <Styled.Wrapper ref={target} css={customStyle}>
