@@ -1,7 +1,13 @@
 import { css, useTheme } from '@emotion/react';
 import { useAboutPage } from 'pages/about/useAboutPage';
 import { FullLayout } from 'layouts';
-import { MountFadeInAnimation, FloatingScrollButton, UnderlineText, FlexBox } from 'components';
+import {
+  MountFadeInAnimation,
+  ScrollFadeInAnimation,
+  FloatingScrollButton,
+  UnderlineText,
+  FlexBox,
+} from 'components';
 import {
   EducationItemProps,
   ProjectItemProps,
@@ -95,7 +101,9 @@ const SkillsSection = () => {
         </Styled.SectionDescription>
         <Styled.SkillContainer as="ul" flexDirection="column" gap="35px">
           {SKILLS.map((skill, index) => (
-            <SkillItem key={index} {...skill} />
+            <ScrollFadeInAnimation key={index}>
+              <SkillItem {...skill} />
+            </ScrollFadeInAnimation>
           ))}
         </Styled.SkillContainer>
       </Styled.SkillsSectionInnerWrapper>
@@ -135,7 +143,9 @@ const TechExperienceSection = () => {
       <Styled.SectionTitle color={theme.color.onBackground}>Tech Experience</Styled.SectionTitle>
       <Styled.SkillsSectionInnerWrapper as="ul" flexDirection="column" gap="30px">
         {TECH_EXPERIENCES.map((experience, index) => (
-          <TechExperienceItem key={index} {...experience} />
+          <ScrollFadeInAnimation key={index}>
+            <TechExperienceItem {...experience} />
+          </ScrollFadeInAnimation>
         ))}
       </Styled.SkillsSectionInnerWrapper>
     </Styled.SectionWrapperFlex>
@@ -184,7 +194,9 @@ const ProjectsSection = () => {
       <Styled.SectionTitle color={theme.color.onBackground}>Projects</Styled.SectionTitle>
       <Styled.ProjectContainer>
         {PROJECTS.map((project, index) => (
-          <ProjectItem key={index} {...project} />
+          <ScrollFadeInAnimation key={index}>
+            <ProjectItem {...project} />
+          </ScrollFadeInAnimation>
         ))}
       </Styled.ProjectContainer>
     </Styled.SectionWrapperFlex>
@@ -263,9 +275,9 @@ const EducationSection = () => {
       <Styled.SectionTitle color={theme.color.onBackground}>Education</Styled.SectionTitle>
       <Styled.EducationContainer>
         {EDUCATION.map((education, index) => (
-          <li key={index}>
+          <ScrollFadeInAnimation key={index}>
             <EducationItem {...education} />
-          </li>
+          </ScrollFadeInAnimation>
         ))}
       </Styled.EducationContainer>
     </Styled.SectionWrapperFlex>
