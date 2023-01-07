@@ -4,7 +4,7 @@ import { CLASS_NAME_FADE_IN } from 'components/@shared/MountFadeInAnimation/Moun
 const Wrapper = styled.div`
   transform: translateY(50%);
   opacity: 0;
-  transition: 0.5s;
+  transition: 0.8s;
 
   &.${CLASS_NAME_FADE_IN} {
     transform: translateY(0);
