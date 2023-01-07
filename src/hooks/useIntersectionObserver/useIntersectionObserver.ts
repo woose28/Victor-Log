@@ -6,6 +6,7 @@ const useIntersectionObserver = <T extends HTMLElement>({
   options = DEFAULT_INTERSECTION_OBSERVER_OPTION,
   disabled = false,
   onIntersect,
+  onNotIntersect,
 }: UseIntersectionObserverProps) => {
   const target = useRef<T>(null);
 
@@ -13,7 +14,14 @@ const useIntersectionObserver = <T extends HTMLElement>({
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          onIntersect(entry, observer);
+          if (typeof onIntersect !== 'undefined') {
+            onIntersect(entry, observer);
+          }
+          return;
+        }
+
+        if (typeof onNotIntersect !== 'undefined') {
+          onNotIntersect(entry, observer);
         }
       });
     },

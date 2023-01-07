@@ -10,4 +10,6 @@ type UseScrollFadeInAnimationProps = Pick<
   'intersectionObserverOptions'
 >;
 
-export { ScrollFadeInAnimationProps, UseScrollFadeInAnimationProps };
+type CheckIsPassScroll = (top: number) => boolean;
+
+export { ScrollFadeInAnimationProps, UseScrollFadeInAnimationProps, CheckIsPassScroll };
