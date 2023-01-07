@@ -4,6 +4,7 @@ import { DEFAULT_INTERSECTION_OBSERVER_OPTION } from 'hooks/useIntersectionObser
 
 const useIntersectionObserver = <T extends HTMLElement>({
   options = DEFAULT_INTERSECTION_OBSERVER_OPTION,
+  disabled = false,
   onIntersect,
 }: UseIntersectionObserverProps) => {
   const target = useRef<T>(null);
@@ -20,7 +21,7 @@ const useIntersectionObserver = <T extends HTMLElement>({
   );
 
   useEffect(() => {
-    if (target.current === null) {
+    if (target.current === null || disabled) {
       return;
     }
 
@@ -31,7 +32,7 @@ const useIntersectionObserver = <T extends HTMLElement>({
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [disabled]);
 
   return {
     target,

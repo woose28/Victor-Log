@@ -5,6 +5,7 @@ type IntersectEventHandler = (
 
 type UseIntersectionObserverProps = {
   options?: IntersectionObserverInit;
+  disabled?: boolean;
   onIntersect: IntersectEventHandler;
 };
 
