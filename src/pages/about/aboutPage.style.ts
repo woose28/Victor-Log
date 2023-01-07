@@ -354,7 +354,7 @@ const EducationContainer = styled.ul`
   width: 100%;
 `;
 
-const EducationItemWrapper = styled.div`
+const EducationItemWrapper = styled.li`
   display: flex;
   flex-direction: column;
 `;
