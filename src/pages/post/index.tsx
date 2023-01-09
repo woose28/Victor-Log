@@ -1,7 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import styled from '@emotion/styled';
 import { CenterLayout } from 'layouts';
-import { FlexBox, Text } from 'components';
+import { Text } from 'components';
 import { PostItem } from 'pages/post/components';
 import { usePostPage } from 'pages/post/usePostPage';
 import { PostPageDataType } from 'pages/post/type';
@@ -16,7 +16,7 @@ const PostPage = ({
 
   return (
     <CenterLayout>
-      <PageWrapper flexDirection="column" alignItems="center">
+      <PageWrapper>
         <TotalText color={theme.color.onBackground} size={16} fontWeight={700}>
           Total{' '}
           <Text color={theme.color.primary} size={16} fontWeight={700}>
@@ -24,7 +24,7 @@ const PostPage = ({
           </Text>{' '}
           Post
         </TotalText>
-        <PostContainer as="ul" flexDirection="column" gap="15px">
+        <PostContainer>
           {postEdges.map((post) => (
             <li key={post.node.id}>
               <PostItem excerpt={post.node.excerpt} {...post.node.frontmatter} />
@@ -66,7 +66,10 @@ export const query = graphql`
 
 export const Head = () => <title>Victor Log | 게시글 목록</title>;
 
-const PageWrapper = styled(FlexBox)`
+const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: ${DISPLAY.TABLET_VERTICAL_MAX};
 
   @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
@@ -78,7 +81,10 @@ const TotalText = styled(Text)`
   align-self: flex-start;
 `;
 
-const PostContainer = styled(FlexBox)`
+const PostContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   width: 100%;
   margin-top: 20px;
 `;

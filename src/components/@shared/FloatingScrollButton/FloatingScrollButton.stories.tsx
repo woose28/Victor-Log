@@ -1,7 +1,5 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import FloatingScrollButton from 'components/@shared/FloatingScrollButton/FloatingScrollButton';
-import { FlexBox } from 'components';
 
 export default {
   title: '@shared/FloatingScrollButton',
@@ -14,8 +12,7 @@ export const DefaultFloatingScrollButton = () => (
   </Wrapper>
 );
 
-const Wrapper = styled(FlexBox)`
-  ${({ theme }) => css`
-    height: 400vh;
-  `}
+const Wrapper = styled.div`
+  display: flex;
+  height: 400vh;
 `;

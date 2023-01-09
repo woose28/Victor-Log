@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 import { css, useTheme } from '@emotion/react';
-import { FlexBox, Text } from 'components';
+import { Text } from 'components';
 import { DISPLAY } from 'styles/css';
 
 const Footer = () => {
   const theme = useTheme();
 
   return (
-    <Wrapper as="footer" flexDirection="column" gap="1.438rem">
+    <Wrapper>
       <Text size={16} color={theme.color.onSecondary}>
         Victor
       </Text>
@@ -20,8 +20,11 @@ const Footer = () => {
 
 export default Footer;
 
-const Wrapper = styled(FlexBox)`
+const Wrapper = styled.footer`
   ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: 1.438rem;
     width: 100%;
     padding: 30px 50px;
     background-color: ${theme.color.secondary};

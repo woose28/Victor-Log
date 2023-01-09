@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import Link from 'gatsby-link';
-import { FlexBox, Text } from 'components';
+import { Text } from 'components';
 import { PostItemProps } from 'pages/post/components/PostItem/PostItem.type';
 import { usePostItem } from 'pages/post/components/PostItem/usePostItem';
 import { HeroImage, TagList } from 'pages/post/components';
@@ -28,7 +28,7 @@ const PostItem = ({
             borderRadius: '10px 0 0 10px',
           }}
         />
-        <PostInfoWrapper flexDirection="column">
+        <PostInfoWrapper>
           <Text as="p" color={theme.color.onSecondary} size={20} fontWeight={400}>
             {title}
           </Text>
@@ -52,8 +52,9 @@ const PostItem = ({
 
 export default PostItem;
 
-const Wrapper = styled(FlexBox)`
+const Wrapper = styled.div`
   ${({ theme }) => css`
+    display: flex;
     width: 100%;
     background-color: ${theme.color.secondary};
     border-radius: 10px 0 0 10px;
@@ -64,7 +65,9 @@ const NavLink = styled(Link)`
   text-decoration: none;
 `;
 
-const PostInfoWrapper = styled(FlexBox)`
+const PostInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: calc(100% - 208px);
   padding: 20px 28px;
 `;

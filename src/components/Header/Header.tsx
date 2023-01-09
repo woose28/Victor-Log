@@ -3,14 +3,14 @@ import { css } from '@emotion/react';
 import { useTheme } from '@emotion/react';
 import Link from 'gatsby-link';
 import { HeaderProps } from 'components/Header/Header.type';
-import { FlexBox, Text } from 'components';
+import { Text } from 'components';
 import { DISPLAY, LAYER } from 'styles/css';
 
 const Header = ({ backgroundColor }: HeaderProps) => {
   const theme = useTheme();
 
   return (
-    <Wrapper as="header" style={{ backgroundColor }} alignItems="center">
+    <Wrapper style={{ backgroundColor }}>
       <NavLink style={{ flexGrow: 1 }} to="/post">
         <Text size={20} color={theme.color.primary} fontWeight="bold">
           VICTOR LOG
@@ -32,8 +32,10 @@ const Header = ({ backgroundColor }: HeaderProps) => {
 
 export default Header;
 
-const Wrapper = styled(FlexBox)`
+const Wrapper = styled.header`
   ${({ theme }) => css`
+    display: flex;
+    align-items: center;
     position: fixed;
     width: 100%;
     padding: 17px 50px;

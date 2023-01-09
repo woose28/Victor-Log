@@ -6,7 +6,6 @@ import {
   ScrollFadeInAnimation,
   FloatingScrollButton,
   UnderlineText,
-  FlexBox,
 } from 'components';
 import {
   EducationItemProps,
@@ -65,7 +64,7 @@ const IntroductionSection = () => {
         {`입니다.\n방문해 주셔서 감사합니다 :)`}
       </Styled.IntroductionSubText>
       <MountFadeInAnimation customStyle={mountFadeInAnimationStyle}>
-        <Styled.ContactLinkWrapper justifyContent="center" gap="40px">
+        <Styled.ContactLinkWrapper>
           <Styled.ContactLink
             href="https://github.com/woose28"
             target="_blank"
@@ -92,14 +91,14 @@ const SkillsSection = () => {
 
   return (
     <Styled.SectionWrapper>
-      <Styled.SkillsSectionInnerWrapper flexDirection="column">
+      <Styled.SkillsSectionInnerWrapper>
         <Styled.SectionTitle as="h2" color={theme.color.onBackground}>
           Main Skills
         </Styled.SectionTitle>
         <Styled.SectionDescription color={theme.color.subText}>
           강점이 되며 꾸준히 학습하고 있는 기술들 입니다.
         </Styled.SectionDescription>
-        <Styled.SkillContainer as="ul" flexDirection="column" gap="35px">
+        <Styled.SkillContainer>
           {SKILLS.map((skill, index) => (
             <ScrollFadeInAnimation key={index}>
               <SkillItem {...skill} />
@@ -115,7 +114,7 @@ const SkillItem = ({ name, description }: SkillItemProps) => {
   const theme = useTheme();
 
   return (
-    <FlexBox as="li" flexDirection="column">
+    <Styled.SkillItemWrapper>
       <UnderlineText
         customTextStyle={skillNameLargeTextStyle}
         customUnderlineStyle={skillNameLargeUnderlineStyle}
@@ -126,12 +125,12 @@ const SkillItem = ({ name, description }: SkillItemProps) => {
       >
         {name}
       </UnderlineText>
-      <FlexBox as="ul" flexDirection="column">
+      <Styled.SkillItemDescriptionContainer>
         {description.map((desc, index) => (
           <Styled.ListItemText key={index}>{desc}</Styled.ListItemText>
         ))}
-      </FlexBox>
-    </FlexBox>
+      </Styled.SkillItemDescriptionContainer>
+    </Styled.SkillItemWrapper>
   );
 };
 
@@ -141,7 +140,12 @@ const TechExperienceSection = () => {
   return (
     <Styled.SectionWrapperFlex>
       <Styled.SectionTitle color={theme.color.onBackground}>Tech Experience</Styled.SectionTitle>
-      <Styled.SkillsSectionInnerWrapper as="ul" flexDirection="column" gap="30px">
+      <Styled.SkillsSectionInnerWrapper
+        as="ul"
+        css={css`
+          gap: 30px;
+        `}
+      >
         {TECH_EXPERIENCES.map((experience, index) => (
           <ScrollFadeInAnimation key={index}>
             <TechExperienceItem {...experience} />
@@ -161,7 +165,7 @@ const TechExperienceItem = ({ name, skills, description }: TechExperienceItemPro
         <Styled.TechExperienceItemName color={theme.color.onBackground}>
           {name}
         </Styled.TechExperienceItemName>
-        <Styled.TechExperienceSkillContainer as="ul" flexDirection="column" alignItems="flex-end">
+        <Styled.TechExperienceSkillContainer>
           {skills?.map((skill, index) => (
             <UnderlineText
               key={index}
@@ -177,7 +181,7 @@ const TechExperienceItem = ({ name, skills, description }: TechExperienceItemPro
           ))}
         </Styled.TechExperienceSkillContainer>
       </Styled.TechExperienceItemInfoWrapper>
-      <Styled.TechExperienceDescriptionContainer as="ul" flexDirection="column">
+      <Styled.TechExperienceDescriptionContainer>
         {description.map((desc, index) => (
           <Styled.ListItemText key={index}>{desc}</Styled.ListItemText>
         ))}

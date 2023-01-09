@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
 import { CenterLayout } from 'layouts';
-import { FlexBox, Text } from 'components';
+import { Text } from 'components';
 import { HeroImage, TagList } from 'pages/post/components';
 import { usePostDetailPage } from 'pages/post/usePostDetailPage';
 
@@ -14,7 +14,7 @@ const PostDetailPage = ({ data, children }) => {
 
   return (
     <CenterLayout>
-      <PageWrapper flexDirection="column" alignItems="center">
+      <PageWrapper>
         <Text as="p" size={40} color={theme.color.onBackground} fontWeight="bold">
           {title}
         </Text>
@@ -76,7 +76,11 @@ export const Head = ({
   },
 }) => <title>Victor Log | {frontmatter.title}</title>;
 
-const PageWrapper = styled(FlexBox)`
+const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   width: ${DISPLAY.TABLET_VERTICAL_MAX};
 
   @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
