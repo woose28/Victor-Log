@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
 import { convertPxToRem } from 'styles/util';
-import { FlexBox, Text } from 'components';
+import { Text } from 'components';
 import { ProjectItemWrapperProps } from 'pages/about/aboutPage.type';
 import {
   UNDERLINE_FONT_SIZE_LARGE_DEFAULT,
@@ -183,7 +183,10 @@ const IntroductionSubText = styled(Text)`
   }
 `;
 
-const ContactLinkWrapper = styled(FlexBox)`
+const ContactLinkWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 40px;
   margin-top: 60px;
 
   @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
@@ -218,8 +221,10 @@ const ContactLink = styled.a`
   `}
 `;
 
-const SkillsSectionInnerWrapper = styled(FlexBox)`
+const SkillsSectionInnerWrapper = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
     min-height: 100%;
     padding: 30px 50px;
     background-color: ${theme.color.background};
@@ -232,8 +237,21 @@ const SkillsSectionInnerWrapper = styled(FlexBox)`
   `}
 `;
 
-const SkillContainer = styled(FlexBox)`
+const SkillContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
   margin-top: 35px;
+`;
+
+const SkillItemWrapper = styled.li`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SkillItemDescriptionContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
 `;
 
 const TechExperienceItemWrapper = styled.li`
@@ -248,14 +266,15 @@ const TechExperienceItemWrapper = styled.li`
   }
 `;
 
-const TechExperienceItemInfoWrapper = styled(FlexBox)`
-  width: 25%;
+const TechExperienceItemInfoWrapper = styled.div`
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width: 25%;
 
   @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
-    width: 100%;
     align-items: center;
+    width: 100%;
   }
 `;
 
@@ -270,7 +289,8 @@ const TechExperienceItemName = styled(Text)`
   }
 `;
 
-const TechExperienceSkillContainer = styled(FlexBox)`
+const TechExperienceSkillContainer = styled.ul`
+  display: flex;
   flex-direction: column;
   align-items: flex-end;
 
@@ -281,7 +301,9 @@ const TechExperienceSkillContainer = styled(FlexBox)`
   }
 `;
 
-const TechExperienceDescriptionContainer = styled(FlexBox)`
+const TechExperienceDescriptionContainer = styled.ul`
+  display: flex;
+  flex-direction: column;
   width: 70%;
 `;
 
@@ -381,6 +403,8 @@ export {
   ContactLink,
   SkillsSectionInnerWrapper,
   SkillContainer,
+  SkillItemWrapper,
+  SkillItemDescriptionContainer,
   TechExperienceItemWrapper,
   TechExperienceItemInfoWrapper,
   TechExperienceItemName,

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import Link from 'gatsby-link';
-import { FlexBox, Text } from 'components';
+import { Text } from 'components';
 import { PostCardProps } from 'pages/post/components/PostCard/PostCard.type';
 import { usePostCard } from 'pages/post/components/PostCard/usePostCard';
 import { HeroImage, TagList } from 'pages/post/components';
@@ -10,7 +10,7 @@ const PostCard = ({ title, date, slug, tags, hero_image, hero_image_alt }: PostC
   const { theme } = usePostCard();
 
   return (
-    <Wrapper flexDirection="column">
+    <Wrapper>
       <NavLink to={`/post/${slug}`}>
         <HeroImage
           hero_image={hero_image}
@@ -21,7 +21,7 @@ const PostCard = ({ title, date, slug, tags, hero_image, hero_image_alt }: PostC
             borderRadius: '10px 10px 0 0',
           }}
         />
-        <PostInfoWrapper flexDirection="column" gap="15px">
+        <PostInfoWrapper>
           <Text color={theme.color.onSecondary} size={16}>
             {title}
           </Text>
@@ -37,8 +37,10 @@ const PostCard = ({ title, date, slug, tags, hero_image, hero_image_alt }: PostC
 
 export default PostCard;
 
-const Wrapper = styled(FlexBox)`
+const Wrapper = styled.div`
   ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
     width: 266px;
     border-radius: 0.625rem 0.625rem 0 0;
     background-color: ${theme.color.secondary};
@@ -49,7 +51,11 @@ const NavLink = styled(Link)`
   text-decoration: none;
 `;
 
-const PostInfoWrapper = styled(FlexBox)`
+const PostInfoWrapper = styled.div`
+  /* flexDirection="column" gap="15px" */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   height: 100%;
   padding: 15px;
 `;

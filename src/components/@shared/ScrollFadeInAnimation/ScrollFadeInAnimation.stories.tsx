@@ -1,7 +1,7 @@
 import { css, useTheme } from '@emotion/react';
 import styled from '@emotion/styled';
 import ScrollFadeInAnimation from 'components/@shared/ScrollFadeInAnimation/ScrollFadeInAnimation';
-import { FlexBox, Text } from 'components';
+import { Text } from 'components';
 
 export default {
   title: '@shared/ScrollFadeInAnimation',
@@ -12,7 +12,7 @@ export const DefaultScrollFadeInAnimation = () => {
   const theme = useTheme();
 
   return (
-    <Wrapper flexDirection="column" justifyContent="space-between">
+    <Wrapper>
       <Text color={theme.color.onBackground} size={16}>
         {'아래로 스크롤 해주세요!\nfade-in 애니메이션 효과가 적용된 박스를 확인할 수 있습니다.'}
       </Text>
@@ -23,7 +23,10 @@ export const DefaultScrollFadeInAnimation = () => {
   );
 };
 
-const Wrapper = styled(FlexBox)`
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
   white-space: pre-line;
 `;
