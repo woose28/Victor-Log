@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
 import { convertPxToRem } from 'styles/util';
-import { Text } from 'components';
 import { ProjectItemWrapperProps } from 'pages/about/aboutPage.type';
 import {
   UNDERLINE_FONT_SIZE_LARGE_DEFAULT,
@@ -79,22 +78,26 @@ const SectionWrapperFlex = styled(SectionWrapper)`
   gap: 70px;
 `;
 
-const SectionTitle = styled(Text)`
-  font-size: 3rem;
-  font-weight: 700;
+const SectionTitle = styled.h2`
+  ${({ theme }) => css`
+    font-size: 3rem;
+    font-weight: 700;
+    color: ${theme.color.onBackground};
 
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    font-size: 2rem;
-  }
+    @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+      font-size: 2rem;
+    }
+  `}
 `;
 
-const SectionDescription = styled(Text)`
-  font-size: 1rem;
-  font-weight: 500;
-
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    font-size: 0.875rem;
-  }
+const SectionDescription = styled.p`
+  ${({ theme }) => css`
+    font-size: 1rem;
+    font-weight: 500;
+    color: ${theme.color.subText} @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+      font-size: 0.875rem;
+    }
+  `}
 `;
 
 const TextBox = styled.div`
@@ -159,28 +162,34 @@ const ListItemText = styled.li`
   `}
 `;
 
-const IntroductionMainText = styled(Text)`
-  margin-top: 25vh;
-  font-size: 4.375rem;
-  font-weight: 700;
-  text-align: center;
+const IntroductionMainText = styled.h1`
+  ${({ theme }) => css`
+    margin-top: 25vh;
+    font-size: 4.375rem;
+    font-weight: 700;
+    color: ${theme.color.onSecondary};
+    text-align: center;
 
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    font-size: 3rem;
-  }
+    @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+      font-size: 3rem;
+    }
+  `}
 `;
 
-const IntroductionSubText = styled(Text)`
-  margin-top: 5px;
-  font-size: 1.5rem;
-  font-weight: 300;
-  text-align: center;
-  white-space: pre-line;
-
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+const IntroductionSubText = styled.p`
+  ${({ theme }) => css`
+    margin-top: 5px;
+    font-size: 1.5rem;
     font-weight: 300;
-    font-size: 1rem;
-  }
+    color: ${theme.color.subText};
+    text-align: center;
+    white-space: pre-line;
+
+    @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+      font-weight: 300;
+      font-size: 1rem;
+    }
+  `}
 `;
 
 const ContactLinkWrapper = styled.div`
@@ -278,15 +287,18 @@ const TechExperienceItemInfoWrapper = styled.div`
   }
 `;
 
-const TechExperienceItemName = styled(Text)`
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: end;
-  word-break: keep-all;
+const TechExperienceItemName = styled.p`
+  ${({ theme }) => css`
+    font-size: 2rem;
+    font-weight: 500;
+    color: ${theme.color.onBackground};
+    text-align: end;
+    word-break: keep-all;
 
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    font-size: 1.5rem;
-  }
+    @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
+      font-size: 1.5rem;
+    }
+  `}
 `;
 
 const TechExperienceSkillContainer = styled.ul`

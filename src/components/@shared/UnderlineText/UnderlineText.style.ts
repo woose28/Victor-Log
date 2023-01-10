@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { UnderlineProps } from 'components/@shared/UnderlineText/UnderlineText.type';
+import { TextProps, UnderlineProps } from 'components/@shared/UnderlineText/UnderlineText.type';
 import {
-  DEFAULT_UNDERLINE_BOTTOM,
+  DEFAULT_FONT_SIZE,
   UNDERLINE_BOTTOM_CORRECTION_VALUE,
 } from 'components/@shared/UnderlineText/UnderlineText.constant';
 
@@ -12,11 +12,18 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 
+const Text = styled.p<TextProps>`
+  ${({ fontSize, textColor }) => css`
+    font-size: ${(fontSize ?? DEFAULT_FONT_SIZE) / DEFAULT_FONT_SIZE}rem;
+    color: ${textColor};
+  `}
+`;
+
 const Underline = styled.div<UnderlineProps>`
-  ${({ size, underlineBottomPos, underlineColor, underlineThickness, underlineOpacity }) => css`
+  ${({ fontSize, underlineBottomPos, underlineColor, underlineThickness, underlineOpacity }) => css`
     position: absolute;
     bottom: ${underlineBottomPos ??
-    (size ?? DEFAULT_UNDERLINE_BOTTOM) / UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
+    (fontSize ?? DEFAULT_FONT_SIZE) / UNDERLINE_BOTTOM_CORRECTION_VALUE}px;
     width: 100%;
     height: ${underlineThickness * 100}%;
     background-color: ${underlineColor};
@@ -24,4 +31,4 @@ const Underline = styled.div<UnderlineProps>`
   `}
 `;
 
-export { Wrapper, Underline };
+export { Wrapper, Underline, Text };

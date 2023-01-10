@@ -1,7 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { CenterLayout } from 'layouts';
-import { Text } from 'components';
 import { PostItem } from 'pages/post/components';
 import { usePostPage } from 'pages/post/usePostPage';
 import { PostPageDataType } from 'pages/post/type';
@@ -17,11 +17,11 @@ const PostPage = ({
   return (
     <CenterLayout>
       <PageWrapper>
-        <TotalText color={theme.color.onBackground} size={16} fontWeight={700}>
+        <TotalText>
           Total{' '}
-          <Text color={theme.color.primary} size={16} fontWeight={700}>
+          <TotalPostCountText color={theme.color.primary} size={16} fontWeight={700}>
             {totalCount}
-          </Text>{' '}
+          </TotalPostCountText>{' '}
           Post
         </TotalText>
         <PostContainer>
@@ -77,8 +77,21 @@ const PageWrapper = styled.div`
   }
 `;
 
-const TotalText = styled(Text)`
-  align-self: flex-start;
+const TotalText = styled.p`
+  ${({ theme }) => css`
+    align-self: flex-start;
+    font-size: 1rem;
+    font-weight: 700;
+    color: ${theme.color.onBackground};
+  `}
+`;
+
+const TotalPostCountText = styled.span`
+  ${({ theme }) => css`
+    font-size: 1rem;
+    font-weight: 700;
+    color: ${theme.color.primary};
+  `}
 `;
 
 const PostContainer = styled.ul`
