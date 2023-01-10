@@ -1,19 +1,12 @@
 import styled from '@emotion/styled';
-import { css, useTheme } from '@emotion/react';
-import { Text } from 'components';
+import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
 
 const Footer = () => {
-  const theme = useTheme();
-
   return (
     <Wrapper>
-      <Text size={16} color={theme.color.onSecondary}>
-        Victor
-      </Text>
-      <Text size={14} color={theme.color.subText}>
-        © Victor. All Rights Reserved.
-      </Text>
+      <NameText>Victor</NameText>
+      <CopyRightText>© Victor. All Rights Reserved.</CopyRightText>
     </Wrapper>
   );
 };
@@ -32,5 +25,19 @@ const Wrapper = styled.footer`
     @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
       padding: 30px 20px;
     }
+  `}
+`;
+
+const NameText = styled.p`
+  ${({ theme }) => css`
+    font-size: 1rem;
+    color: ${theme.color.onSecondary};
+  `}
+`;
+
+const CopyRightText = styled.p`
+  ${({ theme }) => css`
+    font-size: 0.875rem;
+    color: ${theme.color.subText};
   `}
 `;

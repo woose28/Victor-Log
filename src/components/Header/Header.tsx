@@ -1,30 +1,25 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { useTheme } from '@emotion/react';
 import Link from 'gatsby-link';
 import { HeaderProps } from 'components/Header/Header.type';
-import { Text } from 'components';
 import { DISPLAY, LAYER } from 'styles/css';
 
 const Header = ({ backgroundColor }: HeaderProps) => {
-  const theme = useTheme();
-
   return (
     <Wrapper style={{ backgroundColor }}>
-      <NavLink style={{ flexGrow: 1 }} to="/post">
-        <Text size={20} color={theme.color.primary} fontWeight="bold">
-          VICTOR LOG
-        </Text>
+      <NavLink to="/post">
+        <LogoText>VICTOR LOG</LogoText>
       </NavLink>
-      <NavLink style={{ marginRight: '2.813rem' }} to="/about">
-        <Text size={16} color={theme.color.primary}>
-          About
-        </Text>
+      <NavLink
+        css={css`
+          margin: 0 2.813rem 0 auto;
+        `}
+        to="/about"
+      >
+        <LinkText>About</LinkText>
       </NavLink>
       <NavLink to="/post">
-        <Text size={16} color={theme.color.primary}>
-          Post
-        </Text>
+        <LinkText>Post</LinkText>
       </NavLink>
     </Wrapper>
   );
@@ -48,6 +43,21 @@ const Wrapper = styled.header`
   `}
 `;
 
+const LogoText = styled.p`
+  ${({ theme }) => css`
+    font-size: 1.25rem;
+    color: ${theme.color.primary};
+    font-weight: 700;
+  `}
+`;
+
 const NavLink = styled(Link)`
   text-decoration: none;
+`;
+
+const LinkText = styled.p`
+  ${({ theme }) => css`
+    font-size: 1rem;
+    color: ${theme.color.primary};
+  `}
 `;

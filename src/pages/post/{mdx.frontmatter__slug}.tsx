@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
 import { CenterLayout } from 'layouts';
-import { Text } from 'components';
 import { HeroImage, TagList } from 'pages/post/components';
 import { usePostDetailPage } from 'pages/post/usePostDetailPage';
 
@@ -15,12 +14,8 @@ const PostDetailPage = ({ data, children }) => {
   return (
     <CenterLayout>
       <PageWrapper>
-        <Text as="p" size={40} color={theme.color.onBackground} fontWeight="bold">
-          {title}
-        </Text>
-        <Text as="p" color={theme.color.onBackground}>
-          {date}
-        </Text>
+        <PostTitleText>{title}</PostTitleText>
+        <PostDateText>{date}</PostDateText>
         <TagList
           tags={tags}
           style={{
@@ -86,6 +81,21 @@ const PageWrapper = styled.div`
   @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
     width: 100%;
   }
+`;
+
+const PostTitleText = styled.p`
+  ${({ theme }) => css`
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: ${theme.color.onBackground};
+  `}
+`;
+
+const PostDateText = styled.p`
+  ${({ theme }) => css`
+    font-size: 1rem;
+    color: ${theme.color.onBackground};
+  `}
 `;
 
 const ContentWrapper = styled.div`

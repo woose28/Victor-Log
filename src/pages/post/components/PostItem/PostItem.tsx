@@ -1,9 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import Link from 'gatsby-link';
-import { Text } from 'components';
 import { PostItemProps } from 'pages/post/components/PostItem/PostItem.type';
-import { usePostItem } from 'pages/post/components/PostItem/usePostItem';
 import { HeroImage, TagList } from 'pages/post/components';
 
 const PostItem = ({
@@ -15,8 +13,6 @@ const PostItem = ({
   hero_image_alt,
   excerpt,
 }: PostItemProps) => {
-  const { theme } = usePostItem();
-
   return (
     <NavLink to={`/post/${slug}`}>
       <Wrapper>
@@ -29,21 +25,15 @@ const PostItem = ({
           }}
         />
         <PostInfoWrapper>
-          <Text as="p" color={theme.color.onSecondary} size={20} fontWeight={400}>
-            {title}
-          </Text>
-          <Summary as="p" color={theme.color.onSecondary} size={16} fontWeight={300}>
-            {excerpt}
-          </Summary>
+          <Title>{title}</Title>
+          <Summary>{excerpt}</Summary>
           <TagList
             tags={tags}
             style={{
               marginTop: '20px',
             }}
           />
-          <Date color={theme.color.subText} size={12}>
-            {date}
-          </Date>
+          <Date>{date}</Date>
         </PostInfoWrapper>
       </Wrapper>
     </NavLink>
@@ -72,15 +62,34 @@ const PostInfoWrapper = styled.div`
   padding: 20px 28px;
 `;
 
-const Summary = styled(Text)`
-  width: 100%;
-  max-height: 3rem;
-  margin-top: 10px;
-  overflow: hidden;
+const Title = styled.p`
+  ${({ theme }) => css`
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: ${theme.color.onSecondary};
+  `}
 `;
 
-const Date = styled(Text)`
-  height: 1rem;
-  margin-top: 5px;
-  align-self: flex-end;
+const Summary = styled.p`
+  ${({ theme }) => css`
+    width: 100%;
+    max-height: 3rem;
+    margin-top: 10px;
+
+    font-size: 1rem;
+    font-weight: 300;
+    color: ${theme.color.onSecondary};
+
+    overflow: hidden;
+  `}
+`;
+
+const Date = styled.p`
+  ${({ theme }) => css`
+    align-self: flex-end;
+    height: 1rem;
+    margin-top: 5px;
+    font-size: 0.75rem;
+    color: ${theme.color.subText};
+  `}
 `;

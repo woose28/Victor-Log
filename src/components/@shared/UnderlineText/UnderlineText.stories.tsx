@@ -5,12 +5,6 @@ import COLOR from 'styles/color';
 export default {
   title: '@shared/UnderlineText',
   component: UnderlineText,
-  argTypes: {
-    fontWeight: {
-      options: ['bold', 'normal'],
-      control: { type: 'radio' },
-    },
-  },
 };
 
 export const DefaultText = (args: UnderlineTextProps) => (
@@ -18,9 +12,8 @@ export const DefaultText = (args: UnderlineTextProps) => (
 );
 
 DefaultText.args = {
-  size: 20,
-  color: COLOR.BLACK_001,
-  fontWeight: 'bold',
+  fontSize: 20,
+  textColor: COLOR.BLACK_001,
   underlineColor: COLOR.NAVY_BLUE_001,
   underlineThickness: 0.3,
   underlineOpacity: 0.5,

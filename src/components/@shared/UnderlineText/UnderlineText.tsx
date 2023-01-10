@@ -1,27 +1,27 @@
 import { PropsWithChildren } from 'react';
 import { UnderlineTextProps } from 'components/@shared/UnderlineText/UnderlineText.type';
 import * as Styled from 'components/@shared/UnderlineText/UnderlineText.style';
-import { Text } from 'components';
 
 const UnderlineText = ({
   children,
   customTextStyle,
   customUnderlineStyle,
+  fontSize,
+  textColor,
   underlineBottomPos,
   underlineColor,
   underlineOpacity,
   underlineThickness,
-  size,
-  ...restProps
+  textAs,
 }: PropsWithChildren<UnderlineTextProps>) => {
   return (
     <Styled.Wrapper>
-      <Text css={customTextStyle} size={size} {...restProps}>
+      <Styled.Text as={textAs} textColor={textColor} fontSize={fontSize} css={customTextStyle}>
         {children}
-      </Text>
+      </Styled.Text>
       <Styled.Underline
         css={customUnderlineStyle}
-        size={size}
+        fontSize={fontSize}
         underlineBottomPos={underlineBottomPos}
         underlineColor={underlineColor}
         underlineOpacity={underlineOpacity}

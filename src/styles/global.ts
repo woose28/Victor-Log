@@ -44,5 +44,9 @@ export const style = css`
     list-style: none;
   }
 
+  p,
+  span {
+    line-height: 1.5;
+  }
   padding-inline-start: 0;
 `;

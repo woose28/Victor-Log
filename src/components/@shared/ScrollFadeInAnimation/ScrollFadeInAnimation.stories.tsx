@@ -1,7 +1,6 @@
-import { css, useTheme } from '@emotion/react';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import ScrollFadeInAnimation from 'components/@shared/ScrollFadeInAnimation/ScrollFadeInAnimation';
-import { Text } from 'components';
 
 export default {
   title: '@shared/ScrollFadeInAnimation',
@@ -9,13 +8,11 @@ export default {
 };
 
 export const DefaultScrollFadeInAnimation = () => {
-  const theme = useTheme();
-
   return (
     <Wrapper>
-      <Text color={theme.color.onBackground} size={16}>
+      <ComponentDescription>
         {'아래로 스크롤 해주세요!\nfade-in 애니메이션 효과가 적용된 박스를 확인할 수 있습니다.'}
-      </Text>
+      </ComponentDescription>
       <ScrollFadeInAnimation intersectionObserverOptions={{ threshold: 0.8 }}>
         <TestBox />
       </ScrollFadeInAnimation>
@@ -29,6 +26,13 @@ const Wrapper = styled.div`
   justify-content: space-between;
   height: 100vh;
   white-space: pre-line;
+`;
+
+const ComponentDescription = styled.p`
+  ${({ theme }) => css`
+    font-size: 1rem;
+    color: ${theme.color.onBackground};
+  `}
 `;
 
 const TestBox = styled.div`

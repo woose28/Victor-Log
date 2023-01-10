@@ -55,12 +55,17 @@ const IntroductionSection = () => {
 
   return (
     <Styled.SectionWrapper>
-      <Styled.IntroductionMainText as="h1" color={theme.color.onSecondary}>
-        Frontend Developer
-      </Styled.IntroductionMainText>
-      <Styled.IntroductionSubText as="p" color={theme.color.subText}>
+      <Styled.IntroductionMainText>Frontend Developer</Styled.IntroductionMainText>
+      <Styled.IntroductionSubText>
         {`안녕하세요. `}
-        <Styled.IntroductionSubText color={theme.color.primary}>이우승</Styled.IntroductionSubText>
+        <Styled.IntroductionSubText
+          as="span"
+          css={css`
+            color: ${theme.color.primary};
+          `}
+        >
+          이우승
+        </Styled.IntroductionSubText>
         {`입니다.\n방문해 주셔서 감사합니다 :)`}
       </Styled.IntroductionSubText>
       <MountFadeInAnimation customStyle={mountFadeInAnimationStyle}>
@@ -87,15 +92,11 @@ const IntroductionSection = () => {
 };
 
 const SkillsSection = () => {
-  const theme = useTheme();
-
   return (
     <Styled.SectionWrapper>
       <Styled.SkillsSectionInnerWrapper>
-        <Styled.SectionTitle as="h2" color={theme.color.onBackground}>
-          Main Skills
-        </Styled.SectionTitle>
-        <Styled.SectionDescription color={theme.color.subText}>
+        <Styled.SectionTitle>Main Skills</Styled.SectionTitle>
+        <Styled.SectionDescription>
           강점이 되며 꾸준히 학습하고 있는 기술들 입니다.
         </Styled.SectionDescription>
         <Styled.SkillContainer>
@@ -118,7 +119,7 @@ const SkillItem = ({ name, description }: SkillItemProps) => {
       <UnderlineText
         customTextStyle={skillNameLargeTextStyle}
         customUnderlineStyle={skillNameLargeUnderlineStyle}
-        color={theme.color.onBackground}
+        textColor={theme.color.onBackground}
         underlineColor={theme.color.primary}
         underlineOpacity={0.5}
         underlineThickness={0.2}
@@ -135,11 +136,9 @@ const SkillItem = ({ name, description }: SkillItemProps) => {
 };
 
 const TechExperienceSection = () => {
-  const theme = useTheme();
-
   return (
     <Styled.SectionWrapperFlex>
-      <Styled.SectionTitle color={theme.color.onBackground}>Tech Experience</Styled.SectionTitle>
+      <Styled.SectionTitle>Tech Experience</Styled.SectionTitle>
       <Styled.SkillsSectionInnerWrapper
         as="ul"
         css={css`
@@ -162,16 +161,14 @@ const TechExperienceItem = ({ name, skills, description }: TechExperienceItemPro
   return (
     <Styled.TechExperienceItemWrapper>
       <Styled.TechExperienceItemInfoWrapper>
-        <Styled.TechExperienceItemName color={theme.color.onBackground}>
-          {name}
-        </Styled.TechExperienceItemName>
+        <Styled.TechExperienceItemName>{name}</Styled.TechExperienceItemName>
         <Styled.TechExperienceSkillContainer>
           {skills?.map((skill, index) => (
             <UnderlineText
               key={index}
               customTextStyle={skillNameSmallTextStyle}
               customUnderlineStyle={skillNameSmallUnderlineStyle}
-              color={theme.color.onBackground}
+              textColor={theme.color.onBackground}
               underlineColor={theme.color.primary}
               underlineOpacity={0.5}
               underlineThickness={0.2}
@@ -191,11 +188,9 @@ const TechExperienceItem = ({ name, skills, description }: TechExperienceItemPro
 };
 
 const ProjectsSection = () => {
-  const theme = useTheme();
-
   return (
     <Styled.SectionWrapperFlex>
-      <Styled.SectionTitle color={theme.color.onBackground}>Projects</Styled.SectionTitle>
+      <Styled.SectionTitle>Projects</Styled.SectionTitle>
       <Styled.ProjectContainer>
         {PROJECTS.map((project, index) => (
           <ScrollFadeInAnimation key={index}>
@@ -241,7 +236,7 @@ const ProjectItem = ({
               <UnderlineText
                 customTextStyle={skillNameSmallTextStyle}
                 customUnderlineStyle={skillNameSmallUnderlineStyle}
-                color={theme.color.onBackground}
+                textColor={theme.color.onBackground}
                 underlineColor={projectColor}
                 underlineOpacity={0.5}
                 underlineThickness={0.2}
@@ -272,11 +267,9 @@ const ProjectItem = ({
 };
 
 const EducationSection = () => {
-  const theme = useTheme();
-
   return (
     <Styled.SectionWrapperFlex>
-      <Styled.SectionTitle color={theme.color.onBackground}>Education</Styled.SectionTitle>
+      <Styled.SectionTitle>Education</Styled.SectionTitle>
       <Styled.EducationContainer>
         {EDUCATION.map((education, index) => (
           <ScrollFadeInAnimation key={index}>
