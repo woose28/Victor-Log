@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { useTheme } from '@emotion/react';
-import * as Style from 'components/@shared/Button/Button.style';
-import { ButtonProps } from 'components/@shared/Button/Button.type';
+import * as Style from './Button.style';
+import { ButtonProps } from './Button.type';
 
 const { getVariantStyle, ...Styled } = Style;
 
@@ -14,7 +14,7 @@ const Button = ({
   const theme = useTheme();
 
   return (
-    <Styled.Wrapper css={[getVariantStyle(theme, variant), customStyle]} onClick={onClick}>
+    <Styled.Wrapper css={[customStyle, getVariantStyle(theme, variant)]} onClick={onClick}>
       {children}
     </Styled.Wrapper>
   );
