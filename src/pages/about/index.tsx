@@ -4,7 +4,7 @@ import { FullLayout } from 'layouts';
 import {
   MountFadeInAnimation,
   ScrollFadeInAnimation,
-  FloatingScrollButton,
+  ScrollFloatingButton,
   UnderlineText,
 } from 'components';
 import {
@@ -39,7 +39,7 @@ const AboutPage = () => {
         <TechExperienceSection />
         <ProjectsSection />
         <EducationSection />
-        <FloatingScrollButton />
+        <ScrollFloatingButton />
       </Styled.PageWrapper>
     </FullLayout>
   );

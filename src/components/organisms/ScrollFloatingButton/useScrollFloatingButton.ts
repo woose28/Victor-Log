@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTheme } from '@emotion/react';
 import { useThrottle } from 'hooks';
-import { UseFloatingScrollButtonProps } from 'components/@shared/FloatingScrollButton/FloatingScrollButton.type';
-import { HEIGHT_CORRECTION_VALUE } from 'components/@shared/FloatingScrollButton/FloatingScrollButton.constant';
+import { UseScrollFloatingButtonProps } from './ScrollFloatingButton.type';
+import { HEIGHT_CORRECTION_VALUE } from './ScrollFloatingButton.constant';
 
-const useFloatingScrollButton = ({ heightOffset }: UseFloatingScrollButtonProps) => {
+const useScrollFloatingButton = ({ heightOffset }: UseScrollFloatingButtonProps) => {
   const theme = useTheme();
   const [isReachedBottom, setIsReachedBottom] = useState(false);
 
@@ -52,4 +52,4 @@ const useFloatingScrollButton = ({ heightOffset }: UseFloatingScrollButtonProps)
   };
 };
 
-export { useFloatingScrollButton };
+export { useScrollFloatingButton };
