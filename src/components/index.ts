@@ -1,6 +1,8 @@
 import Button from 'components/atoms/Button/Button';
 import Lottie from 'components/atoms/Lottie/Lottie';
 import FadeInAnimation from 'components/atoms/FadeInAnimation/FadeInAnimation';
+import Fixed from 'components/atoms/Fixed/Fixed';
+
 import MountFadeInAnimation from 'components/molecules/MountFadeInAnimation/MountFadeInAnimation';
 import ScrollFadeInAnimation from 'components/molecules/ScrollFadeInAnimation/ScrollFadeInAnimation';
 
@@ -17,6 +19,7 @@ export {
   Button,
   Lottie,
   FadeInAnimation,
+  Fixed,
   MountFadeInAnimation,
   ScrollFadeInAnimation,
   FloatingButton,
