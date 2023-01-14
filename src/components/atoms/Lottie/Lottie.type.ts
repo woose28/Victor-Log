@@ -7,4 +7,6 @@ type LottieProps = {
   customStyle?: SerializedStyles;
 };
 
-export { LottieProps };
+type UseLottieProps = Pick<LottieProps, 'animationData'>;
+
+export { LottieProps, UseLottieProps };

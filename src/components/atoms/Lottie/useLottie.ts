@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 import lottie, { AnimationItem } from 'lottie-web';
-import { LottieProps } from 'components/@shared/Lottie/Lottie.type';
+import { UseLottieProps } from './Lottie.type';
 
-const Lottie = ({ animationData, customStyle }: LottieProps) => {
+const useLottie = ({ animationData }: UseLottieProps) => {
   const element = useRef<HTMLDivElement>(null);
   const lottieInstance = useRef<AnimationItem>();
 
@@ -21,7 +21,9 @@ const Lottie = ({ animationData, customStyle }: LottieProps) => {
     };
   }, [animationData]);
 
-  return <div css={customStyle} ref={element}></div>;
+  return {
+    element,
+  };
 };
 
-export default Lottie;
+export { useLottie };
