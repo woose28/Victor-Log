@@ -1,5 +1,6 @@
 import Button from 'components/atoms/Button/Button';
 import Lottie from 'components/atoms/Lottie/Lottie';
+import FadeInAnimation from 'components/atoms/FadeInAnimation/FadeInAnimation';
 import FloatingButton from 'components/@shared/FloatingButton/FloatingButton';
 import FloatingScrollButton from 'components/@shared/FloatingScrollButton/FloatingScrollButton';
 import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper';
@@ -13,9 +14,10 @@ import Header from 'components/Header/Header';
 
 export {
   Button,
+  Lottie,
+  FadeInAnimation,
   FloatingButton,
   FloatingScrollButton,
-  Lottie,
   MDXImageWrapper,
   MDXStyleProvider,
   MountFadeInAnimation,
