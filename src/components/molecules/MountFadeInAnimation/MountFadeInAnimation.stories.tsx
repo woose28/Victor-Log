@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import MountFadeInAnimation from 'components/@shared/MountFadeInAnimation/MountFadeInAnimation';
+import MountFadeInAnimation from './MountFadeInAnimation';
 
 export default {
-  title: '@shared/MountFadeInAnimation',
+  title: 'molecules/MountFadeInAnimation',
   component: MountFadeInAnimation,
 };
 

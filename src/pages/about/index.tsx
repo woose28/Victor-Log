@@ -18,7 +18,6 @@ import { SKILLS, TECH_EXPERIENCES, PROJECTS, EDUCATION } from 'pages/about/about
 import { useProjectItem } from 'pages/about/useProjectItem';
 
 const {
-  mountFadeInAnimationStyle,
   skillNameLargeTextStyle,
   skillNameLargeUnderlineStyle,
   skillNameSmallTextStyle,
@@ -68,7 +67,7 @@ const IntroductionSection = () => {
         </Styled.IntroductionSubText>
         {`입니다.\n방문해 주셔서 감사합니다 :)`}
       </Styled.IntroductionSubText>
-      <MountFadeInAnimation customStyle={mountFadeInAnimationStyle}>
+      <MountFadeInAnimation transition="0.8s">
         <Styled.ContactLinkWrapper>
           <Styled.ContactLink
             href="https://github.com/woose28"

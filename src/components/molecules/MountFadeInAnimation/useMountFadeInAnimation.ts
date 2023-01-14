@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { CLASS_NAME_FADE_IN } from 'components/@shared/MountFadeInAnimation/MountFadeInAnimation.constant';
+import { CLASS_NAME_FADE_IN } from './MountFadeInAnimation.constant';
 
 const useMountFadeInAnimation = <T extends Element>() => {
   const target = useRef<T>(null);
