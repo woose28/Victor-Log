@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import ScrollFadeInAnimation from 'components/@shared/ScrollFadeInAnimation/ScrollFadeInAnimation';
+import ScrollFadeInAnimation from './ScrollFadeInAnimation';
 
 export default {
-  title: '@shared/ScrollFadeInAnimation',
+  title: 'molecules/ScrollFadeInAnimation',
   component: ScrollFadeInAnimation,
 };
 
@@ -13,7 +13,7 @@ export const DefaultScrollFadeInAnimation = () => {
       <ComponentDescription>
         {'아래로 스크롤 해주세요!\nfade-in 애니메이션 효과가 적용된 박스를 확인할 수 있습니다.'}
       </ComponentDescription>
-      <ScrollFadeInAnimation intersectionObserverOptions={{ threshold: 0.8 }}>
+      <ScrollFadeInAnimation intersectionObserverOptions={{ threshold: 1 }}>
         <TestBox />
       </ScrollFadeInAnimation>
     </Wrapper>
