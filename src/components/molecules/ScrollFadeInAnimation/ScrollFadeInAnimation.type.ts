@@ -1,7 +1,6 @@
-import { SerializedStyles } from '@emotion/react';
+import { FadeInAnimationProps } from 'components/atoms/FadeInAnimation/FadeInAnimation.type';
 
-type ScrollFadeInAnimationProps = {
-  customStyle?: SerializedStyles;
+type ScrollFadeInAnimationProps = FadeInAnimationProps & {
   intersectionObserverOptions?: IntersectionObserverInit;
 };
 

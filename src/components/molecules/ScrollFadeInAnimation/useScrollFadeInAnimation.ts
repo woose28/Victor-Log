@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { useIntersectionObserver } from 'hooks';
-import {
-  CheckIsPassScroll,
-  ScrollFadeInAnimationProps,
-} from 'components/@shared/ScrollFadeInAnimation/ScrollFadeInAnimation.type';
-import { CLASS_NAME_FADE_IN } from 'components/@shared/ScrollFadeInAnimation/ScrollFadeInAnimation.constant';
+import { CheckIsPassScroll, ScrollFadeInAnimationProps } from './ScrollFadeInAnimation.type';
+import { CLASS_NAME_FADE_IN } from './ScrollFadeInAnimation.constant';
 
 const useScrollFadeInAnimation = <T extends HTMLElement>({
   intersectionObserverOptions,
