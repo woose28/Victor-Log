@@ -5,8 +5,8 @@ import Fixed from 'components/atoms/Fixed/Fixed';
 
 import MountFadeInAnimation from 'components/molecules/MountFadeInAnimation/MountFadeInAnimation';
 import ScrollFadeInAnimation from 'components/molecules/ScrollFadeInAnimation/ScrollFadeInAnimation';
+import FloatingButton from 'components/molecules/FloatingButton/FloatingButton';
 
-import FloatingButton from 'components/@shared/FloatingButton/FloatingButton';
 import FloatingScrollButton from 'components/@shared/FloatingScrollButton/FloatingScrollButton';
 import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper';
 import MDXStyleProvider from 'components/@shared/MDXStyleProvider/MDXStyleProvider';
