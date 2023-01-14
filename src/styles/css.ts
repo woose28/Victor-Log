@@ -6,4 +6,5 @@ export const DISPLAY = {
 
 export const LAYER = {
   HEADER: 100,
+  SCROLL_FLOATING_BUTTON: 50,
 };

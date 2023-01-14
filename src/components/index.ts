@@ -7,7 +7,7 @@ import MountFadeInAnimation from 'components/molecules/MountFadeInAnimation/Moun
 import ScrollFadeInAnimation from 'components/molecules/ScrollFadeInAnimation/ScrollFadeInAnimation';
 import FloatingButton from 'components/molecules/FloatingButton/FloatingButton';
 
-import FloatingScrollButton from 'components/@shared/FloatingScrollButton/FloatingScrollButton';
+import ScrollFloatingButton from 'components/organisms/ScrollFloatingButton/ScrollFloatingButton';
 import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper';
 import MDXStyleProvider from 'components/@shared/MDXStyleProvider/MDXStyleProvider';
 import UnderlineText from 'components/@shared/UnderlineText/UnderlineText';
@@ -23,7 +23,7 @@ export {
   MountFadeInAnimation,
   ScrollFadeInAnimation,
   FloatingButton,
-  FloatingScrollButton,
+  ScrollFloatingButton,
   MDXImageWrapper,
   MDXStyleProvider,
   UnderlineText,

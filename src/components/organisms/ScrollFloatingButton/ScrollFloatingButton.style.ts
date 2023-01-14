@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import { GetFloatingScrollButtonStyle } from 'components/@shared/FloatingScrollButton/FloatingScrollButton.type';
+import { GetScrollFloatingButtonStyle } from './ScrollFloatingButton.type';
 
-const getFloatingScrollButtonStyle: GetFloatingScrollButtonStyle = (theme, isReachedBottom) => {
+const getButtonCustomStyle: GetScrollFloatingButtonStyle = (theme, isReachedBottom) => {
   if (isReachedBottom) {
     return css`
       background-color: ${theme.color.background};
@@ -26,9 +26,14 @@ const getFloatingScrollButtonStyle: GetFloatingScrollButtonStyle = (theme, isRea
   `;
 };
 
+const wrapperCustomStyle = css`
+  right: 50px;
+  bottom: 50px;
+`;
+
 const customStyleLottie = css`
   width: 50px;
   aspect-ratio: 1;
 `;
 
-export { getFloatingScrollButtonStyle, customStyleLottie };
+export { getButtonCustomStyle, wrapperCustomStyle, customStyleLottie };
