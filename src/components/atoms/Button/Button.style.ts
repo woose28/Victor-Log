@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { GetVariantStyles } from 'components/@shared/Button/Button.type';
+import { GetVariantStyles } from './Button.type';
 
 const getVariantStyle: GetVariantStyles = (theme, variant) => {
   const variantStyles = {

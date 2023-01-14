@@ -1,4 +1,4 @@
-import Button from 'components/@shared/Button/Button';
+import Button from 'components/atoms/Button/Button';
 import FloatingButton from 'components/@shared/FloatingButton/FloatingButton';
 import FloatingScrollButton from 'components/@shared/FloatingScrollButton/FloatingScrollButton';
 import Lottie from 'components/@shared/Lottie/Lottie';
