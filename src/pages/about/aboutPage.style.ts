@@ -11,10 +11,6 @@ import {
 } from 'pages/about/aboutPage.constant';
 import { UNDERLINE_BOTTOM_CORRECTION_VALUE } from 'components/@shared/UnderlineText/UnderlineText.constant';
 
-const mountFadeInAnimationStyle = css`
-  transition: 0.8s;
-`;
-
 const skillNameLargeTextStyle = css`
   font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_LARGE_DEFAULT)}rem;
   font-weight: 700;
@@ -394,7 +390,6 @@ const EducationItemWrapper = styled.li`
 `;
 
 export {
-  mountFadeInAnimationStyle,
   skillNameLargeTextStyle,
   skillNameLargeUnderlineStyle,
   skillNameSmallTextStyle,
