@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
-import { CenterLayout } from 'layouts';
+import { CenterLayout } from 'components';
 import { HeroImage, TagList } from 'components';
 import { usePostDetailPage } from 'pages/post/usePostDetailPage';
 

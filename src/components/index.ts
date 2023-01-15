@@ -20,6 +20,9 @@ import HeroImage from 'components/organisms/Post/HeroImage/HeroImage';
 import PostItem from 'components/organisms/Post/PostItem/PostItem';
 import TagList from 'components/organisms/Post/TagList/TagList';
 
+import CenterLayout from 'components/templates/CenterLayout/CenterLayout';
+import FullLayout from 'components/templates/FullLayout/FullLayout';
+
 export {
   Button,
   FadeInAnimation,
@@ -38,4 +41,6 @@ export {
   HeroImage,
   PostItem,
   TagList,
+  CenterLayout,
+  FullLayout,
 };

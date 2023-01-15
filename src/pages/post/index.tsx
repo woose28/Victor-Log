@@ -1,7 +1,7 @@
 import { graphql, PageProps } from 'gatsby';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { CenterLayout } from 'layouts';
+import { CenterLayout } from 'components';
 import { PostItem } from 'components';
 import { usePostPage } from 'pages/post/usePostPage';
 import { PostPageDataType } from 'pages/post/type';

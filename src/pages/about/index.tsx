@@ -1,11 +1,11 @@
 import { css, useTheme } from '@emotion/react';
 import { useAboutPage } from 'pages/about/useAboutPage';
-import { FullLayout } from 'layouts';
 import {
   MountFadeInAnimation,
   ScrollFadeInAnimation,
   ScrollFloatingButton,
   UnderlineText,
+  FullLayout,
 } from 'components';
 import {
   EducationItemProps,
