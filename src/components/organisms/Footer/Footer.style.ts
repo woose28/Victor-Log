@@ -1,17 +1,6 @@
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 import { DISPLAY } from 'styles/css';
-
-const Footer = () => {
-  return (
-    <Wrapper>
-      <NameText>Victor</NameText>
-      <CopyRightText>© Victor. All Rights Reserved.</CopyRightText>
-    </Wrapper>
-  );
-};
-
-export default Footer;
 
 const Wrapper = styled.footer`
   ${({ theme }) => css`
@@ -41,3 +30,5 @@ const CopyRightText = styled.p`
     color: ${theme.color.subText};
   `}
 `;
+
+export { Wrapper, NameText, CopyRightText };

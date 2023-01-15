@@ -7,13 +7,13 @@ import MountFadeInAnimation from 'components/molecules/MountFadeInAnimation/Moun
 import ScrollFadeInAnimation from 'components/molecules/ScrollFadeInAnimation/ScrollFadeInAnimation';
 import FloatingButton from 'components/molecules/FloatingButton/FloatingButton';
 
+import Footer from 'components/organisms/Footer/Footer';
 import Header from 'components/organisms/Header/Header';
 import ScrollFloatingButton from 'components/organisms/ScrollFloatingButton/ScrollFloatingButton';
 import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper';
 import MDXStyleProvider from 'components/@shared/MDXStyleProvider/MDXStyleProvider';
 import UnderlineText from 'components/@shared/UnderlineText/UnderlineText';
 import ToggleList from 'components/@shared/ToggleList/ToggleList';
-import Footer from 'components/Footer/Footer';
 
 export {
   Button,
@@ -23,11 +23,11 @@ export {
   MountFadeInAnimation,
   ScrollFadeInAnimation,
   FloatingButton,
+  Footer,
   Header,
   ScrollFloatingButton,
   MDXImageWrapper,
   MDXStyleProvider,
   UnderlineText,
   ToggleList,
-  Footer,
 };
