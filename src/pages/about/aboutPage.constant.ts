@@ -102,7 +102,11 @@ const PROJECTS: Project[] = [
     },
     description: '직접 만들어 가는 블로그 및 포트폴리오 페이지',
     skills: ['React', 'Typescript', 'Emotion', 'Gatsby', 'GraphQL', 'Storybook'],
-    experiences: ['SSG 렌더링 방식의 정적 사이트개발', 'Storybook을 활용한 CDD 개발'],
+    experiences: [
+      'SSG 렌더링 방식의 정적 사이트개발',
+      'Storybook을 활용한 CDD 개발',
+      'Atomic Design 패턴 연습 중',
+    ],
     links: [
       {
         type: 'github',
