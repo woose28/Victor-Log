@@ -3,7 +3,7 @@ import { MDXStyledTableStorybookProps } from 'components/@shared/MDXStyleProvide
 import { MDXStyledTh, MDXStyledTr, MDXStyledTd } from '../index';
 
 export default {
-  title: 'MDXStyledProvider/MDXStyledTable',
+  title: 'MDX/MDXStyledTable',
   component: MDXStyledTable,
 };
 

@@ -3,7 +3,7 @@ import { MDXStyledOlStorybookProps } from './MDXStyledOl.type';
 import { MDXStyledLi } from '../index';
 
 export default {
-  title: 'MDXStyledProvider/MDXStyledOl',
+  title: 'MDX/MDXStyledOl',
   component: MDXStyledOl,
 };
 

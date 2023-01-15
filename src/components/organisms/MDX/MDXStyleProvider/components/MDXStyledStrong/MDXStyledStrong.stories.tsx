@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 import MDXStyledStrong from './MDXStyledStrong';
 
 export default {
-  title: 'MDXStyledProvider/MDXStyledStrong',
+  title: 'MDX/MDXStyledStrong',
   component: MDXStyledStrong,
 };
 

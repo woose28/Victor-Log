@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 import MDXStyledBlockquote from './MDXStyledBlockquote';
 
 export default {
-  title: 'MDXStyledProvider/MDXStyledBlockquote',
+  title: 'MDX/MDXStyledBlockquote',
   component: MDXStyledBlockquote,
 };
 

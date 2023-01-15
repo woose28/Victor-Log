@@ -3,7 +3,7 @@ import { MDXStyledUlStorybookProps } from './MDXStyledUl.type';
 import { MDXStyledLi } from '../index';
 
 export default {
-  title: 'MDXStyledProvider/MDXStyledUl',
+  title: 'MDX/MDXStyledUl',
   component: MDXStyledUl,
 };
 
