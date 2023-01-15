@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
-import { UnderlineTextProps } from 'components/@shared/UnderlineText/UnderlineText.type';
-import * as Styled from 'components/@shared/UnderlineText/UnderlineText.style';
+import { UnderlineTextProps } from './UnderlineText.type';
+import * as Styled from './UnderlineText.style';
 
 const UnderlineText = ({
   children,
