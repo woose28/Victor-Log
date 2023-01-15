@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 import MDXStyledPre from './MDXStyledPre';
 
 export default {
-  title: 'MDXStyledProvider/MDXStyledPre',
+  title: 'MDX/MDXStyledPre',
   component: MDXStyledPre,
 };
 

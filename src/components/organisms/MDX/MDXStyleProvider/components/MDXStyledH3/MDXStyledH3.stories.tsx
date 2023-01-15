@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 import MDXStyledH3 from './MDXStyledH3';
 
 export default {
-  title: 'MDXStyledProvider/MDXStyledH3',
+  title: 'MDX/MDXStyledH3',
   component: MDXStyledH3,
 };
 

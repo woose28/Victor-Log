@@ -13,7 +13,7 @@ import Header from 'components/organisms/Header/Header';
 import ScrollFloatingButton from 'components/organisms/ScrollFloatingButton/ScrollFloatingButton';
 
 import MDXImageWrapper from 'components/organisms/MDX/MDXImageWrapper/MDXImageWrapper';
-import MDXStyleProvider from 'components/@shared/MDXStyleProvider/MDXStyleProvider';
+import MDXStyleProvider from 'components/organisms/MDX/MDXStyleProvider/MDXStyleProvider';
 import ToggleList from 'components/organisms/MDX/ToggleList/ToggleList';
 
 export {
