@@ -1,5 +1,5 @@
-import HeroImage from 'pages/post/components/HeroImage/HeroImage';
-import { HeroImageProps } from 'pages/post/components/HeroImage/HeroImage.type';
+import HeroImage from './HeroImage';
+import { HeroImageProps } from './HeroImage.type';
 
 export default {
   title: 'post/HeroImage',

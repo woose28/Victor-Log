@@ -1,5 +1,5 @@
-import TagList from 'pages/post/components/TagList/TagList';
-import { TagListProps } from 'pages/post/components/TagList/TagList.type';
+import TagList from './TagList';
+import { TagListProps } from './TagList.type';
 
 export default {
   title: 'post/TagList',

@@ -1,46 +1,6 @@
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import Link from 'gatsby-link';
-import { PostItemProps } from 'pages/post/components/PostItem/PostItem.type';
-import { HeroImage, TagList } from 'pages/post/components';
-
-const PostItem = ({
-  title,
-  date,
-  slug,
-  tags,
-  hero_image,
-  hero_image_alt,
-  excerpt,
-}: PostItemProps) => {
-  return (
-    <NavLink to={`/post/${slug}`}>
-      <Wrapper>
-        <HeroImage
-          hero_image={hero_image}
-          hero_image_alt={hero_image_alt}
-          style={{
-            width: '208px',
-            borderRadius: '10px 0 0 10px',
-          }}
-        />
-        <PostInfoWrapper>
-          <Title>{title}</Title>
-          <Summary>{excerpt}</Summary>
-          <TagList
-            tags={tags}
-            style={{
-              marginTop: '20px',
-            }}
-          />
-          <Date>{date}</Date>
-        </PostInfoWrapper>
-      </Wrapper>
-    </NavLink>
-  );
-};
-
-export default PostItem;
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -93,3 +53,5 @@ const Date = styled.p`
     color: ${theme.color.subText};
   `}
 `;
+
+export { Wrapper, NavLink, PostInfoWrapper, Title, Summary, Date };

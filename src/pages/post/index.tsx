@@ -2,7 +2,7 @@ import { graphql, PageProps } from 'gatsby';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { CenterLayout } from 'layouts';
-import { PostItem } from 'pages/post/components';
+import { PostItem } from 'components';
 import { usePostPage } from 'pages/post/usePostPage';
 import { PostPageDataType } from 'pages/post/type';
 import { DISPLAY } from 'styles/css';

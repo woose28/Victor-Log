@@ -1,5 +1,5 @@
-import PostItem from 'pages/post/components/PostItem/PostItem';
-import { PostItemProps } from 'pages/post/components/PostItem/PostItem.type';
+import PostItem from './PostItem';
+import { PostItemProps } from './PostItem.type';
 
 export default {
   title: 'post/PostItem',
