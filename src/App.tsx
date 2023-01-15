@@ -1,13 +1,13 @@
+import { PropsWithChildren } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Global } from '@emotion/react';
 
 import { theme } from 'styles/theme';
 import { style } from 'styles/global';
-import { MainLayoutProps } from 'layouts/MainLayout/MainLayout.type';
 import { MDXStyleProvider } from 'components';
 
-const MainLayout = ({ children }: MainLayoutProps) => {
+const App = ({ children }: PropsWithChildren) => {
   return (
     <Wrapper>
       <Global styles={style} />
@@ -18,7 +18,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   );
 };
 
-export default MainLayout;
+export default App;
 
 const Wrapper = styled.div`
   min-width: 375px;
