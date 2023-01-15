@@ -14,7 +14,7 @@ import ScrollFloatingButton from 'components/organisms/ScrollFloatingButton/Scro
 
 import MDXImageWrapper from 'components/organisms/MDX/MDXImageWrapper/MDXImageWrapper';
 import MDXStyleProvider from 'components/@shared/MDXStyleProvider/MDXStyleProvider';
-import ToggleList from 'components/@shared/ToggleList/ToggleList';
+import ToggleList from 'components/organisms/MDX/ToggleList/ToggleList';
 
 export {
   Button,
