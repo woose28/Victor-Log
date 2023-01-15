@@ -2,7 +2,7 @@ import { SerializedStyles } from '@emotion/react';
 
 type FixedProps = {
   layer: number;
-  customStyle?: SerializedStyles;
+  customStyle?: SerializedStyles | SerializedStyles[];
 };
 
 type WrapperProps = FixedProps;
