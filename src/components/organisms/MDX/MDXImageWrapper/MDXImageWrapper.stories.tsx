@@ -1,9 +1,9 @@
-import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper';
-import { MDXImageWrapperProps } from 'components/@shared/MDXImageWrapper/MDXImageWrapper.type';
+import MDXImageWrapper from './MDXImageWrapper';
+import { MDXImageWrapperProps } from './MDXImageWrapper.type';
 import TestImage from 'assets/images/테스트_이미지.jpeg';
 
 export default {
-  title: '@shared/MDXImageWrapper',
+  title: 'MDX/MDXImageWrapper',
   component: MDXImageWrapper,
 };
 

@@ -11,7 +11,8 @@ import FloatingButton from 'components/molecules/FloatingButton/FloatingButton';
 import Footer from 'components/organisms/Footer/Footer';
 import Header from 'components/organisms/Header/Header';
 import ScrollFloatingButton from 'components/organisms/ScrollFloatingButton/ScrollFloatingButton';
-import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper';
+
+import MDXImageWrapper from 'components/organisms/MDX/MDXImageWrapper/MDXImageWrapper';
 import MDXStyleProvider from 'components/@shared/MDXStyleProvider/MDXStyleProvider';
 import ToggleList from 'components/@shared/ToggleList/ToggleList';
 
