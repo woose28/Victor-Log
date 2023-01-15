@@ -1,18 +1,5 @@
-import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { TagListProps } from 'pages/post/components/TagList/TagList.type';
-
-const TagList = ({ tags, style }: TagListProps) => {
-  return (
-    <Wrapper style={style}>
-      {tags.map((tag) => (
-        <TagItem key={tag}>{tag}</TagItem>
-      ))}
-    </Wrapper>
-  );
-};
-
-export default TagList;
+import styled from '@emotion/styled';
 
 const Wrapper = styled.ul`
   display: flex;
@@ -30,3 +17,5 @@ const TagItem = styled.li`
     text-align: center;
   `}
 `;
+
+export { Wrapper, TagItem };

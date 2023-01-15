@@ -1,5 +1,5 @@
-import PostCard from 'pages/post/components/PostCard/PostCard';
-import { PostCardProps } from 'pages/post/components/PostCard/PostCard.type';
+import PostCard from './PostCard';
+import { PostCardProps } from './PostCard.type';
 
 export default {
   title: 'post/PostCard',

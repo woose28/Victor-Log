@@ -16,6 +16,10 @@ import MDXImageWrapper from 'components/organisms/MDX/MDXImageWrapper/MDXImageWr
 import MDXStyleProvider from 'components/organisms/MDX/MDXStyleProvider/MDXStyleProvider';
 import ToggleList from 'components/organisms/MDX/ToggleList/ToggleList';
 
+import HeroImage from 'components/organisms/Post/HeroImage/HeroImage';
+import PostItem from 'components/organisms/Post/PostItem/PostItem';
+import TagList from 'components/organisms/Post/TagList/TagList';
+
 export {
   Button,
   FadeInAnimation,
@@ -31,4 +35,7 @@ export {
   MDXImageWrapper,
   MDXStyleProvider,
   ToggleList,
+  HeroImage,
+  PostItem,
+  TagList,
 };
