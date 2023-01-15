@@ -1,10 +1,7 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { TextProps, UnderlineProps } from 'components/@shared/UnderlineText/UnderlineText.type';
-import {
-  DEFAULT_FONT_SIZE,
-  UNDERLINE_BOTTOM_CORRECTION_VALUE,
-} from 'components/@shared/UnderlineText/UnderlineText.constant';
+import { TextProps, UnderlineProps } from './UnderlineText.type';
+import { DEFAULT_FONT_SIZE, UNDERLINE_BOTTOM_CORRECTION_VALUE } from './UnderlineText.constant';
 
 const Wrapper = styled.div`
   position: relative;

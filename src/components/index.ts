@@ -1,7 +1,8 @@
 import Button from 'components/atoms/Button/Button';
-import Lottie from 'components/atoms/Lottie/Lottie';
 import FadeInAnimation from 'components/atoms/FadeInAnimation/FadeInAnimation';
 import Fixed from 'components/atoms/Fixed/Fixed';
+import Lottie from 'components/atoms/Lottie/Lottie';
+import UnderlineText from 'components/atoms/UnderlineText/UnderlineText';
 
 import MountFadeInAnimation from 'components/molecules/MountFadeInAnimation/MountFadeInAnimation';
 import ScrollFadeInAnimation from 'components/molecules/ScrollFadeInAnimation/ScrollFadeInAnimation';
@@ -12,14 +13,14 @@ import Header from 'components/organisms/Header/Header';
 import ScrollFloatingButton from 'components/organisms/ScrollFloatingButton/ScrollFloatingButton';
 import MDXImageWrapper from 'components/@shared/MDXImageWrapper/MDXImageWrapper';
 import MDXStyleProvider from 'components/@shared/MDXStyleProvider/MDXStyleProvider';
-import UnderlineText from 'components/@shared/UnderlineText/UnderlineText';
 import ToggleList from 'components/@shared/ToggleList/ToggleList';
 
 export {
   Button,
-  Lottie,
   FadeInAnimation,
   Fixed,
+  Lottie,
+  UnderlineText,
   MountFadeInAnimation,
   ScrollFadeInAnimation,
   FloatingButton,
@@ -28,6 +29,5 @@ export {
   ScrollFloatingButton,
   MDXImageWrapper,
   MDXStyleProvider,
-  UnderlineText,
   ToggleList,
 };

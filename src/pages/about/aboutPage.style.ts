@@ -9,7 +9,7 @@ import {
   UNDERLINE_FONT_SIZE_SMALL_DEFAULT,
   UNDERLINE_FONT_SIZE_SMALL_TABLET_HORIZONTAL_MAX,
 } from 'pages/about/aboutPage.constant';
-import { UNDERLINE_BOTTOM_CORRECTION_VALUE } from 'components/@shared/UnderlineText/UnderlineText.constant';
+import { UNDERLINE_BOTTOM_CORRECTION_VALUE } from 'components/atoms/UnderlineText/UnderlineText.constant';
 
 const skillNameLargeTextStyle = css`
   font-size: ${convertPxToRem(UNDERLINE_FONT_SIZE_LARGE_DEFAULT)}rem;
