@@ -1,7 +1,7 @@
-import Header from 'components/Header/Header';
+import Header from './Header';
 
 export default {
-  title: 'components/Header',
+  title: 'organisms/Header',
   component: Header,
 };
 
