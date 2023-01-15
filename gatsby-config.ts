@@ -51,7 +51,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-layout',
       options: {
-        component: path.join(__dirname, './src/layouts/MainLayout/MainLayout.tsx'),
+        component: path.join(__dirname, './src/App.tsx'),
       },
     },
     'gatsby-plugin-image',
