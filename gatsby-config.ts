@@ -75,6 +75,14 @@ const config: GatsbyConfig = {
       },
     },
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: 'https://victor-log.vercel.app',
+        sitemap: 'https://victor-log.vercel.app/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 };
 

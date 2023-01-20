@@ -60,6 +60,7 @@
     "eslint-plugin-react": "^7.31.0",
     "eslint-plugin-storybook": "^0.6.4",
     "gatsby-plugin-layout": "^3.0.0",
+    "gatsby-plugin-robots-txt": "1.7",
     "gatsby-plugin-root-import": "^2.0.8",
     "gatsby-plugin-sitemap": "^5.25.0",
     "typescript": "^4.7.4"
