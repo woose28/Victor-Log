@@ -5,3 +5,4 @@ src/gatsby-types.d.ts
 .vscode/
 .DS_Store
 build-storybook.log
+.env*
