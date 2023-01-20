@@ -4,7 +4,9 @@ const path = require('path');
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Victor Log`,
-    siteUrl: `https://www.yourdomain.tld`,
+    author: `Wooseoung Lee`,
+    description: `This blog is a space for recording what i learned.`,
+    siteUrl: `https://victor-log.vercel.app`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -72,6 +74,7 @@ const config: GatsbyConfig = {
         },
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 };
 
