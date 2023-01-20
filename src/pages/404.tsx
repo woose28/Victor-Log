@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+import { SEO } from 'components';
 
 const NotFoundPage = () => {
   return (
@@ -18,4 +19,8 @@ const Wrapper = styled.div`
   gap: 20px;
 `;
 
-export const Head = () => <title>Victor Log | Not found</title>;
+export const Head = () => (
+  <SEO>
+    <title>Victor Log | Not found</title>
+  </SEO>
+);

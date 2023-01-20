@@ -3,8 +3,7 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
-import { CenterLayout } from 'components';
-import { HeroImage, TagList } from 'components';
+import { HeroImage, TagList, CenterLayout, SEO } from 'components';
 import { usePostDetailPage } from 'pages/post/usePostDetailPage';
 
 const PostDetailPage = ({ data, children }) => {
@@ -69,13 +68,13 @@ export const Head = ({ data }) => {
   const { title, date, tags } = data.mdx.frontmatter;
 
   return (
-    <>
-      <title>Victor Log | {title}</title>
+    <SEO>
       <meta
         name="description"
         content={`author: victor, date: ${date}, category: ${tags.join(', ')}`}
       />
-    </>
+      <title>Victor Log | {title}</title>
+    </SEO>
   );
 };
 

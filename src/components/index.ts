@@ -18,6 +18,7 @@ import ToggleList from 'components/organisms/MDX/ToggleList/ToggleList';
 
 import HeroImage from 'components/organisms/Post/HeroImage/HeroImage';
 import PostItem from 'components/organisms/Post/PostItem/PostItem';
+import SEO from 'components/organisms/SEO/SEO';
 import TagList from 'components/organisms/Post/TagList/TagList';
 
 import CenterLayout from 'components/templates/CenterLayout/CenterLayout';
@@ -40,6 +41,7 @@ export {
   ToggleList,
   HeroImage,
   PostItem,
+  SEO,
   TagList,
   CenterLayout,
   FullLayout,

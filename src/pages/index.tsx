@@ -1,4 +1,5 @@
 import { navigate } from 'gatsby';
+import { SEO } from 'components';
 
 const isBrowser = typeof window !== 'undefined';
 
@@ -12,4 +13,8 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head = () => <title>Victor Log</title>;
+export const Head = () => (
+  <SEO>
+    <title>Victor Log</title>
+  </SEO>
+);

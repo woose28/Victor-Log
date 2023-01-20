@@ -1,9 +1,7 @@
-import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { CenterLayout } from 'components';
-import { PostItem } from 'components';
+import { CenterLayout, PostItem, SEO } from 'components';
 import { usePostPage } from 'pages/post/usePostPage';
 import { PostPageDataType } from 'pages/post/type';
 import { DISPLAY } from 'styles/css';
@@ -66,10 +64,10 @@ export const query = graphql`
 `;
 
 export const Head = () => (
-  <>
-    <title>Victor Log | 게시글 목록</title>
+  <SEO>
     <meta name="description" content="Victor Log의 게시글 목록을 확인할 수 있는 페이지입니다." />
-  </>
+    <title>Victor Log | 게시글 목록</title>
+  </SEO>
 );
 
 const PageWrapper = styled.div`

@@ -1,4 +1,3 @@
-import React from 'react';
 import { css, useTheme } from '@emotion/react';
 import { useAboutPage } from 'pages/about/useAboutPage';
 import {
@@ -7,6 +6,7 @@ import {
   ScrollFloatingButton,
   UnderlineText,
   FullLayout,
+  SEO,
 } from 'components';
 import {
   EducationItemProps,
@@ -49,10 +49,10 @@ const AboutPage = () => {
 export default AboutPage;
 
 export const Head = () => (
-  <>
-    <title>Victor Log | 소개 페이지</title>
+  <SEO>
     <meta name="robots" content="noindex" />
-  </>
+    <title>Victor Log | 소개 페이지</title>
+  </SEO>
 );
 
 const IntroductionSection = () => {
