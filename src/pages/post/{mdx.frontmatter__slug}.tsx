@@ -65,11 +65,19 @@ export const query = graphql`
   }
 `;
 
-export const Head = ({
-  data: {
-    mdx: { frontmatter },
-  },
-}) => <title>Victor Log | {frontmatter.title}</title>;
+export const Head = ({ data }) => {
+  const { title, date, tags } = data.mdx.frontmatter;
+
+  return (
+    <>
+      <title>Victor Log | {title}</title>
+      <meta
+        name="description"
+        content={`author: victor, date: ${date}, category: ${tags.join(', ')}`}
+      />
+    </>
+  );
+};
 
 const PageWrapper = styled.div`
   display: flex;

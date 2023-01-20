@@ -1,3 +1,4 @@
+import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -64,7 +65,12 @@ export const query = graphql`
   }
 `;
 
-export const Head = () => <title>Victor Log | 게시글 목록</title>;
+export const Head = () => (
+  <>
+    <title>Victor Log | 게시글 목록</title>
+    <meta name="description" content="Victor Log의 게시글 목록을 확인할 수 있는 페이지입니다." />
+  </>
+);
 
 const PageWrapper = styled.div`
   display: flex;
