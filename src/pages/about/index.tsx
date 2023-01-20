@@ -1,3 +1,4 @@
+import React from 'react';
 import { css, useTheme } from '@emotion/react';
 import { useAboutPage } from 'pages/about/useAboutPage';
 import {
@@ -47,7 +48,12 @@ const AboutPage = () => {
 
 export default AboutPage;
 
-export const Head = () => <title>Victor Log | 소개 페이지</title>;
+export const Head = () => (
+  <>
+    <title>Victor Log | 소개 페이지</title>
+    <meta name="robots" content="noindex" />
+  </>
+);
 
 const IntroductionSection = () => {
   const theme = useTheme();
