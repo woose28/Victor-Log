@@ -79,7 +79,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: 'https://victor-log.vercel.app',
-        sitemap: 'https://victor-log.vercel.app/sitemap.xml',
+        sitemap: 'https://victor-log.vercel.app/sitemap/sitemap-index.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
