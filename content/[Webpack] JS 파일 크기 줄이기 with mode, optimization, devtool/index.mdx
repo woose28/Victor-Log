@@ -3,7 +3,7 @@ title: '[Webpack] JS 파일 크기 줄이기 with mode, optimization, devtool'
 date: '2022-09-13'
 slug: 'js-file-minimize-with-webpack-mode-optimization-devtool'
 tags: ['Performance', 'Webpack']
-hero_image: './[Webpack]_JS_파일_크기_줄이기_with_mode,_optimization,_devtool.jpeg'
+hero_image: './assets/[Webpack]_JS_파일_크기_줄이기_with_mode,_optimization,_devtool.jpeg'
 hero_image_alt: '[Webpack] JS 파일 크기 줄이기 with mode, optimization, devtool'
 ---
 import { MDXImageWrapper, ToggleList } from 'components';
@@ -86,11 +86,11 @@ webpack을 실행할 때 mode에 따라 bundle size의 크기가 달라진다.
 아래의 두 사진은 왼쪽부터 각각 development 모드로 build한 bundle의 크기와 production 모드로 build한 bundle 크기이다.
 
 <MDXImageWrapper caption="개발 모드로 빌드 했을 때">
-  ![개발 모드로 빌드 했을 때](./개발_모드로_빌드_했을_때.png)
+  ![개발 모드로 빌드 했을 때](./assets/개발_모드로_빌드_했을_때.png)
 </MDXImageWrapper>
 
 <MDXImageWrapper caption="프로덕션 모드로 빌드 했을 때">
-  ![프로덕션 모드로 빌드 했을 때](./프로덕션_모드로_빌드_했을_때.png)
+  ![프로덕션 모드로 빌드 했을 때](./assets/프로덕션_모드로_빌드_했을_때.png)
 </MDXImageWrapper>
 
 <br/>
@@ -160,7 +160,7 @@ optimization.minimize 속성에 true 값을 주면 webpack은 [TerserPlugin](htt
 <br/>
 
 <MDXImageWrapper caption="optimization.minimize 적용 후 bundle 크기">
-  ![optimization.minimize 적용 후 bundle 크기](./optimization.minimize_적용_후_bundle_크기.png)
+  ![optimization.minimize 적용 후 bundle 크기](./assets/optimization.minimize_적용_후_bundle_크기.png)
 </MDXImageWrapper>
 
 위 사진에 나왔듯이 minimize를 적용하는 것 만으로 minimize가 false일 때보다 bundle 크기가 1.1MB에서 269KB로 감소했다.
@@ -261,11 +261,11 @@ optimization: {
 <br/>
 
 <MDXImageWrapper caption="devtool false dist 사진">
-  ![devtool false dist 사진](./devtool_false_dist_사진.png)
+  ![devtool false dist 사진](./assets/devtool_false_dist_사진.png)
 </MDXImageWrapper>
 
 <MDXImageWrapper caption="devtool source-map dist 사진">
-  ![devtool source-map dist 사진](./devtool_source-map_dist_사진.png)
+  ![devtool source-map dist 사진](./assets/devtool_source-map_dist_사진.png)
 </MDXImageWrapper>
 
 <br/>

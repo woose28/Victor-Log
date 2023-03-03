@@ -3,7 +3,7 @@ title: '웹 캐시 with S3, CloudFront'
 date: '2022-09-13'
 slug: 'web-cache-with-s3-cloud-front'
 tags: ['Performance']
-hero_image: './웹_캐시_with_S3,_CloudFront_히어로_이미지.jpeg'
+hero_image: './assets/웹_캐시_with_S3,_CloudFront_히어로_이미지.jpeg'
 hero_image_alt: '웹 캐시 with S3, CloudFront 히어로 이미지'
 ---
 import { MDXImageWrapper, ToggleList } from 'components';
@@ -13,7 +13,7 @@ import { MDXImageWrapper, ToggleList } from 'components';
 성능 최적화 작업을 하면서 웹 캐시 문제를 마주했다. Lighthouse로 웹 성능을 측정한 결과 웹 캐시 관련돼서 개선할 것을 권고 받았다.
 
 <MDXImageWrapper caption="Cache TTL 설정 안한 경우">
-  ![Cache TTL 설정 안한 경우](./Cache_TTL_설정_안한_경우.png)
+  ![Cache TTL 설정 안한 경우](./assets/Cache_TTL_설정_안한_경우.png)
 </MDXImageWrapper>
 
 <br/>
@@ -71,7 +71,7 @@ S3에서 각 객체에 대해 Cache-Control을 설정할 수 있다. 설정하�
 <br/>
 
 <MDXImageWrapper caption="S3 Cache-Control 설정">
-  ![S3 Cache-Control 설정](./S3_Cache-Control_설정.png)
+  ![S3 Cache-Control 설정](./assets/S3_Cache-Control_설정.png)
 </MDXImageWrapper>
 
 <br/>
@@ -91,7 +91,7 @@ CloudFront의 설정 페이지의 **동작 > 동작 편집 > 캐시 키 및 원�
 <br/>
 
 <MDXImageWrapper caption="CloudFront 캐시 정책 설정">
-  ![CloudFront 캐시 정책 설정](./CloudFront_캐시_정책_설정.png)
+  ![CloudFront 캐시 정책 설정](./assets/CloudFront_캐시_정책_설정.png)
 </MDXImageWrapper>
 
 <br/>
@@ -111,7 +111,7 @@ CloudFront의 설정 페이지의 **동작 > 동작 편집 > 캐시 키 및 원�
 <br/>
 
 <MDXImageWrapper caption="Cache TTL 짧은 경우">
-  ![Cache TTL 짧은 경우](./Cache_TTL_짧은_경우.png)
+  ![Cache TTL 짧은 경우](./assets/Cache_TTL_짧은_경우.png)
 </MDXImageWrapper>
 
 <br/>

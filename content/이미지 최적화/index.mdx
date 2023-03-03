@@ -3,7 +3,7 @@ title: '이미지 최적화'
 date: '2022-09-13'
 slug: 'image-optimization'
 tags: ['Performance']
-hero_image: './이미지_최적화_히어로_이미지.jpeg'
+hero_image: './assets/이미지_최적화_히어로_이미지.jpeg'
 hero_image_alt: '이미지 최적화 히어로 이미지'
 ---
 import { MDXImageWrapper, ToggleList } from 'components';
@@ -16,7 +16,7 @@ import { MDXImageWrapper, ToggleList } from 'components';
 
 
 <MDXImageWrapper caption="최적화 작업 전 Lighthouse 점수">
-  ![최적화 작업 전 Lighthouse 점수](./최적화_작업_전_Lighthouse_점수.png)
+  ![최적화 작업 전 Lighthouse 점수](./assets/최적화_작업_전_Lighthouse_점수.png)
 </MDXImageWrapper>
 
 <br/>
@@ -24,7 +24,7 @@ import { MDXImageWrapper, ToggleList } from 'components';
 주로 이미지나 gif 등 asset 부분에서 개선이 필요하다고 경고했다.
 
 <MDXImageWrapper caption="성능상 문제점">
-  ![성능상 문제점](./성능상_문제점.png)
+  ![성능상 문제점](./assets/성능상_문제점.png)
 </MDXImageWrapper>
 
 <br/>
@@ -143,13 +143,13 @@ module.exports = {
 <br/>
 
 <MDXImageWrapper caption="Webp 변환 전 이미지 크기">
-  ![Webp 변환 전 이미지 크기](./Webp_변환_전_이미지_크기.png)
+  ![Webp 변환 전 이미지 크기](./assets/Webp_변환_전_이미지_크기.png)
 </MDXImageWrapper>
 
 <br/>
 
 <MDXImageWrapper caption="Webp 변환 후 이미지 크기">
-  ![Webp 변환 후 이미지 크기](./Webp_변환_후_이미지_크기.png)
+  ![Webp 변환 후 이미지 크기](./assets/Webp_변환_후_이미지_크기.png)
 </MDXImageWrapper>
 
 <br/>
@@ -227,13 +227,13 @@ module.exports = {
 <br/>
 
 <MDXImageWrapper caption="이미지 사이즈 조절 전">
-  ![이미지 사이즈 조절 전](./이미지_사이즈_조절_전.png)
+  ![이미지 사이즈 조절 전](./assets/이미지_사이즈_조절_전.png)
 </MDXImageWrapper>
 
 <br/>
 
 <MDXImageWrapper caption="이미지 사이즈 조절 후">
-  ![이미지 사이즈 조절 후](./이미지_사이즈_조절_후.png)
+  ![이미지 사이즈 조절 후](./assets/이미지_사이즈_조절_후.png)
 </MDXImageWrapper>
 
 <br/>
@@ -311,7 +311,7 @@ Gif 파일을 최적화한 결과 find.gif 파일의 크기가 `2MB`에서 `952K
 하지만 Webpack에서는 빌드 결과 asset의 크기가 크다고 경고했다.
 
 <MDXImageWrapper caption="gif 파일 크기 문제">
-  ![gif 파일 크기 문제](./gif_파일_크기_문제.png)
+  ![gif 파일 크기 문제](./assets/gif_파일_크기_문제.png)
 </MDXImageWrapper>
 
 <br/>
@@ -319,7 +319,7 @@ Gif 파일을 최적화한 결과 find.gif 파일의 크기가 `2MB`에서 `952K
 또한 Lighthouse에서도 여전히 비디오 format을 사용하도록 권장을 했다.
 
 <MDXImageWrapper caption="gif 최적화 후 lighthouse 결과">
-  ![gif 최적화 후 lighthouse 결과](./gif_최적화_후_lighthouse_결과.png)
+  ![gif 최적화 후 lighthouse 결과](./assets/gif_최적화_후_lighthouse_결과.png)
 </MDXImageWrapper>
 
 <br/>
@@ -353,7 +353,7 @@ ffmpeg -i example.gif example.mp4
 FFmpeg를 이용해서 gif 파일을 mp4로 변환한 결과는 아래와 같다.
 
 <MDXImageWrapper caption="FFmpeg를 이용해서 gif 파일을 mp4로 변환한 결과">
-  ![FFmpeg를 이용해서 gif 파일을 mp4로 변환한 결과](./FFmpeg를_이용해서_gif_파일을_mp4로_변환한_결과.png)
+  ![FFmpeg를 이용해서 gif 파일을 mp4로 변환한 결과](./assets/FFmpeg를_이용해서_gif_파일을_mp4로_변환한_결과.png)
 </MDXImageWrapper>
 
 <br/>
@@ -365,7 +365,7 @@ find 파일의 경우 .gif 일 때 `952KB`였지만, .mp4로 변환한 후 `323K
 개선이 필요한 부분으로 제안받던 문제들이 모두 해결되었고, 성능 측면에서 97점이 나왔다.
 
 <MDXImageWrapper caption="최적화 작업 후 Lighthouse 점수">
-  ![최적화 작업 후 Lighthouse 점수](./최적화_작업_후_Lighthouse_점수.png)
+  ![최적화 작업 후 Lighthouse 점수](./assets/최적화_작업_후_Lighthouse_점수.png)
 </MDXImageWrapper>
 
 <br/>

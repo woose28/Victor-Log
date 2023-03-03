@@ -3,7 +3,7 @@ title: 'S3와 CloudFront'
 date: '2022-08-31'
 slug: 's3-and-cloud-front'
 tags: ['Performance', 'AWS']
-hero_image: './S3와_CloudFront_히어로_이미지.jpeg'
+hero_image: './assets/S3와_CloudFront_히어로_이미지.jpeg'
 hero_image_alt: 'S3와 CloudFront 히어로 이미지'
 ---
 import { MDXImageWrapper, ToggleList } from 'components';
@@ -95,7 +95,7 @@ CloudFront는 엣지 로케이션 덕분에 전 세계 네트워크를 통해 �
 아래 사진 처럼 모든 퍼블릭 액세스를 차단한 후 버킷을 생성한다.
 
 <MDXImageWrapper caption="S3 버킷 생성하기 - 모든 퍼블릭 액세스 차단">
-  ![S3 버킷 생성하기 - 모든 퍼블릭 액세스 차단](./S3_버킷_생성하기-모든_퍼블릭_엑세스_차단.png)
+  ![S3 버킷 생성하기 - 모든 퍼블릭 액세스 차단](./assets/S3_버킷_생성하기-모든_퍼블릭_엑세스_차단.png)
 </MDXImageWrapper>
 
 <br/>
@@ -153,7 +153,7 @@ CloudFront는 엣지 로케이션 덕분에 전 세계 네트워크를 통해 �
 3. 오류 문서: index.html
 
 <MDXImageWrapper caption="정적 웹 사이트 호스팅 편집 예시">
-  ![정적 웹 사이트 호스팅 편집 예시](./정적_웹_사이트_호스팅_편집_예시.png)
+  ![정적 웹 사이트 호스팅 편집 예시](./assets/정적_웹_사이트_호스팅_편집_예시.png)
 </MDXImageWrapper>
 
 <br/>
@@ -181,7 +181,7 @@ CloudFront에 루트 url로 접근했을 때 반환되는 객체에 대한 설�
 index.html이 반환되는 것을 의도했기 때문에 index.html을 명시했다.
 
 <MDXImageWrapper caption="기본값 루트 객체 설정 예시">
-  ![기본값 루트 객체 설정 예시](./기본값_루트_객체_설정_예시.png)
+  ![기본값 루트 객체 설정 예시](./assets/기본값_루트_객체_설정_예시.png)
 </MDXImageWrapper>
 
 <br/>
@@ -193,7 +193,7 @@ index.html이 반환되는 것을 의도했기 때문에 index.html을 명시했
 root path가 아닌 다른 path에서 새로 고침을 하면 403에러가 발생한다. 이에 대한 에러를 처리하기 위해서 403 에러가 발생했을 때 index.html을 반환하도록 설정했다.
 
 <MDXImageWrapper caption="사용자 정의 오류 응답 예시">
-  ![사용자 정의 오류 응답 예시](./사용자_정의_오류_응답_예시.png)
+  ![사용자 정의 오류 응답 예시](./assets/사용자_정의_오류_응답_예시.png)
 </MDXImageWrapper>
 
 <br/>
@@ -205,7 +205,7 @@ S3에 업데이트된 최신 컨텐츠를 제공하기 위해서 CloudFront에 �
 다음과 같이 객체 경로에 `/*` 입력하면 모든 객체에 대한 캐시를 제거할 수 있다.
 
 <MDXImageWrapper caption="캐시 무효화 설정 예시">
-  ![캐시 무효화 설정 예시](./캐시_무효화_설정_예시.png)
+  ![캐시 무효화 설정 예시](./assets/캐시_무효화_설정_예시.png)
 </MDXImageWrapper>
 
 <br/>
@@ -217,7 +217,7 @@ S3에 업데이트된 최신 컨텐츠를 제공하기 위해서 CloudFront에 �
 객체를 압축하면 클라이언트로 제공하는 객체의 크기가 압축된 상태로 제공된다.
 
 <MDXImageWrapper caption="객체 압축 예시">
-  ![객체 압축 예시](./객체_압축_예시.png)
+  ![객체 압축 예시](./assets/객체_압축_예시.png)
 </MDXImageWrapper>
 
 <br/>
