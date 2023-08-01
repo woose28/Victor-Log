@@ -36,11 +36,11 @@ const AboutPage = () => {
     >
       <Styled.PageWrapper>
         <IntroductionSection />
-        <SkillsSection />
+        {/* <SkillsSection />
         <TechExperienceSection />
         <ProjectsSection />
         <EducationSection />
-        <ScrollFloatingButton />
+        <ScrollFloatingButton /> */}
       </Styled.PageWrapper>
     </FullLayout>
   );
