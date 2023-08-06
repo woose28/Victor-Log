@@ -1,3 +1,5 @@
+import LoadingIcon from './@common/LoadingIcon/LoadingIcon';
+
 import Button from 'components/atoms/Button/Button';
 import FadeInAnimation from 'components/atoms/FadeInAnimation/FadeInAnimation';
 import Fixed from 'components/atoms/Fixed/Fixed';
@@ -25,6 +27,7 @@ import CenterLayout from 'components/templates/CenterLayout/CenterLayout';
 import FullLayout from 'components/templates/FullLayout/FullLayout';
 
 export {
+  LoadingIcon,
   Button,
   FadeInAnimation,
   Fixed,
