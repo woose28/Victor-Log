@@ -19,30 +19,36 @@ type UseCreateElementProps<TagName extends keyof HTMLElementTagNameMap> = {
   handlers?: EventHandlerMap<TagName>;
 };
 
+const isBrowser = typeof document !== 'undefined';
+
 const useCreateElement = <TagName extends keyof HTMLElementTagNameMap>({
   tagName,
   attributes,
   handlers,
 }: UseCreateElementProps<TagName>) => {
-  const element = useMemo(() => document.createElement<typeof tagName>(tagName), []);
+  const element = useMemo(() => {
+    if (isBrowser) {
+      return document.createElement<typeof tagName>(tagName);
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof handlers !== 'undefined') {
       Object.entries(handlers).forEach(([eventName, { listener, options }]) => {
-        element.addEventListener(eventName, listener, options);
+        element?.addEventListener(eventName, listener, options);
       });
     }
 
     if (typeof attributes !== 'undefined') {
       Object.entries(attributes).forEach(([key, value]) => {
-        element.setAttribute(key, value);
+        element?.setAttribute(key, value);
       });
     }
 
     return () => {
       if (typeof handlers !== 'undefined') {
         Object.entries(handlers).forEach(([eventName, { listener, options }]) => {
-          element.removeEventListener(eventName, listener, options);
+          element?.removeEventListener(eventName, listener, options);
         });
       }
     };
