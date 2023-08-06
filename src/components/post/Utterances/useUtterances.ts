@@ -42,7 +42,9 @@ const useUtterances = () => {
   });
 
   useLayoutEffect(() => {
-    containerRef.current?.appendChild(script);
+    if (typeof script !== 'undefined') {
+      containerRef.current?.appendChild(script);
+    }
   }, []);
 
   return {
