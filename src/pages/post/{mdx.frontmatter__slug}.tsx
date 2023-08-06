@@ -3,12 +3,10 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
-import { HeroImage, TagList, CenterLayout, SEO } from 'components';
-import { usePostDetailPage } from 'pages/post/usePostDetailPage';
+import { Utterances, HeroImage, TagList, CenterLayout, SEO } from 'components';
 
 const PostDetailPage = ({ data, children }) => {
   const { title, date, tags, hero_image, hero_image_alt } = data.mdx.frontmatter;
-  const { theme } = usePostDetailPage();
 
   return (
     <CenterLayout>
@@ -38,6 +36,11 @@ const PostDetailPage = ({ data, children }) => {
             alignSelf: 'flex-start',
             marginTop: '25px',
           }}
+        />
+        <Utterances
+          customStyle={css`
+            margin-top: 25px;
+          `}
         />
       </PageWrapper>
     </CenterLayout>
