@@ -1,4 +1,5 @@
-import LoadingIcon from './@common/LoadingIcon/LoadingIcon';
+import FlexBox from 'components/@common/FlexBox/FlexBox';
+import LoadingIcon from 'components/@common/LoadingIcon/LoadingIcon';
 
 import Button from 'components/atoms/Button/Button';
 import FadeInAnimation from 'components/atoms/FadeInAnimation/FadeInAnimation';
@@ -27,6 +28,7 @@ import CenterLayout from 'components/templates/CenterLayout/CenterLayout';
 import FullLayout from 'components/templates/FullLayout/FullLayout';
 
 export {
+  FlexBox,
   LoadingIcon,
   Button,
   FadeInAnimation,
