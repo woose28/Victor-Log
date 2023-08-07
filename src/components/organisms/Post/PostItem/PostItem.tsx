@@ -1,6 +1,7 @@
 import { PostItemProps } from './PostItem.type';
 import * as Styled from './PostItem.style';
 import { HeroImage, TagList } from 'components';
+import { PATH } from 'constants/route';
 
 const PostItem = ({
   title,
@@ -12,7 +13,7 @@ const PostItem = ({
   excerpt,
 }: PostItemProps) => {
   return (
-    <Styled.NavLink to={`/post/${slug}`}>
+    <Styled.NavLink to={`${PATH.POST}${slug}`}>
       <Styled.Wrapper>
         <HeroImage
           hero_image={hero_image}
