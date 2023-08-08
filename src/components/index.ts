@@ -1,5 +1,6 @@
 import FlexBox from 'components/@common/FlexBox/FlexBox';
 import LoadingIcon from 'components/@common/LoadingIcon/LoadingIcon';
+import Text from 'components/@common/Text/Text';
 
 import Utterances from 'components/post/Utterances/Utterances';
 
@@ -32,6 +33,7 @@ import FullLayout from 'components/templates/FullLayout/FullLayout';
 export {
   FlexBox,
   LoadingIcon,
+  Text,
   Utterances,
   Button,
   FadeInAnimation,
