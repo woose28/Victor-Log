@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { DISPLAY } from 'styles/css';
-import { Utterances, HeroImage, TagList, CenterLayout, SEO } from 'components';
+import { Utterances, HeroImage, TagList, CenterLayout, PageWrapper, SEO } from 'components';
 
 const PostDetailPage = ({ data, children }) => {
   const { title, date, tags, hero_image, hero_image_alt } = data.mdx.frontmatter;
@@ -80,18 +80,6 @@ export const Head = ({ data }) => {
     </SEO>
   );
 };
-
-const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: ${DISPLAY.TABLET_VERTICAL_MAX};
-
-  @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
-    width: 100%;
-  }
-`;
 
 const PostTitleText = styled.p`
   ${({ theme }) => css`
