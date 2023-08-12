@@ -31,6 +31,7 @@ import SEO from 'components/organisms/SEO/SEO';
 
 import CenterLayout from 'components/layout/CenterLayout/CenterLayout';
 import FullLayout from 'components/layout/FullLayout/FullLayout';
+import PageWrapper from 'components/layout/PageWrapper/PageWrapper';
 
 export {
   FlexBox,
@@ -57,7 +58,7 @@ export {
   HeroImage,
   PostItem,
   SEO,
-  // TagList,
   CenterLayout,
   FullLayout,
+  PageWrapper,
 };

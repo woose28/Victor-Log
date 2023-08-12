@@ -1,10 +1,9 @@
 import { graphql, PageProps } from 'gatsby';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { CenterLayout, PostItem, SEO } from 'components';
+import { CenterLayout, PageWrapper, PostItem, SEO } from 'components';
 import { usePostPage } from 'pages/post/usePostPage';
 import { PostPageDataType } from 'pages/post/type';
-import { DISPLAY } from 'styles/css';
 
 const PostPage = ({
   data: {
@@ -69,17 +68,6 @@ export const Head = () => (
     <title>Victor Log | 게시글 목록</title>
   </SEO>
 );
-
-const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: ${DISPLAY.TABLET_VERTICAL_MAX};
-
-  @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
-    width: 100%;
-  }
-`;
 
 const TotalText = styled.p`
   ${({ theme }) => css`
