@@ -1,4 +1,3 @@
-import Link from 'gatsby-link';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -9,10 +8,6 @@ const Wrapper = styled.div`
     background-color: ${theme.color.secondary};
     border-radius: 10px 0 0 10px;
   `}
-`;
-
-const NavLink = styled(Link)`
-  text-decoration: none;
 `;
 
 const PostInfoWrapper = styled.div`
@@ -54,4 +49,4 @@ const Date = styled.p`
   `}
 `;
 
-export { Wrapper, NavLink, PostInfoWrapper, Title, Summary, Date };
+export { Wrapper, PostInfoWrapper, Title, Summary, Date };
