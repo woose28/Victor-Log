@@ -13,7 +13,7 @@ type Typography =
   | '2xlarge'
   | '3xlarge';
 
-type FontWeight = 400 | 500 | 700;
+type FontWeight = 300 | 500 | 700;
 
 type TextProps = {
   as?: ElementType;
