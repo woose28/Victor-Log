@@ -3,6 +3,7 @@ import Link from 'components/@common/Link/Link';
 import LoadingIcon from 'components/@common/LoadingIcon/LoadingIcon';
 import Text from 'components/@common/Text/Text';
 
+import PostCount from 'components/post/PostCount/PostCount';
 import TagItem from 'components/post/TagItem/TagItem';
 import TagList from 'components/post/TagList/TagList';
 import Utterances from 'components/post/Utterances/Utterances';
@@ -38,6 +39,7 @@ export {
   Link,
   LoadingIcon,
   Text,
+  PostCount,
   TagItem,
   TagList,
   Utterances,

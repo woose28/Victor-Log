@@ -1,8 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { CenterLayout, PageWrapper, PostItem, SEO } from 'components';
-import { usePostPage } from 'pages/post/usePostPage';
+import { CenterLayout, PageWrapper, PostCount, PostItem, SEO } from 'components';
 import { PostPageDataType } from 'pages/post/type';
 
 const PostPage = ({
@@ -10,18 +8,10 @@ const PostPage = ({
     allMdx: { edges: postEdges, totalCount },
   },
 }: PageProps<PostPageDataType>) => {
-  const { theme } = usePostPage();
-
   return (
     <CenterLayout>
       <PageWrapper>
-        <TotalText>
-          Total{' '}
-          <TotalPostCountText color={theme.color.primary} size={16} fontWeight={700}>
-            {totalCount}
-          </TotalPostCountText>{' '}
-          Post
-        </TotalText>
+        <PostCount count={totalCount} />
         <PostContainer>
           {postEdges.map((post) => (
             <li key={post.node.id}>
@@ -68,23 +58,6 @@ export const Head = () => (
     <title>Victor Log | 게시글 목록</title>
   </SEO>
 );
-
-const TotalText = styled.p`
-  ${({ theme }) => css`
-    align-self: flex-start;
-    font-size: 1rem;
-    font-weight: 700;
-    color: ${theme.color.onBackground};
-  `}
-`;
-
-const TotalPostCountText = styled.span`
-  ${({ theme }) => css`
-    font-size: 1rem;
-    font-weight: 700;
-    color: ${theme.color.primary};
-  `}
-`;
 
 const PostContainer = styled.ul`
   display: flex;
