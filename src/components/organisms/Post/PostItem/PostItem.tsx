@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import { PostItemProps } from './PostItem.type';
 import * as Styled from './PostItem.style';
 import { HeroImage, Link, TagList } from 'components';
@@ -28,9 +29,9 @@ const PostItem = ({
           <Styled.Summary>{excerpt}</Styled.Summary>
           <TagList
             tags={tags}
-            style={{
-              marginTop: '20px',
-            }}
+            css={css`
+              margin-top: 20px;
+            `}
           />
           <Styled.Date>{date}</Styled.Date>
         </Styled.PostInfoWrapper>

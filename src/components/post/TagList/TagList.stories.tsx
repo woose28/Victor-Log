@@ -1,5 +1,5 @@
 import TagList from './TagList';
-import { TagListProps } from './TagList.type';
+import type { TagListProps } from './TagList';
 
 export default {
   title: 'post/TagList',

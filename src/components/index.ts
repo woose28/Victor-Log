@@ -4,6 +4,7 @@ import LoadingIcon from 'components/@common/LoadingIcon/LoadingIcon';
 import Text from 'components/@common/Text/Text';
 
 import TagItem from 'components/post/TagItem/TagItem';
+import TagList from 'components/post/TagList/TagList';
 import Utterances from 'components/post/Utterances/Utterances';
 
 import Button from 'components/atoms/Button/Button';
@@ -27,7 +28,6 @@ import ToggleList from 'components/organisms/MDX/ToggleList/ToggleList';
 import HeroImage from 'components/organisms/Post/HeroImage/HeroImage';
 import PostItem from 'components/organisms/Post/PostItem/PostItem';
 import SEO from 'components/organisms/SEO/SEO';
-import TagList from 'components/organisms/Post/TagList/TagList';
 
 import CenterLayout from 'components/templates/CenterLayout/CenterLayout';
 import FullLayout from 'components/templates/FullLayout/FullLayout';
@@ -38,6 +38,7 @@ export {
   LoadingIcon,
   Text,
   TagItem,
+  TagList,
   Utterances,
   Button,
   FadeInAnimation,
@@ -56,7 +57,7 @@ export {
   HeroImage,
   PostItem,
   SEO,
-  TagList,
+  // TagList,
   CenterLayout,
   FullLayout,
 };

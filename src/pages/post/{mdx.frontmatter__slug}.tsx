@@ -15,9 +15,9 @@ const PostDetailPage = ({ data, children }) => {
         <PostDateText>{date}</PostDateText>
         <TagList
           tags={tags}
-          style={{
-            marginTop: '10px',
-          }}
+          css={css`
+            margin-top: 10px;
+          `}
         />
         <HeroImage
           hero_image={hero_image}
@@ -32,10 +32,10 @@ const PostDetailPage = ({ data, children }) => {
         <Divider />
         <TagList
           tags={tags}
-          style={{
-            alignSelf: 'flex-start',
-            marginTop: '25px',
-          }}
+          css={css`
+            align-self: flex-start;
+            margin-top: 25px;
+          `}
         />
         <Utterances
           customStyle={css`
