@@ -3,6 +3,7 @@ import Link from 'components/@common/Link/Link';
 import LoadingIcon from 'components/@common/LoadingIcon/LoadingIcon';
 import Text from 'components/@common/Text/Text';
 
+import TagItem from 'components/post/TagItem/TagItem';
 import Utterances from 'components/post/Utterances/Utterances';
 
 import Button from 'components/atoms/Button/Button';
@@ -36,6 +37,7 @@ export {
   Link,
   LoadingIcon,
   Text,
+  TagItem,
   Utterances,
   Button,
   FadeInAnimation,
