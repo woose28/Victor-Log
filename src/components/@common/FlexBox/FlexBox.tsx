@@ -8,11 +8,12 @@ type FlexBoxProps = {
   direction?: CSSProperties['flexDirection'];
   align?: CSSProperties['alignItems'];
   justify?: CSSProperties['justifyContent'];
+  wrap?: CSSProperties['flexWrap'];
   customStyle?: SerializedStyles;
   gap?: CSSProperties['gap'];
 } & HtmlHTMLAttributes<HTMLDivElement>;
 
-type WrapperProps = Pick<FlexBoxProps, 'direction' | 'align' | 'justify' | 'gap'> &
+type WrapperProps = Pick<FlexBoxProps, 'direction' | 'align' | 'justify' | 'wrap' | 'gap'> &
   HtmlHTMLAttributes<HTMLDivElement>;
 
 const FlexBox = forwardRef<HTMLDivElement, PropsWithChildren<FlexBoxProps>>(
@@ -24,6 +25,7 @@ const FlexBox = forwardRef<HTMLDivElement, PropsWithChildren<FlexBoxProps>>(
       direction = 'row',
       align = 'flex-start',
       justify = 'flex-start',
+      wrap = 'nowrap',
       gap,
       ...props
     },
@@ -37,6 +39,7 @@ const FlexBox = forwardRef<HTMLDivElement, PropsWithChildren<FlexBoxProps>>(
         direction={direction}
         align={align}
         justify={justify}
+        wrap={wrap}
         gap={gap}
         {...props}
       >
@@ -47,11 +50,12 @@ const FlexBox = forwardRef<HTMLDivElement, PropsWithChildren<FlexBoxProps>>(
 );
 
 const Wrapper = styled.div<WrapperProps>`
-  ${({ direction, align, justify, gap }) => css`
+  ${({ direction, align, justify, wrap, gap }) => css`
     display: flex;
     flex-direction: ${direction};
     align-items: ${align};
     justify-content: ${justify};
+    flex-wrap: ${wrap};
     gap: ${gap}px;
   `}
 `;
