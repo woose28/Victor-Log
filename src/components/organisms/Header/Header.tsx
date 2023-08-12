@@ -1,7 +1,7 @@
 import { css, useTheme } from '@emotion/react';
 import { HeaderProps } from './Header.type';
 import * as Style from './Header.style';
-import { Fixed } from 'components';
+import { Fixed, Link } from 'components';
 import { PATH } from 'constants/route';
 import { LAYER } from 'styles/css';
 
@@ -20,9 +20,9 @@ const Header = ({ backgroundColor }: HeaderProps) => {
         `,
       ]}
     >
-      <Styled.NavLink to={PATH.POST}>
+      <Link to={PATH.POST} enableHoverStyle={false}>
         <Styled.LogoText>VICTOR LOG</Styled.LogoText>
-      </Styled.NavLink>
+      </Link>
       <Styled.NavLink
         css={css`
           margin: 0 2.813rem 0 auto;

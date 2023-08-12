@@ -1,6 +1,6 @@
-import Link from 'gatsby-link';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Link } from 'components';
 import { GetFixedCustomStyle } from './Header.type';
 import { DISPLAY } from 'styles/css';
 
@@ -26,7 +26,13 @@ const LogoText = styled.p`
 `;
 
 const NavLink = styled(Link)`
-  text-decoration: none;
+  padding: 3px 8px;
+
+  border-radius: 5px;
+
+  ${({ theme }) => css`
+    background-color: ${theme.color.background};
+  `}
 `;
 
 const LinkText = styled.p`

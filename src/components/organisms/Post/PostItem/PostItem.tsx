@@ -1,6 +1,6 @@
 import { PostItemProps } from './PostItem.type';
 import * as Styled from './PostItem.style';
-import { HeroImage, TagList } from 'components';
+import { HeroImage, Link, TagList } from 'components';
 import { PATH } from 'constants/route';
 
 const PostItem = ({
@@ -13,7 +13,7 @@ const PostItem = ({
   excerpt,
 }: PostItemProps) => {
   return (
-    <Styled.NavLink to={`${PATH.POST}${slug}`}>
+    <Link to={`${PATH.POST}${slug}`}>
       <Styled.Wrapper>
         <HeroImage
           hero_image={hero_image}
@@ -35,7 +35,7 @@ const PostItem = ({
           <Styled.Date>{date}</Styled.Date>
         </Styled.PostInfoWrapper>
       </Styled.Wrapper>
-    </Styled.NavLink>
+    </Link>
   );
 };
 
