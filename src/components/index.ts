@@ -29,8 +29,8 @@ import HeroImage from 'components/organisms/Post/HeroImage/HeroImage';
 import PostItem from 'components/organisms/Post/PostItem/PostItem';
 import SEO from 'components/organisms/SEO/SEO';
 
-import CenterLayout from 'components/templates/CenterLayout/CenterLayout';
-import FullLayout from 'components/templates/FullLayout/FullLayout';
+import CenterLayout from 'components/layout/CenterLayout/CenterLayout';
+import FullLayout from 'components/layout/FullLayout/FullLayout';
 
 export {
   FlexBox,
