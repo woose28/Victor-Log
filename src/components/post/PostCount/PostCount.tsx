@@ -4,7 +4,7 @@ import { FlexBox, Text } from 'components';
 
 export type PostCountProps = {
   count: number;
-  tag?: string;
+  tag?: string | null;
 };
 
 const PostCount = ({ count, tag }: PostCountProps) => {

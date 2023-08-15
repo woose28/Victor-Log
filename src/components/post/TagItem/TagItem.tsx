@@ -9,6 +9,7 @@ import { PATH } from 'constants/route';
 export type TagItemProps = {
   name: string;
   variant?: 'primary' | 'outline';
+  to?: string;
 };
 
 type WrapperProps = {
@@ -29,11 +30,16 @@ const COLOR = {
   },
 };
 
-const TagItem = ({ children, name, variant = 'primary' }: PropsWithChildren<TagItemProps>) => {
+const TagItem = ({
+  children,
+  name,
+  variant = 'primary',
+  to = `${PATH.TAG}${name}`,
+}: PropsWithChildren<TagItemProps>) => {
   const { background, outline, font } = COLOR[variant];
 
   return (
-    <Wrapper to={`${PATH.TAG}${name}`}>
+    <Wrapper to={to}>
       <TagText as="span" size="small" color={font} background={background} outline={outline}>
         {children}
       </TagText>

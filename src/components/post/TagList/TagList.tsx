@@ -1,3 +1,4 @@
+import type { PropsWithChildren } from 'react';
 import { FlexBox, TagItem } from 'components';
 
 type Tag = {
@@ -22,7 +23,7 @@ const getTagText = (tag: string | Tag) => {
 
 const TagList = ({ tags, ...props }: TagListProps) => {
   return (
-    <FlexBox gap={15} wrap="wrap" {...props}>
+    <Wrapper {...props}>
       {tags.map((tag) => {
         const { name, text } = getTagText(tag);
 
@@ -32,8 +33,18 @@ const TagList = ({ tags, ...props }: TagListProps) => {
           </TagItem>
         );
       })}
+    </Wrapper>
+  );
+};
+
+const Wrapper = ({ children, ...props }: PropsWithChildren) => {
+  return (
+    <FlexBox gap={15} wrap="wrap" {...props}>
+      {children}
     </FlexBox>
   );
 };
+
+TagList.Wrapper = Wrapper;
 
 export default TagList;
