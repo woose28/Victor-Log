@@ -47,6 +47,9 @@ const config: GatsbyConfig = {
               ignoreFileExtensions: [`png`, `jpeg`],
             },
           },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+          },
         ],
       },
     },
