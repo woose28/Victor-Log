@@ -1,13 +1,18 @@
-import { PropsWithChildren } from 'react';
-import { FixedProps } from './Fixed.type';
+import { forwardRef } from 'react';
+import type { PropsWithChildren } from 'react';
+import type { FixedProps } from './Fixed.type';
 import * as Styled from './Fixed.style';
 
-const Fixed = ({ children, layer, customStyle }: PropsWithChildren<FixedProps>) => {
-  return (
-    <Styled.Wrapper layer={layer} customStyle={customStyle}>
-      {children}
-    </Styled.Wrapper>
-  );
-};
+const Fixed = forwardRef<HTMLDivElement, PropsWithChildren<FixedProps>>(
+  ({ children, layer, customStyle }, ref) => {
+    return (
+      <Styled.Wrapper ref={ref} layer={layer} customStyle={customStyle}>
+        {children}
+      </Styled.Wrapper>
+    );
+  }
+);
+
+Fixed.displayName = 'Fixed';
 
 export default Fixed;

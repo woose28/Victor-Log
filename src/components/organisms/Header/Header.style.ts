@@ -11,6 +11,7 @@ const getFixedCustomStyle: GetFixedCustomStyle = (theme) => css`
   width: 100%;
   padding: 17px 50px;
   background-color: ${theme.color.background};
+  transition: transform 0.4s;
 
   @media all and (max-width: ${DISPLAY.TABLET_VERTICAL_MAX}) {
     padding: 17px 20px;
