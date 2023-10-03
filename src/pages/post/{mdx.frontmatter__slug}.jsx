@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
@@ -11,10 +11,9 @@ import {
   CenterLayout,
   PageWrapper,
   SEO,
-  FlexBox,
   Fixed,
+  TOC,
 } from 'components';
-import TOC from 'components/post/TOC/TOC';
 
 const PostDetailPage = (props) => {
   const { data, children } = props;
@@ -26,7 +25,7 @@ const PostDetailPage = (props) => {
   return (
     <CenterLayout>
       <PageWrapper>
-        <PageHeader direction="column" align="center">
+        <PageWrapper.Header direction="column" align="center">
           <PostTitleText>{title}</PostTitleText>
           <PostDateText>{date}</PostDateText>
           <TagList
@@ -35,34 +34,42 @@ const PostDetailPage = (props) => {
               margin-top: 10px;
             `}
           />
-        </PageHeader>
-        <PageBody>
-          <BodyMain direction="column" align="center">
-            <HeroImage
-              hero_image={hero_image}
-              hero_image_alt={hero_image_alt}
-              style={{
-                width: '100%',
-                aspectRatio: '1.618',
-              }}
-            />
-            <ContentWrapper>{children}</ContentWrapper>
-            <Divider />
-            <TagList
-              tags={tags}
-              css={css`
-                align-self: flex-start;
-                margin-top: 25px;
-              `}
-            />
-          </BodyMain>
-          <BodyRight>
-            {/* <TOC items={items} /> */}
-            <Fixed layer={LAYER.TOC}>
+        </PageWrapper.Header>
+        <PageWrapper.Body
+          direction="column"
+          align="center"
+          css={css`
+            margin-top: 35px;
+          `}
+        >
+          <HeroImage
+            hero_image={hero_image}
+            hero_image_alt={hero_image_alt}
+            style={{
+              width: '100%',
+              aspectRatio: '1.618',
+            }}
+          />
+          <ContentWrapper>{children}</ContentWrapper>
+          <Divider />
+          <TagList
+            tags={tags}
+            css={css`
+              align-self: flex-start;
+              margin-top: 25px;
+            `}
+          />
+          <PageWrapper.BodySidePanel
+            alignment="right"
+            css={css`
+              margin-left: 20px;
+            `}
+          >
+            <Fixed layer={LAYER.BODY_SIDE_PANEL}>
               <TOC items={items} />
             </Fixed>
-          </BodyRight>
-        </PageBody>
+          </PageWrapper.BodySidePanel>
+        </PageWrapper.Body>
         <Utterances
           customStyle={css`
             margin-top: 25px;
@@ -107,24 +114,6 @@ export const Head = ({ data }) => {
     </SEO>
   );
 };
-
-const PageHeader = styled(FlexBox)``;
-
-const PageBody = styled(FlexBox)`
-  position: relative;
-  margin-top: 35px;
-`;
-
-const BodyMain = styled(FlexBox)``;
-
-const BodyRight = styled.div`
-  position: absolute;
-  right: -20px;
-
-  @media all and (max-width: ${DISPLAY.TABLET_HORIZONTAL_MAX}) {
-    display: none;
-  }
-`;
 
 const PostTitleText = styled.p`
   ${({ theme }) => css`
