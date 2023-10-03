@@ -16,3 +16,21 @@ export type Post = {
   excerpt: string;
   frontmatter: PostFrontMatter;
 };
+
+type PostEdge = {
+  node: Post;
+};
+
+export type Posts = {
+  edges: PostEdge[];
+  totalCount: number;
+};
+
+export type Tag = {
+  name: string;
+  count: number;
+};
+
+export type Tags = {
+  group: Tag[];
+};
