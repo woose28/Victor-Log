@@ -7,5 +7,5 @@ export const DISPLAY = {
 export const LAYER = {
   HEADER: 100,
   SCROLL_FLOATING_BUTTON: 50,
-  TOC: 50,
+  BODY_SIDE_PANEL: 50,
 };
