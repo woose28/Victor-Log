@@ -1,8 +1,7 @@
 import type { PageProps } from 'gatsby';
-import type { Tag, Posts } from './index';
+import type { Posts } from 'models/post';
 
 type UseTagPageProps = {
-  tags: Tag[];
   posts: Posts;
   allPosts: Posts;
   location: PageProps['location'];
@@ -27,22 +26,16 @@ const getTagParams = (pathname: string) => {
   return tagParam;
 };
 
-export const useTagPage = ({ tags, posts, allPosts, location }: UseTagPageProps) => {
-  const parsedTag = tags.map(({ fieldValue, totalCount }) => ({
-    name: fieldValue,
-    count: totalCount,
-  }));
-
+export const useTagPage = ({ posts, allPosts, location }: UseTagPageProps) => {
   const tagParam = getTagParams(location.pathname);
 
   const isExistTagParam = tagParam !== null;
 
-  const { edges: postEdges, totalCount } = isExistTagParam ? posts : allPosts;
+  const { edges: postEdges, totalCount: tagPostCount } = isExistTagParam ? posts : allPosts;
 
   return {
-    parsedTag,
     tagParam,
     postEdges,
-    totalCount,
+    tagPostCount,
   };
 };

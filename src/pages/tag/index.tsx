@@ -2,42 +2,25 @@ import { graphql, PageProps } from 'gatsby';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { CenterLayout, PageWrapper, PostCount, PostItem, SEO } from 'components';
-import type { Post } from 'models/post';
+import type { Posts, Tags } from 'models/post';
 import { useTagPage } from './useTagPage';
 import { TagListWithAll } from './components';
 
-export type Tag = {
-  fieldValue: string;
-  totalCount: number;
-};
-
-type PostEdge = {
-  node: Post;
-};
-
-export type Posts = {
-  edges: PostEdge[];
-  totalCount: number;
-};
-
 type TagPageDataType = {
-  tag: {
-    group: Tag[];
-  };
+  tags: Tags;
   posts: Posts;
   allPosts: Posts;
 };
 
 const TagPage = ({
   data: {
-    tag: { group: tags },
+    tags: { group: tags },
     posts,
     allPosts,
   },
   location,
 }: PageProps<TagPageDataType>) => {
-  const { parsedTag, tagParam, postEdges, totalCount } = useTagPage({
-    tags,
+  const { tagParam, postEdges, tagPostCount } = useTagPage({
     posts,
     allPosts,
     location,
@@ -46,12 +29,13 @@ const TagPage = ({
   return (
     <CenterLayout>
       <PageWrapper>
-        <PostCount count={totalCount} tag={tagParam} />
+        <PostCount count={tagPostCount} tag={tagParam} />
         <TagListWithAll
           css={css`
             margin: 30px 0 10px;
           `}
-          tags={parsedTag}
+          totalCount={allPosts.totalCount}
+          tags={tags}
           currentTag={tagParam}
         />
         <PostContainer>
@@ -70,10 +54,10 @@ export default TagPage;
 
 export const query = graphql`
   query ($tag: String) {
-    tag: allMdx {
+    tags: allMdx {
       group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
+        name: fieldValue
+        count: totalCount
       }
     }
     posts: allMdx(
