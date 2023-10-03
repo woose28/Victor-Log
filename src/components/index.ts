@@ -6,6 +6,7 @@ import Text from 'components/@common/Text/Text';
 import PostCount from 'components/post/PostCount/PostCount';
 import TagItem from 'components/post/TagItem/TagItem';
 import TagList from 'components/post/TagList/TagList';
+import TOC from 'components/post/TOC/TOC';
 import Utterances from 'components/post/Utterances/Utterances';
 
 import Button from 'components/atoms/Button/Button';
@@ -42,6 +43,7 @@ export {
   PostCount,
   TagItem,
   TagList,
+  TOC,
   Utterances,
   Button,
   FadeInAnimation,

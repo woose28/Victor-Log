@@ -57,6 +57,7 @@ const TagText = styled(Text)<WrapperProps>`
     background-color: ${background};
     border-radius: 25px;
     border: solid 1px ${outline};
+    text-overflow: ellipsis;
   `}
 `;
 
